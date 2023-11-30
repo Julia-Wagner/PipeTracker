@@ -20,6 +20,25 @@ As this project is intended to be a specific real-world application for my husba
 
 ### **Scope Plane**
 
+To get a better understanding of what the application will look like I wrote down the features and sorted them into necessary and nice-to-have features.
+
+**Necessary Features:**
+
+- Plumber can log in to the application.
+- Plumber can register to the application.
+- Stock items can be added, updated and deleted.
+- Stock items are linked to categories.
+- Plumber has an overview of the current value (in €) that is in the inventory.
+
+**Nice-to-have Features:**
+
+- Create a delivery note - remove items from stock by adding them to a delivery note for a customer.
+- Employees can log in but have another role with different permissions (for example they don´t see the price).
+- Images can be uploaded for categories.
+- Plumber can make a list of items to order that can be exported as a CSV/PDF file.
+- Items can be added by scanning a QR code.
+- Datanorm (file format for stock items used by plumbing wholesalers) can be imported and automatically update the price for stock items.
+
 ### **Structure Plane**
 ### **Skeleton Plane**
 ### **Surface Plane**
