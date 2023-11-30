@@ -87,6 +87,10 @@ I created wireframes for desktop, tablet and mobile for each of the main parts o
     <img src="docs/wireframes/detail_delivery_note.png">
 </details>
 
+### **Database Schema**
+
+![Database Schema](docs/screenshots/database_schema.png)
+
 ## **Surface Plane**
 
 ### **Design**
