@@ -1,5 +1,7 @@
 # **PipeTracker**
 
+PipeTracker is an inventory management application specifically designed for plumbers. The project was born out of the real-world challenges of a self-employed plumber. Built with a user-centered approach, PipeTracker manages inventory for plumbing businesses and simplifies the invoicing process for plumbers.
+
 # **Planning**
 
 I tried to structure my planning phase using the 5 UX planes - strategy, scope, structure, skeleton and surface. The planning process was iterative and while getting a better idea of the project´s scope and speaking to my customer about his needs for the application these planes changed creating a user-centered design for PipeTracker.
