@@ -10,7 +10,7 @@ I tried to structure my planning phase using the 5 UX planes - strategy, scope, 
 
 My initial idea for this project was to create an application for my husband´s plumbing business. He is self-employed and I created his Logo, Designs and Website. So I wanted to make a real-world application where I could put this to use.
 
-After talking to him about possible applications he might need that would be suitable for this project, the idea of an inventory tool - **PipeTracker** - quickly came to life.
+After talking to him about possible applications he might need that would be suitable for this project, the idea of an inventory tool - **PipeTracker** - quickly came to life. In the following parts of the readme I will refer to my husband as my customer, as the application is built with his real-world needs in mind.
 
 ### **Target Audience**
 
@@ -91,7 +91,12 @@ I created wireframes for desktop, tablet and mobile for each of the main parts o
 
 ### **Database Schema**
 
+After discussing the needed features for the application, I started creating my database schema. With every iteration of talking to my customer about the needed features and stored information, the schema grew. The final adaptions where made while creating the wireframes for the application.
+
+As it might be necessary for my customer to create subcategories for categories, I decided following the approach of [this article about categories and subcategories](https://dcblog.dev/mysql-categories-and-subcategories). I added a *parent_id* field with a default of *0* to **Category**. If the *parent_id* of a category matches the id of another category instead of *0*, it is a subcategory. 
+
 ![Database Schema](docs/screenshots/database_schema.png)
+*Database Schema for PipeTracker*
 
 ## **Surface Plane**
 
