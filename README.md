@@ -18,7 +18,17 @@ As this project is intended to be a specific real-world application for my husba
 
 - A plumbing company that wants to keep track of its inventory with an online application.
 - Anybody who wants to manage stock items and have an overview of the current value they have in stock.
-- A plumber who wants to easily create an invoice from the stock items used for a customer. 
+- A plumber who wants to easily create a delivery note from the stock items used for a customer. 
+
+### **Site Goals**
+
+- Create an easy-to-use inventory tool.
+- Adapt the application specifically for plumbing businesses.
+- Simplify the invoicing process for plumbers.
+- Give an overview of items in stock.
+- Implement CRUD functionalities for stock items, delivery notes and categories.
+- Make the application responsive, so it can be used on desktop, tablet and mobile screen-sizes.
+- Allow easy adaption to create a scalable application that could be used for other (plumbing) businesses too.
 
 ## **Scope Plane**
 
@@ -91,9 +101,9 @@ I created wireframes for desktop, tablet and mobile for each of the main parts o
 
 ### **Database Schema**
 
-After discussing the needed features for the application, I started creating my database schema. With every iteration of talking to my customer about the needed features and stored information, the schema grew. The final adaptions where made while creating the wireframes for the application.
+After discussing the needed features for the application, I started creating my database schema. With every iteration of talking to my customer about the needed features and stored information, the schema grew. The final adaptions were made while creating the wireframes for the application.
 
-As it might be necessary for my customer to create subcategories for categories, I decided following the approach of [this article about categories and subcategories](https://dcblog.dev/mysql-categories-and-subcategories). I added a *parent_id* field with a default of *0* to **Category**. If the *parent_id* of a category matches the id of another category instead of *0*, it is a subcategory. 
+As it might be necessary for my customer to create subcategories for categories, I decided to follow the approach of [this article about categories and subcategories](https://dcblog.dev/mysql-categories-and-subcategories). I added a *parent_id* field with a default of *0* to **Category**. If the *parent_id* of a category matches the id of another category instead of *0*, it is a subcategory. 
 
 ![Database Schema](docs/screenshots/database_schema.png)
 *Database Schema for PipeTracker*
@@ -102,14 +112,16 @@ As it might be necessary for my customer to create subcategories for categories,
 
 ### **Design**
 
-As mentioned above, I already created a [website](https://p-wagner.at/), as well as all the designs and logos for my husband´s company before starting this project. I will use the existing design for this project. As a reference, here is what the company´s business card I designed looks like.
+As mentioned above, I already created a [website](https://p-wagner.at/), as well as all the designs and logos for my customer´s company before starting this project. I will use the existing design for this project. As a reference, here is what the company´s business card I designed looks like.
 
 ![Business card](docs/screenshots/business_card.jpg)
+*Existing design created by myself*
 
-I used shades of blue and the background representing water as it is fitting for a plumbing company. The logo is my husband´s name with the services he offers.
+I used shades of blue and the background representing water as it is fitting for a plumbing company. The logo is my customer´s name with the services he offers.
 
 From this existing design, I created the color scheme for this project. I used [contrast-grid.eightshapes.com](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23274060%0D%0A%2300B2CA%0D%0A%23041020%0D%0A%23f9f9f9&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) to check the contrast and possible color combinations.
 
 ![Color contrast](docs/screenshots/color_contrast.png)
+*Accessibility/contrast check for color scheme*
 
 I will use the same fonts for this project as I used on the website. **Roboto** and **Montserrat** are both Google Fonts and fit well with the logo and design of the company.
