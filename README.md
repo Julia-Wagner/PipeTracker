@@ -98,6 +98,11 @@ From the features defined above I was able to create epics and break these down 
 | As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**. | **MUST HAVE**  |
 
 ### **Epic: Export/Import**
+| User Story                                                                                                                                                            | Priority        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| As a **site user**, I want to **export the items in the cart**, so that I can **easily create a list of items to order**.                                             | **SHOULD HAVE** |
+| As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | **COULD HAVE**  |
+| As a **site user**, I want to **import Datanorm files**, so that I can **automatically update the prices of my stock items**.                                         | **COULD HAVE**  |
 
 ## **Skeleton Plane**
 
