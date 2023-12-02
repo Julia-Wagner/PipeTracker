@@ -68,6 +68,8 @@ From the features defined above I was able to create epics and break these down 
 |-----------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                | **MUST HAVE**   |
 | As a **site user**, I want to **upload images for categories**, so that I can **identify items easier**.              | **SHOULD HAVE** |
+| As a **site user**, I want to **update categories**, so that I can **change the structure of my inventory**.          | **MUST HAVE**   |
+| As a **site user**, I want to **delete categories**, so that I can **remove unnecessary categories**.                 | **MUST HAVE**   |
 | As a **site user**, I want to **create and view stock items**, so that I can **organize my inventory**.               | **MUST HAVE**   |
 | As a **site user**, I want to **update stock items**, so that I can **correctly maintain my inventory**.              | **MUST HAVE**   |
 | As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.               | **MUST HAVE**   |
@@ -79,7 +81,22 @@ From the features defined above I was able to create epics and break these down 
 | As a **site user**, I want to **have a dashboard with statistics**, so that I can **make decisions for my business**. | **SHOULD HAVE** |
 
 ### **Epic: Delivery Notes**
+| User Story                                                                                                                            | Priority        |
+|---------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| As a **site user**, I want to **create and view delivery notes**, so that I can **track where my stock items went**.                  | **MUST HAVE**   |
+| As a **site user**, I want to **link customers to delivery notes**, so that I can **easily invoice the needed items for a customer**. | **SHOULD HAVE** |
+| As a **site user**, I want to **update delivery notes**, so that I can **track if it was already invoiced**.                          | **SHOULD HAVE** |
+| As a **site user**, I want to **delete delivery notes**, so that I can **remove unnecessary delivery notes**.                         | **COULD HAVE**  |
+| As a **site user**, I want to **have an overview of my delivery notes**, so that I can **quickly find the delivery note I need**.     | **SHOULD HAVE** |
+
 ### **Epic: Cart**
+| User Story                                                                                                              | Priority       |
+|-------------------------------------------------------------------------------------------------------------------------|----------------|
+| As a **site user**, I want to **add stock items to the cart**, so that I can **collect the items I need**.              | **MUST HAVE**  |
+| As a **site user**, I want to **view my cart**, so that I can **see my collected items**.                               | **MUST HAVE**  |
+| As a **site user**, I want to **update my cart**, so that I can **change the number of added stock items**.             | **COULD HAVE** |
+| As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**. | **MUST HAVE**  |
+
 ### **Epic: Export/Import**
 
 ## **Skeleton Plane**
