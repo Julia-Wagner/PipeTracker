@@ -53,6 +53,35 @@ To get a better understanding of what the application will look like I wrote dow
 
 ## **Structure Plane**
 
+From the features defined above I was able to create epics and break these down into user stories.
+
+### **Epic: User Authentication**
+
+| User Story                                                                                                           | Priority       |
+|----------------------------------------------------------------------------------------------------------------------|----------------|
+| As a **new user**, I want to **register to the application**, so that I can **manage my inventory**.                 | **MUST HAVE**  |
+| As an **existing user**, I want to **login to the application**, so that I can **access my inventory**.              | **MUST HAVE**  |
+| As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**. | **COULD HAVE** |
+
+### **Epic: Stock Items**
+| User Story                                                                                                            | Priority        |
+|-----------------------------------------------------------------------------------------------------------------------|-----------------|
+| As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                | **MUST HAVE**   |
+| As a **site user**, I want to **upload images for categories**, so that I can **identify items easier**.              | **SHOULD HAVE** |
+| As a **site user**, I want to **create and view stock items**, so that I can **organize my inventory**.               | **MUST HAVE**   |
+| As a **site user**, I want to **update stock items**, so that I can **correctly maintain my inventory**.              | **MUST HAVE**   |
+| As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.               | **MUST HAVE**   |
+| As a **site user**, I want to **have an overview of my stock items**, so that I can **quickly find the item I need**. | **MUST HAVE**   |
+
+### **Epic: Statistics**
+| User Story                                                                                                            | Priority        |
+|-----------------------------------------------------------------------------------------------------------------------|-----------------|
+| As a **site user**, I want to **have a dashboard with statistics**, so that I can **make decisions for my business**. | **SHOULD HAVE** |
+
+### **Epic: Delivery Notes**
+### **Epic: Cart**
+### **Epic: Export/Import**
+
 ## **Skeleton Plane**
 
 ### **Wireframes**
