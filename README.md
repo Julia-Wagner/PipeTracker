@@ -67,13 +67,11 @@ From the features defined above I was able to create epics and break these down 
 | User Story                                                                                                            | Priority        |
 |-----------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                | **MUST HAVE**   |
-| As a **site user**, I want to **upload images for categories**, so that I can **identify items easier**.              | **SHOULD HAVE** |
 | As a **site user**, I want to **update categories**, so that I can **change the structure of my inventory**.          | **MUST HAVE**   |
 | As a **site user**, I want to **delete categories**, so that I can **remove unnecessary categories**.                 | **MUST HAVE**   |
 | As a **site user**, I want to **create and view stock items**, so that I can **organize my inventory**.               | **MUST HAVE**   |
 | As a **site user**, I want to **update stock items**, so that I can **correctly maintain my inventory**.              | **MUST HAVE**   |
 | As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.               | **MUST HAVE**   |
-| As a **site user**, I want to **have an overview of my stock items**, so that I can **quickly find the item I need**. | **MUST HAVE**   |
 
 ### **Epic: Statistics**
 | User Story                                                                                                            | Priority        |
@@ -85,9 +83,8 @@ From the features defined above I was able to create epics and break these down 
 |---------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **create and view delivery notes**, so that I can **track where my stock items went**.                  | **MUST HAVE**   |
 | As a **site user**, I want to **link customers to delivery notes**, so that I can **easily invoice the needed items for a customer**. | **SHOULD HAVE** |
-| As a **site user**, I want to **update delivery notes**, so that I can **track if it was already invoiced**.                          | **SHOULD HAVE** |
+| As a **site user**, I want to **update delivery notes**, so that I can **track if it was already invoiced**.                          | **MUST HAVE**   |
 | As a **site user**, I want to **delete delivery notes**, so that I can **remove unnecessary delivery notes**.                         | **COULD HAVE**  |
-| As a **site user**, I want to **have an overview of my delivery notes**, so that I can **quickly find the delivery note I need**.     | **SHOULD HAVE** |
 
 ### **Epic: Cart**
 | User Story                                                                                                              | Priority       |
@@ -155,6 +152,8 @@ I created wireframes for desktop, tablet and mobile for each of the main parts o
 After discussing the needed features for the application, I started creating my database schema. With every iteration of talking to my customer about the needed features and stored information, the schema grew. The final adaptions were made while creating the wireframes for the application.
 
 As it might be necessary for my customer to create subcategories for categories, I decided to follow the approach of [this article about categories and subcategories](https://dcblog.dev/mysql-categories-and-subcategories). I added a *parent_id* field with a default of *0* to **Category**. If the *parent_id* of a category matches the id of another category instead of *0*, it is a subcategory. 
+
+While creating the database schema I was also thinking about how I will implement the cart. At first I was not sure if I should add a *Cart* table or use *Local Storage* to store stock items in the cart. However, I decided to add a table because it is likely that my customer will access the application using different devices. So to ensure the cart is stored and always up-to-date on each device, I will save the cart information in the database instead of local storage.
 
 ![Database Schema](docs/screenshots/database_schema.png)
 *Database Schema for PipeTracker*
