@@ -26,7 +26,12 @@ PipeTracker is an inventory management application specifically designed for plu
     * [**Database Schema**](#database-schema)
   * [**Surface Plane**](#surface-plane)
     * [**Design**](#design)
+    * [**Colors and Fonts**](#colors-and-fonts)
+    * [**Logo**](#logo)
 * [**Agile Process**](#agile-process)
+* [**Credits**](#credits)
+  * [**Content**](#content)
+  * [**Media and Design**](#media-and-design)
 <!-- TOC -->
 
 # **Planning**
@@ -196,6 +201,8 @@ As mentioned above, I already created a [website](https://p-wagner.at/), as well
 
 I used shades of blue and the background representing water as it is fitting for a plumbing company. The logo is my customer´s name with the services he offers.
 
+### **Colors and Fonts**
+
 From this existing design, I created the color scheme for this project. I used [contrast-grid.eightshapes.com](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23274060%0D%0A%2300B2CA%0D%0A%23041020%0D%0A%23f9f9f9&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) to check the contrast and possible color combinations.
 
 ![Color contrast](docs/screenshots/color_contrast.png)
@@ -203,6 +210,23 @@ From this existing design, I created the color scheme for this project. I used [
 
 I will use the same fonts for this project as I used on the website. **Roboto** and **Montserrat** are both Google Fonts and fit well with the logo and design of the company.
 
+### **Logo**
+
+I also used the existing logo to create a new logo for **PipeTracker**.
+
+![Logo](docs/screenshots/logo.png)
+
 # **Agile Process**
 
 I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) to plan and document my work. The details of my agile approach can be found in the separate [AGILE.md file](AGILE.md).
+
+# **Credits**
+
+## **Content**
+- I used the walkthrough projects from Code Institute and the [Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) as a general reference for the project.
+
+## **Media and Design**
+- The general design, colors and logo are adapted from the [website](https://p-wagner.at/) I created for my husband´s business.
+- [Lucidchart](https://lucid.app/lucidchart/82318076-4a7b-4349-b6c6-c66c1f0d098e/edit?viewport_loc=0%2C-7%2C1462%2C1135%2C0_0&invitationId=inv_1c1b2e93-1683-407e-a6be-9134e668b788) was used to create the Database Schema.
+- I used [Balsamiq](https://balsamiq.com/) to create the wireframes.
+- I used [contrast-grid.eightshapes.com](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23274060%0D%0A%2300B2CA%0D%0A%23041020%0D%0A%23f9f9f9&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) to check the contrast and possible color combinations.
