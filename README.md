@@ -220,12 +220,36 @@ I also used the existing logo to create a new logo for **PipeTracker**.
 
 I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) to plan and document my work. The details of my agile approach can be found in the separate [AGILE.md file](AGILE.md).
 
+# **Deployment**
+
+## **Create Repository**
+
+The first step is to create a new repository, using the [Code Institute Template](https://github.com/Code-Institute-Org/ci-full-template). After creating the repository, you can open it in the IDE of your choice.
+
+If you choose to work a local IDE, it is important to create a **virtual environment** before continuing. I am using PyCharm, where the local environment can be conveniently set up by adding a new interpreter. Another way is by typing ```python -m venv .venv``` in the terminal.
+
+## **Project Setup**
+
+1. Install **Django** and **gunicorn**:
+   - ```pip install django gunicorn```
+2. Install supporting **libraries**:
+   - ```pip install dj_database_url psycopg2```
+   - ```pip install dj3-cloudinary-storage```
+3. Create **requirements.txt** file:
+   - ```pip freeze --local > requirements.txt```
+4. Create a Django project:
+   - ```django-admin startproject <name>``` (in my case <name> was *pipetracker*)
+5. Test to see if everything worked:
+   - ```python manage.py runserver```
+
 # **Credits**
 
 ## **Content**
+
 - I used the walkthrough projects from Code Institute and the [Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) as a general reference for the project.
 
 ## **Media and Design**
+
 - The general design, colors and logo are adapted from the [website](https://p-wagner.at/) I created for my husband´s business.
 - [Lucidchart](https://lucid.app/lucidchart/82318076-4a7b-4349-b6c6-c66c1f0d098e/edit?viewport_loc=0%2C-7%2C1462%2C1135%2C0_0&invitationId=inv_1c1b2e93-1683-407e-a6be-9134e668b788) was used to create the Database Schema.
 - I used [Balsamiq](https://balsamiq.com/) to create the wireframes.
