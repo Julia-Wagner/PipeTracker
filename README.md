@@ -2,6 +2,31 @@
 
 PipeTracker is an inventory management application specifically designed for plumbers. The project was born out of the real-world challenges of a self-employed plumber. Built with a user-centered approach, PipeTracker manages inventory for plumbing businesses and simplifies the invoicing process for plumbers.
 
+# **Table of Contents**
+
+- [**PipeTracker**](#pipetracker)
+- [**Table of Contents**](#table-of-contents)
+- [**Planning**](#planning)
+  - [**Strategy Plane**](#strategy-plane)
+    - [**Target Audience**](#target-audience)
+    - [**Site Goals**](#site-goals)
+  - [**Scope Plane**](#scope-plane)
+    - [**Necessary Features**](#necessary-features)
+    - [**Nice-to-have Features**](#nice-to-have-features)
+  - [**Structure Plane**](#structure-plane)
+    - [**Epic: User Authentication**](#epic-user-authentication)
+    - [**Epic: Stock Items**](#epic-stock-items)
+    - [**Epic: Statistics**](#epic-statistics)
+    - [**Epic: Delivery Notes**](#epic-delivery-notes)
+    - [**Epic: Cart**](#epic-cart)
+    - [**Epic: Export/Import**](#epic-exportimport)
+  - [**Skeleton Plane**](#skeleton-plane)
+    - [**Wireframes**](#wireframes)
+    - [**Database Schema**](#database-schema)
+  - [**Surface Plane**](#surface-plane)
+    - [**Design**](#design)
+- [**Agile Process**](#agile-process)
+
 # **Planning**
 
 I tried to structure my planning phase using the 5 UX planes - strategy, scope, structure, skeleton and surface. The planning process was iterative and while getting a better idea of the project´s scope and speaking to my customer about his needs for the application these planes changed creating a user-centered design for PipeTracker.
@@ -34,7 +59,7 @@ As this project is intended to be a specific real-world application for my husba
 
 To get a better understanding of what the application will look like I wrote down the features and sorted them into necessary and nice-to-have features.
 
-**Necessary Features:**
+### **Necessary Features:**
 
 - Plumber can log in to the application.
 - Plumber can register to the application.
@@ -42,7 +67,7 @@ To get a better understanding of what the application will look like I wrote dow
 - Stock items are linked to categories.
 - Plumber has an overview of the current value (in €) that is in the inventory.
 
-**Nice-to-have Features:**
+### **Nice-to-have Features:**
 
 - Create a delivery note - remove items from stock by adding them to a delivery note for a customer.
 - Employees can log in but have another role with different permissions (for example they don´t see the price).
