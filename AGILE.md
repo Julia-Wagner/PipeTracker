@@ -2,9 +2,11 @@
 
 ## **Table of Contents**
 
-- [**Agile Process**](#agile-process)
-  - [**Table of Contents**](#table-of-contents)
-  - [**Methodology**](#methodology)
+<!-- TOC -->
+* [**Agile Process**](#agile-process)
+  * [**Table of Contents**](#table-of-contents)
+  * [**Methodology**](#methodology)
+<!-- TOC -->
 
 ## **Methodology**
 I used an agile approach to plan and work on my project. I looked at different agile tools that I am familiar with, like *Jira* and *ClickUp*. However, I decided to use a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) as it seems to be the most commonly used by Code Institute students and I imagined it to be the easiest tool to evaluate.
