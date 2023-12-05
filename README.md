@@ -10,7 +10,7 @@ I tried to structure my planning phase using the 5 UX planes - strategy, scope, 
 
 My initial idea for this project was to create an application for my husband´s plumbing business. He is self-employed and I created his Logo, Designs and Website. So I wanted to make a real-world application where I could put this to use.
 
-After talking to him about possible applications he might need that would be suitable for this project, the idea of an inventory tool - **PipeTracker** - quickly came to life. In the following parts of the readme I will refer to my husband as my customer, as the application is built with his real-world needs in mind.
+After talking to him about possible applications he might need that would be suitable for this project, the idea of an inventory tool - **PipeTracker** - quickly came to life. In the following parts of the readme, I will refer to my husband as my customer, as the application is built with his real-world needs in mind.
 
 ### **Target Audience**
 
@@ -27,7 +27,7 @@ As this project is intended to be a specific real-world application for my husba
 - Simplify the invoicing process for plumbers.
 - Give an overview of items in stock.
 - Implement CRUD functionalities for stock items, delivery notes and categories.
-- Make the application responsive, so it can be used on desktop, tablet and mobile screen-sizes.
+- Make the application responsive, so it can be used on desktop, tablet and mobile screen sizes.
 - Allow easy adaption to create a scalable application that could be used for other (plumbing) businesses too.
 
 ## **Scope Plane**
@@ -60,7 +60,7 @@ From the features defined above I was able to create epics and break these down 
 | User Story                                                                                                           | Priority       |
 |----------------------------------------------------------------------------------------------------------------------|----------------|
 | As a **new user**, I want to **register to the application**, so that I can **manage my inventory**.                 | **MUST HAVE**  |
-| As an **existing user**, I want to **login to the application**, so that I can **access my inventory**.              | **MUST HAVE**  |
+| As an **existing user**, I want to **log in to the application**, so that I can **access my inventory**.             | **MUST HAVE**  |
 | As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**. | **COULD HAVE** |
 
 ### **Epic: Stock Items**
@@ -153,7 +153,7 @@ After discussing the needed features for the application, I started creating my 
 
 As it might be necessary for my customer to create subcategories for categories, I decided to follow the approach of [this article about categories and subcategories](https://dcblog.dev/mysql-categories-and-subcategories). I added a *parent_id* field with a default of *0* to **Category**. If the *parent_id* of a category matches the id of another category instead of *0*, it is a subcategory. 
 
-While creating the database schema I was also thinking about how I will implement the cart. At first I was not sure if I should add a *Cart* table or use *Local Storage* to store stock items in the cart. However, I decided to add a table because it is likely that my customer will access the application using different devices. So to ensure the cart is stored and always up-to-date on each device, I will save the cart information in the database instead of local storage.
+While creating the database schema I was also thinking about how I will implement the cart. At first, I was not sure if I should add a *Cart* table or use *Local Storage* to store stock items in the cart. However, I decided to add a table because it is likely that my customer will access the application using different devices. So to ensure the cart is stored and always up-to-date on each device, I will save the cart information in the database instead of local storage.
 
 ![Database Schema](docs/screenshots/database_schema.png)
 *Database Schema for PipeTracker*
@@ -175,3 +175,7 @@ From this existing design, I created the color scheme for this project. I used [
 *Accessibility/contrast check for color scheme*
 
 I will use the same fonts for this project as I used on the website. **Roboto** and **Montserrat** are both Google Fonts and fit well with the logo and design of the company.
+
+# **Agile Process**
+
+I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) to plan and document my work. The details of my agile approach can be found in the separate [AGILE.md file](AGILE.md).
