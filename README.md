@@ -29,6 +29,9 @@ PipeTracker is an inventory management application specifically designed for plu
     * [**Colors and Fonts**](#colors-and-fonts)
     * [**Logo**](#logo)
 * [**Agile Process**](#agile-process)
+* [**Deployment**](#deployment)
+  * [**Create Repository**](#create-repository)
+  * [**Project Setup**](#project-setup)
 * [**Credits**](#credits)
   * [**Content**](#content)
   * [**Media and Design**](#media-and-design)
@@ -226,21 +229,111 @@ I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/
 
 The first step is to create a new repository, using the [Code Institute Template](https://github.com/Code-Institute-Org/ci-full-template). After creating the repository, you can open it in the IDE of your choice.
 
-If you choose to work a local IDE, it is important to create a **virtual environment** before continuing. I am using PyCharm, where the local environment can be conveniently set up by adding a new interpreter. Another way is by typing ```python -m venv .venv``` in the terminal.
+If you choose to work a local IDE, it is important to create a **virtual environment** before continuing. I am using PyCharm, where the local environment can be conveniently set up by adding a new interpreter. Another way is by typing `python -m venv .venv` in the terminal.
 
 ## **Project Setup**
 
 1. Install **Django** and **gunicorn**:
-   - ```pip install django gunicorn```
+   - `pip install django gunicorn`
 2. Install supporting **libraries**:
-   - ```pip install dj_database_url psycopg2```
-   - ```pip install dj3-cloudinary-storage```
+   - `pip install dj_database_url psycopg2`
+   - `pip install dj3-cloudinary-storage`
 3. Create **requirements.txt** file:
-   - ```pip freeze --local > requirements.txt```
+   - `pip freeze --local > requirements.txt`
 4. Create a Django project:
-   - ```django-admin startproject <name>``` (in my case <name> was *pipetracker*)
+   - `django-admin startproject <name>` (in my case `<name>` was *pipetracker*)
 5. Test to see if everything worked:
-   - ```python manage.py runserver```
+   - `python manage.py runserver`
+   
+## **Database Setup**
+
+You can use a database of your choice, following are the instructions if you use [ElephantSQL](https://customer.elephantsql.com/).
+
+1. Log in to your account
+2. Click *Create New Instance*
+3. Give the instance a name and select the plan of your choice, *Tiny Turtle* is the free plan.
+4. Click *Select Region* and choose a data center near you
+5. Click *Review* and if the details are correct click *Create instance*
+6. Click on the created instance and copy the database URL
+
+## **Cloudinary Setup**
+
+1. Log in to your [Cloudinary](https://console.cloudinary.com/) account
+2. At the dashboard, copy the link from the **API Environment variable**
+
+## **File Changes**
+
+1. In the **settings.py** file add this code:
+    ```
+    import os
+    import dj_database_url
+   
+    if os.path.isfile("env.py"):  
+        import env
+    
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+    DEBUG = "DEVELOPMENT" in os.environ
+   
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+    ```
+2. In the **env.py** file add this code and ensure the file is added to *.gitignore*:
+    ```
+    import os
+
+    os.environ["SECRET_KEY"] = "addSecretKeyHere"
+    os.environ["DEVELOPMENT"] = "TRUE"
+    os.environ["DATABASE_URL"]= "copiedDatabaseURL"
+    os.environ["CLOUDINARY_URL"] = "copiedCloudinaryURL"
+    ```
+3. After these changes run `python manage.py migrate` to migrate your database structure to the ElephantSQL database.
+4. In the **settings.py** file add this code to link to Cloudinary:
+    ```
+    INSTALLED_APPS = [...
+      'cloudinary_storage',
+      'django.contrib.staticfiles',
+      'cloudinary',
+    ...]
+   
+    # NOTE: the second line should already be in the file, add the line above and below, the order is important)
+   
+    STATIC_URL = 'static/'
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    MEDIA_URL = '/media/'
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    ```
+5. Code for templates directory in **settings.py**:
+    ```
+    TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+    
+    'DIRS': [TEMPLATES_DIR] # in existing TEMPLATES variable
+    ```
+   
+## **Heroku Setup**
+
+1. Log in to your [Heruko](https://www.heroku.com/) account
+2. On the dashboard click *New* - *Create new app*
+3. Give the app a unique name
+4. Select the region closest to you and click *Create app*
+5. Select your created app and open the *Settings* tab 
+6. At the *Config Vars* section click *Reveal Config Vars* and add the following:
+   - **DATABASE_URL** with the copied URL from ElephantSQL
+   - **SECRET_KEY** with your secret key
+   - **PORT** with the value 8000
+   - **CLOUDINARY_URL** with the copied URL from Cloudinary
+   - **DISABLE_COLLECTSTATIC** with the value 1
+
+## **Final Changes**
+1. Add `ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"]` in **settings.py**
+2. Create a **media**, **static** and **templates** directory and a **Procfile** file in the base directory
+3. Add `web gunicorn pipetracker.wsgi` to **Procfile**
+4. In your **Heroku app**: 
+   - Go to the *Deploy tab* and connect your GitHub repository
+   - Click on *Deploy Branch* at the bottom of the page
 
 # **Credits**
 
