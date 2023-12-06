@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = ['pipetracker.herokuapp.com/',
-                 'pipetracker-96d1f7c7a4dc.herokuapp.com/'
+                 'pipetracker-96d1f7c7a4dc.herokuapp.com/',
                  'localhost',
                  '127.0.0.1']
 
