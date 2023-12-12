@@ -703,6 +703,10 @@ video {
   height: 4rem;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -721,6 +725,10 @@ video {
 
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
 }
 
 .border-collapse {
