@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3149.23 894">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-1, .cls-4 {
+        fill: #00b2ca;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5, .cls-6, .cls-3, .cls-7 {
+        fill: #274060;
+      }
+
+      .cls-2, .cls-8 {
+        fill: none;
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-10 {
+        font-family: Oswald-Regular, Oswald;
+        font-size: 450px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-11 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6, .cls-4 {
+        letter-spacing: .01em;
+      }
+
+      .cls-8 {
+        stroke: #00b2ca;
+        stroke-miterlimit: 10;
+        stroke-width: 104.3px;
+      }
+
+      .cls-7 {
+        font-family: Sansation-Regular, Sansation;
+        font-size: 200px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" y="0" width="894" height="894"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-2" y="0" width="894" height="894"/>
+    </clipPath>
+  </defs>
+  <text class="cls-7" transform="translate(855 821)"><tspan x="0" y="0">PLUMBER INVENTORY</tspan></text>
+  <text class="cls-10" transform="translate(843 540)"><tspan class="cls-4" x="0" y="0">PIPE</tspan><tspan class="cls-6" x="751.94" y="0">TR</tspan><tspan class="cls-5" x="1183.94" y="0">A</tspan><tspan class="cls-6" x="1409.83" y="0">CKER</tspan></text>
+  <g class="cls-11">
+    <rect class="cls-1" x="175.49" y="31.46" width="282.47" height="104.3"/>
+    <g class="cls-9">
+      <path class="cls-8" d="m639.04,394.85c10.08-17.49,29.81-57.27,28.97-110.92-.92-58.4-25.68-98.93-30.63-106.78-3.27-5.19-14.45-22.38-32.28-38.91-55.51-51.44-130.36-54.63-155.62-54.63"/>
+      <rect class="cls-1" x="370.21" y="614.58" width="42.49" height="42.49"/>
+      <rect class="cls-1" x="436.3" y="614.58" width="42.49" height="42.49"/>
+      <rect class="cls-1" x="370.21" y="675.95" width="42.49" height="42.49"/>
+      <rect class="cls-1" x="436.3" y="675.95" width="42.49" height="42.49"/>
+      <polygon class="cls-1" points="284.07 363.16 284.07 33.94 175.5 33.94 175.5 425.76 175.66 425.76 284.07 363.16"/>
+      <polygon class="cls-3" points="175.5 480.64 175.5 860.06 284.07 860.06 284.07 468.24 196.97 468.24 175.5 480.64"/>
+      <rect class="cls-3" x="471.08" y="310.45" width="89.45" height="264.07" transform="translate(-125.3 667.94) rotate(-60)"/>
+      <polygon class="cls-3" points="423.57 337.41 178.72 478.78 224.02 557.23 475.93 411.79 437.7 345.57 423.57 337.41"/>
+    </g>
+  </g>
+</svg>
