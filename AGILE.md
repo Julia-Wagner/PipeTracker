@@ -28,8 +28,21 @@ I added all my user stories with the according epic, acceptance criteria and tas
 ## **Sprints**
 Below is a summary for each of my sprints. As described above, I am using milestones for sprints. To really focus on the tasks of my current sprint, I am using a filter for the current milestone to only see the issues added to my current sprint.
 
-### **Sprint 1 (05.12.-11.12.)**
+### **Sprint 1 (05.12. - 11.12.)**
 For my first sprint, I added two dev tasks, to set up and deploy the project. Additionally, I added user stories with a total of 11 story points.
 
 ![Sprint 1 start](docs/agile/sprint1_start.png)
 *Start of Sprint 1*
+
+I did not manage to finish all the tasks planned for my first sprint. This was mostly due to changes of the ElephantSQL free plan. I spent a lot of time looking for alternatives. Eventually the free plan is back now and I did end up using ElephantSQL anyway.
+
+![Sprint 1 end](docs/agile/sprint1_end.png)
+*End of Sprint 1*
+
+I will move the unfinished tasks back to backlog and continue working on them in my next sprint.
+
+### **Sprint 2 (12.12. - 18.12.)**
+For my next sprint, I added one dev task, to add templates for the header and footer. Additionally, I added user stories with a total of 11 story points.
+
+![Sprint 2 start](docs/agile/sprint2_start.png)
+*Start of Sprint 2*
