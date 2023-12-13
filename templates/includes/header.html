@@ -23,8 +23,8 @@
                 <ul class="font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-darkblue-100 bg-darkblue-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="#"
-                           class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Statistics</a>
+                        <a href="{% url 'statistics' %}" aria-current="{% if url_name == 'statistics' %}page{% endif %}"
+                           class="{% if url_name == 'statistics' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Statistics</a>
                     </li>
                     <li>
                         <a href="#"
