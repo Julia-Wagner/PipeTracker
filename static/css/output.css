@@ -736,12 +736,12 @@ video {
   width: 100%;
 }
 
-.max-w-screen-xl {
-  max-width: 1280px;
-}
-
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-screen-xl {
+  max-width: 1280px;
 }
 
 .flex-auto {
@@ -898,6 +898,8 @@ video {
 
 /* Google fonts import Roboto and Montserrat */
 
+/* Font styles */
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -905,6 +907,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
 }
+
+/* Header styles */
 
 .active_nav {
   color: #274060;
@@ -923,6 +927,13 @@ nav li a {
   bottom: -.5em;
   left: 0;
   right: 0;
+}
+
+/* Landing page */
+
+.landing-image {
+  border: 5px solid #274060;
+  border-radius: 20%;
 }
 
 .hover\:border-lightblue:hover {
