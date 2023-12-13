@@ -225,6 +225,8 @@ I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/
 
 # **Deployment**
 
+Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
+
 ## **Create Repository**
 
 The first step is to create a new repository, using the [Code Institute Template](https://github.com/Code-Institute-Org/ci-full-template). After creating the repository, you can open it in the IDE of your choice.
