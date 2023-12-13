@@ -1,34 +1,24 @@
 {% extends "account/base_entrance.html" %}
+
 {% load i18n %}
-{% load allauth account socialaccount %}
-{% block head_title %}
-    {% trans "Sign In" %}
-{% endblock head_title %}
+
+{% block title %}{% trans "Sign In" %}{% endblock %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
-    <p>
-        {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
-    </p>
-    {% url 'account_login' as login_url %}
-    {% element form form=form method="post" action=login_url tags="entrance,login" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
-            {% endelement %}
-            {% if redirect_field_value %}
-                <input type="hidden"
-                       name="{{ redirect_field_name }}"
-                       value="{{ redirect_field_value }}" />
-            {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" tags="prominent,login" %}
-                {% trans "Sign In" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-    {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-{% endblock content %}
+<div class="text-center">
+  <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl ">{% trans "Login" %}</h1>
+
+  <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">{% blocktrans %}If you have not created an account yet, please
+  <a href="{{ signup_url }}" class="text-darkblue underline hover:text-lightblue">sign up</a> first.{% endblocktrans %}</p>
+
+  <form method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none" type="submit">{% trans "Sign In" %}</button>
+    <a class="font-bold block w-fit m-auto text-darkblue bg-customwhite border border-darkblue hover:bg-lightblue hover:text-customblack hover:border-lightblue focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  </form>
+</div>
+{% endblock %}

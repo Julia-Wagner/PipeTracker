@@ -13,3 +13,22 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
 }
+
+.active_nav {
+  color: #274060;
+}
+
+nav li a {
+    position: relative;
+}
+
+.active_nav::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: #00B2CA;
+    position: absolute;
+    bottom: -.5em;
+    left: 0;
+    right: 0;
+}

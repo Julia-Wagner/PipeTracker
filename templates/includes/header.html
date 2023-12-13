@@ -1,6 +1,7 @@
 {% load static %}
 
 <header>
+    {% with request.resolver_match.url_name as url_name %}
     <nav class="bg-customwhite">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="{% url 'home' %}" class="flex items-center space-x-3">
@@ -40,21 +41,22 @@
                            class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Cart</a>
                     </li>
                     <li>
-                        <a href="{% url 'account_logout' %}"
-                           class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Logout</a>
+                        <a href="{% url 'account_logout' %}" aria-current="{% if url_name == 'account_logout' %}page{% endif %}"
+                           class="{% if url_name == 'account_logout' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Logout</a>
                     </li>
                     {% else %}
                     <li>
-                        <a href="{% url 'account_signup' %}"
-                           class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Register</a>
+                        <a href="{% url 'account_signup' %}" aria-current="{% if url_name == 'account_signup' %}page{% endif %}"
+                           class="{% if url_name == 'account_signup' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Register</a>
                     </li>
                     <li>
-                        <a href="{% url 'account_login' %}"
-                           class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Login</a>
+                        <a href="{% url 'account_login' %}" aria-current="{% if url_name == 'account_login' %}page{% endif %}"
+                           class="{% if url_name == 'account_login' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Login</a>
                     </li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+    {% endwith %}
 </header>
