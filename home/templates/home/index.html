@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -15,7 +16,7 @@
         and log in to see all functionalities and manage our plumbing
         inventory.</p>
 
-    <img class="h-auto max-w-lg mx-auto mb-6" src="./static/images/pipes.svg" alt="vector image of pipes">
+    <img class="h-auto max-w-lg mx-auto mb-6" src="{% static 'images/pipes.svg'  %}" alt="vector image of pipes">
 
     <a href="{% url 'account_signup' %}"
     class="block w-fit m-auto font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">Register</a>
