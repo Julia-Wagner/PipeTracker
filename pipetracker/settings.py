@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     # Apps
     'home',
+    'stock',
 ]
 
 # allauth
