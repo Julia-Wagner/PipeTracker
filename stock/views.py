@@ -1,6 +1,10 @@
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from .models import Category
 from .forms import CategoryForm
+
+
+class Categories(TemplateView):
+    template_name = "stock/categories.html"
 
 
 class AddCategory(CreateView):
