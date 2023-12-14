@@ -956,6 +956,10 @@ nav li a {
   grid-template-columns: 10fr 1fr;
 }
 
+.heading-button-row a {
+  justify-self: end;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 768px) {
@@ -968,8 +972,7 @@ nav li a {
     grid-row-gap: 1rem;
   }
 
-  .heading-button-row button {
-    justify-self: end;
+  .heading-button-row a {
     order: 1;
   }
 
