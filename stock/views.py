@@ -14,7 +14,7 @@ class AddCategory(CreateView):
     template_name = "stock/add_category.html"
     model = Category
     form_class = CategoryForm
-    success_url = "/categories/"
+    success_url = "/stock/"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
