@@ -1,10 +1,15 @@
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, ListView
 from .models import Category
 from .forms import CategoryForm
 
 
-class Categories(TemplateView):
+class Categories(ListView):
+    """
+    List all categories
+    """
     template_name = "stock/categories.html"
+    model = Category
+    context_object_name = "categories"
 
 
 class AddCategory(CreateView):
