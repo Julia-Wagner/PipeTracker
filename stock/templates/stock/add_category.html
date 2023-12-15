@@ -13,7 +13,7 @@
     <form method="POST" enctype="multipart/form-data" class="max-w-sm mx-auto">
         {% csrf_token %}
         {{ form.media }}
-        {{ form|crispy }}
+        {% crispy form %}
         <button type="submit"
                 class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">
             Create Category

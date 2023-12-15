@@ -88,6 +88,12 @@ CRISPY_CLASS_CONVERTERS = {
     'passwordinput': 'bg-gray-50 border border-darkblue text-gray-900 '
                  'text-sm rounded-lg focus:ring-blue-500 '
                  'focus:border-blue-500 block w-full p-2.5',
+    'numberinput': 'bg-gray-50 border border-darkblue text-gray-900 '
+                 'text-sm rounded-lg focus:ring-blue-500 '
+                 'focus:border-blue-500 block w-full p-2.5',
+    'select': 'bg-gray-50 border border-darkblue text-gray-900 '
+                 'text-sm rounded-lg focus:ring-blue-500 '
+                 'focus:border-blue-500 block w-full p-2.5',
 }
 
 MIDDLEWARE = [

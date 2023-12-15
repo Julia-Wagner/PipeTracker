@@ -13,12 +13,13 @@ class CategoryForm(forms.ModelForm):
         Add custom classes to the form.
         """
         super(CategoryForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
-        self.helper.label_class = "block mb-2 text-customblack"
-        self.helper.field_class = \
-            ("bg-gray-50 border border-darkblue text-gray-900 "
-             "text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 "
-             "block w-full p-2.5")
+        self.helper = FormHelper()
+        self.helper.label_class = "block mb-2 text-customblack font-bold"
+        self.helper.form_tag = False
+        self.fields['image'].widget.attrs.update(
+            {"class": "bg-gray-50 border border-darkblue text-gray-900 "
+                      "text-sm rounded-lg focus:ring-blue-500 "
+                      "focus:border-blue-500 block w-full p-2.5"})
 
     class Meta:
         model = Category
