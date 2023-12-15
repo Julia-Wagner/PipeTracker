@@ -20,16 +20,19 @@
         </a>
     </div>
     <div class="flex flex-wrap justify-center">
-        {% for category in categories %}
-        <a href="{% if category.children.all %}{% url 'categories_children' category.id %}{% endif %}" class="m-4"
-           aria-label="Click to view stock items for {{ category.name }}">
+        {% if children %}
+        {% for child in children %}
+        <a href="{% if child.children.all %}{% url 'categories_children' child.id %}{% endif %}" class="m-4" aria-label="Click to view stock items for {{ child.name }}">
             <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
-                <img src="{{ category.image.url }}"
-                     alt="{{ category.image_alt }}"/>
-                <h2 class="p-4 text-2xl font-bold text-darkblue">{{ category.name }}</h2>
+                <img src="{{ child.image.url }}"
+                     alt="{{ child.image_alt }}"/>
+                <h2 class="p-4 text-2xl font-bold text-darkblue">{{child.name }}</h2>
             </div>
         </a>
         {% endfor %}
+        {% else %}
+        <p>No Sub-Categories.</p>
+        {% endif %}
     </div>
 </div>
 

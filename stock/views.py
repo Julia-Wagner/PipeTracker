@@ -1,4 +1,5 @@
 from django.views.generic import CreateView, ListView
+from django.shortcuts import get_object_or_404
 from .models import Category
 from .forms import CategoryForm
 
@@ -14,6 +15,18 @@ class Categories(ListView):
     # filter for parent categories only
     def get_queryset(self):
         return Category.objects.filter(parent__isnull=True)
+
+
+class CategoriesChildren(ListView):
+    """
+    List all child categories
+    """
+    template_name = "stock/categories_children.html"
+    context_object_name = 'children'
+
+    def get_queryset(self):
+        category = get_object_or_404(Category, id=self.kwargs['pk'])
+        return category.children.all()
 
 
 class AddCategory(CreateView):
