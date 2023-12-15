@@ -56,6 +56,16 @@ nav li a {
     justify-self: end;
 }
 
+/* Forms */
+#id_password1_helptext {
+    padding: 1rem;
+    margin: 2rem 0;
+    font-size: .8rem;
+    border: 1px solid #274060;
+    color: #274060;
+    border-radius: 0.5rem;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .active_nav::before {

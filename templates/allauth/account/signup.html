@@ -1,4 +1,5 @@
 {% extends "account/base_entrance.html" %}
+{% load crispy_forms_tags %}
 
 {% load i18n %}
 
@@ -10,9 +11,9 @@
 
   <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}" class="text-darkblue underline hover:text-lightblue">log in</a>.{% endblocktrans %}</p>
 
-  <form class="form p-2" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  <form class="max-w-sm mx-auto" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
-    {{ form|crispy }}
+    {% crispy form %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}

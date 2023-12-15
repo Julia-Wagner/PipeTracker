@@ -23,6 +23,7 @@ TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'templates', 'allauth')
 # custom allauth forms
 ACCOUNT_FORMS = {
     'login': 'home.forms.CustomLoginForm',
+    'signup': 'home.forms.CustomSignupForm',
 }
 
 if os.path.isfile("env.py"):
