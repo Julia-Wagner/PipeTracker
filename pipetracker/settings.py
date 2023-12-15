@@ -20,6 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES_DIR_ALLAUTH = os.path.join(BASE_DIR, 'templates', 'allauth')
 
+# custom allauth forms
+ACCOUNT_FORMS = {
+    'login': 'home.forms.CustomLoginForm',
+}
+
 if os.path.isfile("env.py"):
     import env
 
@@ -74,6 +79,15 @@ LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+CRISPY_CLASS_CONVERTERS = {
+    'textinput': 'bg-gray-50 border border-darkblue text-gray-900 '
+                 'text-sm rounded-lg focus:ring-blue-500 '
+                 'focus:border-blue-500 block w-full p-2.5',
+    'passwordinput': 'bg-gray-50 border border-darkblue text-gray-900 '
+                 'text-sm rounded-lg focus:ring-blue-500 '
+                 'focus:border-blue-500 block w-full p-2.5',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,4 +1,5 @@
 {% extends "account/base_entrance.html" %}
+{% load crispy_forms_tags %}
 
 {% load i18n %}
 
@@ -11,14 +12,14 @@
   <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">{% blocktrans %}If you have not created an account yet, please
   <a href="{{ signup_url }}" class="text-darkblue underline hover:text-lightblue">sign up</a> first.{% endblocktrans %}</p>
 
-  <form method="POST" action="{% url 'account_login' %}">
+  <form method="POST" action="{% url 'account_login' %}" class="max-w-sm mx-auto">
     {% csrf_token %}
-    {{ form|crispy }}
+    {% crispy form %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
     <button class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none" type="submit">{% trans "Sign In" %}</button>
-    <a class="font-bold block w-fit m-auto text-darkblue bg-customwhite border border-darkblue hover:bg-lightblue hover:text-customblack hover:border-lightblue focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+<!--    <a class="font-bold block w-fit m-auto text-darkblue bg-customwhite border border-darkblue hover:bg-lightblue hover:text-customblack hover:border-lightblue focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>-->
   </form>
 </div>
 {% endblock %}
