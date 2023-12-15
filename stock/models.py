@@ -26,3 +26,13 @@ class Category(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+    def get_parents(self):
+        parents = []
+        current_parent = self.parent
+
+        while current_parent is not None:
+            parents.insert(0, current_parent)
+            current_parent = current_parent.parent
+
+        return parents

@@ -28,6 +28,17 @@ class CategoriesChildren(ListView):
         category = get_object_or_404(Category, id=self.kwargs['pk'])
         return category.children.all()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = get_object_or_404(Category, id=self.kwargs['pk'])
+        parents = category.get_parents()
+        breadcrumbs = []
+        for parent in parents:
+            breadcrumbs.append({'name': parent.name, 'id': parent.id})
+        breadcrumbs.append({'name': category.name, 'id': category.id})
+        context['breadcrumbs'] = breadcrumbs
+        return context
+
 
 class AddCategory(CreateView):
     """
