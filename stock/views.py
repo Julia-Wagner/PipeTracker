@@ -30,13 +30,17 @@ class CategoriesChildren(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # get the current category
         category = get_object_or_404(Category, id=self.kwargs['pk'])
         parents = category.get_parents()
         breadcrumbs = []
+        # add all parents to breadcrumbs
         for parent in parents:
             breadcrumbs.append({'name': parent.name, 'id': parent.id})
+        # add current category to breadcrumbs
         breadcrumbs.append({'name': category.name, 'id': category.id})
         context['breadcrumbs'] = breadcrumbs
+        context['category'] = category
         return context
 
 

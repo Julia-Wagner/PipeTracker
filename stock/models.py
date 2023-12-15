@@ -28,6 +28,10 @@ class Category(models.Model):
         return str(self.name)
 
     def get_parents(self):
+        """
+        Get all parents of the given category.
+        :return: List of parents
+        """
         parents = []
         current_parent = self.parent
 
