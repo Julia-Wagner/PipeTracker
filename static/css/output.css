@@ -1300,6 +1300,11 @@ nav li a {
   border-radius: 0.5rem;
 }
 
+.invalid-feedback {
+  font-size: .9rem;
+  color: #bb1515;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 768px) {

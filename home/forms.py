@@ -15,6 +15,7 @@ class CustomLoginForm(LoginForm):
         super(CustomLoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.label_class = "block mb-2 text-customblack font-bold"
+        self.helper.form_tag = False
 
         self.fields["password"].help_text = False
 
@@ -31,3 +32,4 @@ class CustomSignupForm(SignupForm):
         super(CustomSignupForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.label_class = "block mb-2 text-customblack font-bold"
+        self.helper.form_tag = False
