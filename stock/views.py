@@ -11,6 +11,10 @@ class Categories(ListView):
     model = Category
     context_object_name = "categories"
 
+    # filter for parent categories only
+    def get_queryset(self):
+        return Category.objects.filter(parent__isnull=True)
+
 
 class AddCategory(CreateView):
     """

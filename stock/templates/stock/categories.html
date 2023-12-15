@@ -21,14 +21,15 @@
     </div>
     <div class="flex flex-wrap justify-center">
         {% for category in categories %}
-    <a href="" class="m-4"
-       aria-label="Click to view stock items for {{ category.name }}">
-        <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
-            <img src="{{ category.image.url }}" alt="{{ category.image_alt }}"/>
-            <h2 class="p-4 text-2xl font-bold text-darkblue">{{ category.name }}</h2>
-        </div>
-    </a>
-    {% endfor %}
+        <a href="" class="m-4"
+           aria-label="Click to view stock items for {{ category.name }}">
+            <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
+                <img src="{{ category.image.url }}"
+                     alt="{{ category.image_alt }}"/>
+                <h2 class="p-4 text-2xl font-bold text-darkblue">{{ category.name }}</h2>
+            </div>
+        </a>
+        {% endfor %}
     </div>
 </div>
 
