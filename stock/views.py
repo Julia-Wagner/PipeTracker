@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DeleteView
 from django.shortcuts import get_object_or_404
 from .models import Category
 from .forms import CategoryForm
@@ -56,3 +56,11 @@ class AddCategory(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AddCategory, self).form_valid(form)
+
+
+class DeleteCategory(DeleteView):
+    """
+    Delete a Category
+    """
+    model = Category
+    success_url = "/stock/"
