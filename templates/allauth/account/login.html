@@ -12,7 +12,7 @@
   <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">{% blocktrans %}If you have not created an account yet, please
   <a href="{{ signup_url }}" class="text-darkblue underline hover:text-lightblue">sign up</a> first.{% endblocktrans %}</p>
 
-  <form method="POST" action="{% url 'account_login' %}" class="max-w-sm mx-auto">
+  <form method="POST" action="{% url 'account_login' %}" class="max-w-lg mx-auto">
     {% csrf_token %}
     {% crispy form %}
     {% if redirect_field_value %}

@@ -6,7 +6,8 @@
 {% block content %}
 
 <!-- Display breadcrumbs -->
-<nav class="inline-block px-5 py-3 mb-5 border border-gray-200 rounded-lg" aria-label="Breadcrumb">
+<nav class="inline-block px-5 py-3 mb-5 border border-gray-200 rounded-lg"
+     aria-label="Breadcrumb">
     <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-2">
         <li class="inline-flex items-center">
             <a href="{% url 'categories' %}"
@@ -51,16 +52,38 @@
     <div class="flex flex-wrap justify-center">
         {% if children %}
         {% for child in children %}
-        <a href="{% if child.children.all %}{% url 'categories_children' child.id %}{% endif %}"
-           class="m-4"
-           aria-label="Click to view stock items for {{ child.name }}">
-            <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
-                <img src="{{ child.image.url }}"
-                     alt="{{ child.image_alt }}"/>
-                <h2 class="p-4 text-2xl font-bold text-darkblue">
-                    {{child.name}}</h2>
+        <div class="m-4">
+            <a href="{% if child.children.all %}{% url 'categories_children' child.id %}{% endif %}"
+               aria-label="Click to view stock items for {{child.name}}">
+                <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
+                    <img src="{{child.image.url}}"
+                         alt="{{child.image_alt}}"/>
+                    <h2 class="p-4 text-2xl font-bold text-darkblue inline-flex items-center">
+                        {{child.name}}
+                        <svg class="w-6 h-6 ms-3"
+                             aria-hidden="true"
+                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 14 10">
+                            <path stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round" stroke-width="2"
+                                  d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </h2>
+                </div>
+            </a>
+            <div class="p-4">
+                <a href="#"
+                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-darkblue bg-customwhite border border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    Edit {{child.name}}
+                </a>
+                <a href="{% url 'delete_category' child.id %}"
+                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-darkblue bg-customwhite border border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    Delete {{child.name}}
+                </a>
             </div>
-        </a>
+        </div>
+
         {% endfor %}
         {% else %}
         <p>No Sub-Categories.</p>

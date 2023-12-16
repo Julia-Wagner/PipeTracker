@@ -10,7 +10,7 @@
     <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
         Add a new Category</h1>
 
-    <form method="POST" enctype="multipart/form-data" class="max-w-sm mx-auto">
+    <form method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto">
         {% csrf_token %}
         {{ form.media }}
         {% crispy form %}

@@ -21,14 +21,37 @@
     </div>
     <div class="flex flex-wrap justify-center">
         {% for category in categories %}
-        <a href="{% if category.children.all %}{% url 'categories_children' category.id %}{% endif %}" class="m-4"
-           aria-label="Click to view stock items for {{ category.name }}">
-            <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
-                <img src="{{ category.image.url }}"
-                     alt="{{ category.image_alt }}"/>
-                <h2 class="p-4 text-2xl font-bold text-darkblue">{{ category.name }}</h2>
+        <div class="m-4">
+            <a href="{% if category.children.all %}{% url 'categories_children' category.id %}{% endif %}"
+               aria-label="Click to view stock items for {{ category.name }}">
+                <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
+                    <img src="{{ category.image.url }}"
+                         alt="{{ category.image_alt }}"/>
+                    <h2 class="p-4 text-2xl font-bold text-darkblue inline-flex items-center">
+                        {{category.name}}
+                        <svg class="w-6 h-6 ms-3"
+                             aria-hidden="true"
+                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 14 10">
+                            <path stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round" stroke-width="2"
+                                  d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </h2>
+                </div>
+            </a>
+            <div class="p-4">
+                <a href="#"
+                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-darkblue bg-customwhite border border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    Edit {{category.name}}
+                </a>
+                <a href="{% url 'delete_category' category.id %}"
+                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-darkblue bg-customwhite border border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    Delete {{category.name}}
+                </a>
             </div>
-        </a>
+        </div>
         {% endfor %}
     </div>
 </div>
