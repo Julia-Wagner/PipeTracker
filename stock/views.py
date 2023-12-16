@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, ListView, DeleteView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404
 from .models import Category
 from .forms import CategoryForm
@@ -63,4 +63,14 @@ class DeleteCategory(DeleteView):
     Delete a Category
     """
     model = Category
+    success_url = "/stock/"
+
+
+class EditCategory(UpdateView):
+    """
+    Edit a Category
+    """
+    template_name = "stock/edit_category.html"
+    model = Category
+    form_class = CategoryForm
     success_url = "/stock/"
