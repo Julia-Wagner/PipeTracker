@@ -7,7 +7,8 @@
   * [**Table of Contents**](#table-of-contents)
   * [**Methodology**](#methodology)
   * [**Sprints**](#sprints)
-    * [**Sprint 1 (05.12.-07.12.)**](#sprint-1-0512-0712)
+    * [**Sprint 1 (05.12. - 11.12.)**](#sprint-1-0512---1112)
+    * [**Sprint 2 (12.12. - 18.12.)**](#sprint-2-1212---1812)
 <!-- TOC -->
 
 ## **Methodology**
@@ -26,23 +27,28 @@ I added all my user stories with the according epic, acceptance criteria and tas
 *The initial setup of my Kanban board with all User Stories in the Backlog*
 
 ## **Sprints**
-Below is a summary for each of my sprints. As described above, I am using milestones for sprints. To really focus on the tasks of my current sprint, I am using a filter for the current milestone to only see the issues added to my current sprint.
+Below is a summary of each of my sprints. As described above, I am using milestones for sprints. To focus on the tasks of my current sprint, I am using a filter for the current milestone to only see the issues added to my current sprint.
 
 ### **Sprint 1 (05.12. - 11.12.)**
-For my first sprint, I added two dev tasks, to set up and deploy the project. Additionally, I added user stories with a total of 11 story points.
+For my first sprint, I added two dev tasks, to set up and deploy the project. Additionally, I added user stories with a total of **11 story points**.
 
 ![Sprint 1 start](docs/agile/sprint1_start.png)
 *Start of Sprint 1*
 
-I did not manage to finish all the tasks planned for my first sprint. This was mostly due to changes of the ElephantSQL free plan. I spent a lot of time looking for alternatives. Eventually the free plan is back now and I did end up using ElephantSQL anyway.
+I did not manage to finish all the tasks planned for my first sprint. This was mostly due to changes in the ElephantSQL free plan. I spent a lot of time looking for alternatives. Eventually, the free plan is back now and I did end up using ElephantSQL anyway.
 
 ![Sprint 1 end](docs/agile/sprint1_end.png)
 *End of Sprint 1*
 
-I will move the unfinished tasks back to backlog and continue working on them in my next sprint.
+I will move the unfinished tasks back to the backlog and continue working on them in my next sprint.
 
 ### **Sprint 2 (12.12. - 18.12.)**
-For my next sprint, I added one dev task, to add templates for the header and footer. Additionally, I added user stories with a total of 11 story points.
+For my next sprint, I added one dev task, to add templates for the header and footer. Additionally, I added user stories with a total of **11 story points**.
 
 ![Sprint 2 start](docs/agile/sprint2_start.png)
 *Start of Sprint 2*
+
+My second sprint was very successful. After getting the general setup and authorization done, it was nice to see the progress in the application. In addition to the planned user stories, I managed to add and finish two more stories and have full CRUD functionality for my categories. I also added and fixed a bug that I encountered during the sprint while testing the application on my phone. In total, I finished user stories with **16 story points** this week.
+
+![Sprint 2 end](docs/agile/sprint2_end.png)
+*End of Sprint 2*

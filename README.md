@@ -2,6 +2,9 @@
 
 PipeTracker is an inventory management application specifically designed for plumbers. The project was born out of the real-world challenges of a self-employed plumber. Built with a user-centered approach, PipeTracker manages inventory for plumbing businesses and simplifies the invoicing process for plumbers.
 
+Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
+
+
 # **Table of Contents**
 
 <!-- TOC -->
