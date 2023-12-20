@@ -40,3 +40,27 @@ class Category(models.Model):
             current_parent = current_parent.parent
 
         return parents
+
+
+class Item(models.Model):
+    """
+    Model to manage stock items
+    """
+    user = models.ForeignKey(User, related_name="created_items",
+                             on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, null=False, blank=False,
+                                 related_name="stock_items",
+                                 on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, null=False, blank=False)
+    matchcode = models.CharField(max_length=100, null=True, blank=True)
+    price = models.DecimalField(decimal_places=2, max_digits=10, null=False,
+                                blank=False)
+    quantity = models.IntegerField(null=False, blank=False)
+    size = models.CharField(max_length=100, null=True, blank=True)
+    details = models.CharField(max_length=100, null=True, blank=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return str(self.name)
