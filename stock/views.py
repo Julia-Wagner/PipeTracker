@@ -1,6 +1,6 @@
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404
-from .models import Category
+from .models import Category, Item
 from .forms import CategoryForm
 
 
@@ -74,3 +74,21 @@ class EditCategory(UpdateView):
     model = Category
     form_class = CategoryForm
     success_url = "/stock/"
+
+
+class Items(ListView):
+    """
+    List all stock items
+    """
+    template_name = "stock/items.html"
+    model = Item
+    context_object_name = "items"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # get the current category
+        category = get_object_or_404(Category, id=self.kwargs['pk'])
+        items = category.stock_items.all()
+        context['category'] = category
+        context['items'] = items
+        return context

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Stock Items{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <div class="heading-button-row">
+        <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
+            Stock Items for {{category.name}}</h1>
+<!--        <a href="{% url 'categories_add_category' %}"-->
+<!--           class="svg-button text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">-->
+<!--            <svg class="w-5 h-5 text-darkblue me-2" aria-hidden="true"-->
+<!--                 xmlns="http://www.w3.org/2000/svg" fill="currentColor"-->
+<!--                 viewBox="0 0 24 24">-->
+<!--                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>-->
+<!--            </svg>-->
+<!--            Add-->
+<!--        </a>-->
+    </div>
+    <div class="flex flex-wrap justify-center">
+        {% for item in items %}
+            {{item}}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
