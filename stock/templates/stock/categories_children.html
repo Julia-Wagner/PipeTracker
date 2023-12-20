@@ -10,7 +10,7 @@
      aria-label="Breadcrumb">
     <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-2">
         <li class="inline-flex items-center">
-            <a href="{% url 'categories' %}"
+            <a href="{% url 'stock_categories' %}"
                class="inline-flex items-center text-sm font-medium text-customblack hover:text-lightblue">
                 Categories
             </a>
@@ -25,7 +25,7 @@
                           stroke-linejoin="round" stroke-width="2"
                           d="m1 9 4-4-4-4"/>
                 </svg>
-                <a href="{% url 'categories_children' crumb.id %}"
+                <a href="{% url 'stock_categories_children' crumb.id %}"
                    class="{% if crumb.name == category.name %}font-bold{% else %}font-medium{% endif %} ml-2 inline-flex items-center text-sm text-customblack hover:text-lightblue">
                     {{ crumb.name }}
                 </a>
@@ -39,7 +39,7 @@
     <div class="heading-button-row">
         <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
             Choose a Category</h1>
-        <a href="{% url 'add_category' %}"
+        <a href="{% url 'stock_add_category' %}"
            class="svg-button text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">
             <svg class="w-5 h-5 text-darkblue me-2" aria-hidden="true"
                  xmlns="http://www.w3.org/2000/svg" fill="currentColor"

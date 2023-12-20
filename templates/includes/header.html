@@ -27,8 +27,8 @@
                            class="{% if url_name == 'dashboard' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Dashboard</a>
                     </li>
                     <li>
-                        <a href="{% url 'categories' %}" aria-current="{% if url_name == 'categories' %}page{% endif %}"
-                           class="{% if url_name == 'categories' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Stock
+                        <a href="{% url 'stock_categories' %}" aria-current="{% if 'stock' in url_name %}page{% endif %}"
+                           class="{% if 'stock' in url_name %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Stock
                             Items</a>
                     </li>
                     <li>
