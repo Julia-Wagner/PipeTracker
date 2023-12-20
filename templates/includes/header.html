@@ -20,7 +20,7 @@
                 </svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-darkblue-100 bg-darkblue-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                <ul class="font-bold flex flex-col items-center p-4 md:p-0 mt-4 border border-darkblue-100 bg-darkblue-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
                     {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'dashboard' %}" aria-current="{% if url_name == 'dashboard' %}page{% endif %}"
