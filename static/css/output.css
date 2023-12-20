@@ -1346,6 +1346,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #F9F9F9;
 }
 
+.alert.alert-danger {
+  color: #bb1515;
+  font-weight: bold;
+  border: 1px solid #bb1515;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
 /* Header styles */
 
 .active_nav {
@@ -1456,11 +1464,6 @@ nav li a {
 .hover\:text-customwhite:hover {
   --tw-text-opacity: 1;
   color: rgb(249 249 249 / var(--tw-text-opacity));
-}
-
-.hover\:text-darkblue:hover {
-  --tw-text-opacity: 1;
-  color: rgb(39 64 96 / var(--tw-text-opacity));
 }
 
 .hover\:text-lightblue:hover {

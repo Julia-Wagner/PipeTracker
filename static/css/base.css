@@ -19,6 +19,14 @@ h1, h2, h3, h4, h5, h6 {
     color: #F9F9F9;
 }
 
+.alert.alert-danger {
+    color: #bb1515;
+    font-weight: bold;
+    border: 1px solid #bb1515;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
 /* Header styles */
 .active_nav {
     color: #274060;
