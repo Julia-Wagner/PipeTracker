@@ -56,6 +56,11 @@ nav li a {
     justify-self: end;
 }
 
+#dropdown-menu {
+    grid-column-end: 3;
+    justify-self: end;
+}
+
 /* Forms */
 #id_password1_helptext {
     padding: 1rem;

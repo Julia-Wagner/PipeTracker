@@ -622,6 +622,10 @@ video {
   isolation: isolate;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -688,16 +692,8 @@ video {
   margin-inline-start: 1.25rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .block {
@@ -774,6 +770,10 @@ video {
 
 .w-3 {
   width: 0.75rem;
+}
+
+.w-44 {
+  width: 11rem;
 }
 
 .w-5 {
@@ -865,6 +865,17 @@ video {
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-divide-opacity));
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -927,6 +938,11 @@ video {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-5 {
@@ -1370,6 +1386,11 @@ nav li a {
   justify-self: end;
 }
 
+#dropdown-menu {
+  grid-column-end: 3;
+  justify-self: end;
+}
+
 /* Forms */
 
 #id_password1_helptext {
@@ -1437,6 +1458,11 @@ nav li a {
   color: rgb(249 249 249 / var(--tw-text-opacity));
 }
 
+.hover\:text-darkblue:hover {
+  --tw-text-opacity: 1;
+  color: rgb(39 64 96 / var(--tw-text-opacity));
+}
+
 .hover\:text-lightblue:hover {
   --tw-text-opacity: 1;
   color: rgb(0 178 202 / var(--tw-text-opacity));
@@ -1484,12 +1510,12 @@ nav li a {
 }
 
 @media (min-width: 640px) {
-  .sm\:mt-0 {
-    margin-top: 0px;
-  }
-
   .sm\:ms-5 {
     margin-inline-start: 1.25rem;
+  }
+
+  .sm\:mt-0 {
+    margin-top: 0px;
   }
 
   .sm\:flex-row {
@@ -1532,11 +1558,6 @@ nav li a {
 
   .md\:border-0 {
     border-width: 0px;
-  }
-
-  .md\:bg-white {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
   .md\:p-0 {
