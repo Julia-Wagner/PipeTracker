@@ -1,7 +1,7 @@
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404
 from .models import Category, Item
-from .forms import CategoryForm
+from .forms import CategoryForm, ItemForm
 
 
 class Categories(ListView):
@@ -92,3 +92,17 @@ class Items(ListView):
         context['category'] = category
         context['items'] = items
         return context
+
+
+class AddItem(CreateView):
+    """
+    Add Item view
+    """
+    template_name = "stock/add_item.html"
+    model = Item
+    form_class = ItemForm
+    success_url = "/stock/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AddItem, self).form_valid(form)

@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import (AddCategory, Categories, CategoriesChildren,
-                    DeleteCategory, EditCategory, Items)
+                    DeleteCategory, EditCategory, Items, AddItem)
 
 urlpatterns = [
     # categories
@@ -19,4 +19,6 @@ urlpatterns = [
     # stock items
     path("categories/<int:pk>/items/", login_required(Items.as_view()),
          name="stock_items"),
+    path("items/add/", login_required(AddItem.as_view()),
+         name="stock_add_item"),
 ]
