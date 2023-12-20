@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category
+from .models import Category, Item
 
 
 @admin.register(Category)
@@ -8,3 +8,11 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ["name"]
     prepopulated_fields = {"image_alt": ("name",)}
     list_filter = ("parent",)
+
+
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ("name", "category", "matchcode", "price", "quantity",
+                    "size", "details")
+    search_fields = ["name", "category", "matchcode"]
+    list_filter = ("category", "size",)
