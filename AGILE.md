@@ -52,3 +52,9 @@ My second sprint was very successful. After getting the general setup and author
 
 ![Sprint 2 end](docs/agile/sprint2_end.png)
 *End of Sprint 2*
+
+### **Sprint 3 (19.12. - 25.12.)**
+For my third sprint, I want to concentrate on CRUD functionality for stock items. I added user stories with a total of **13 story points**.
+
+![Sprint 3 start](docs/agile/sprint3_start.png)
+*Start of Sprint 3*
