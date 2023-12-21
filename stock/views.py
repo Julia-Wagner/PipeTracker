@@ -1,7 +1,9 @@
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404
+from django_tables2 import RequestConfig
 from .models import Category, Item
 from .forms import CategoryForm, ItemForm
+from .tables import ItemTable
 
 
 class Categories(ListView):
@@ -86,11 +88,18 @@ class Items(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         # get the current category
         category = get_object_or_404(Category, id=self.kwargs['pk'])
         items = category.stock_items.all()
+
+        # create and configure stock items table
+        table = ItemTable(items)
+        RequestConfig(self.request).configure(table)
+
         context['category'] = category
         context['items'] = items
+        context['table'] = table
         return context
 
 
