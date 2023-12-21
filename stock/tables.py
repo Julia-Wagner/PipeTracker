@@ -8,4 +8,5 @@ class ItemTable(tables.Table):
     """
     class Meta:
         model = Item
-        fields = ("name", "size", "matchcode", "price", "quantity")
+        template_name = "django_tables2/table.html"
+        fields = ("name", "size", "matchcode", "details", "price", "quantity")
