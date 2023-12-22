@@ -27,22 +27,22 @@ class CategoriesChildren(ListView):
     context_object_name = 'children'
 
     def get_queryset(self):
-        category = get_object_or_404(Category, id=self.kwargs['pk'])
+        category = get_object_or_404(Category, id=self.kwargs["pk"])
         return category.children.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # get the current category
-        category = get_object_or_404(Category, id=self.kwargs['pk'])
+        category = get_object_or_404(Category, id=self.kwargs["pk"])
         parents = category.get_parents()
         breadcrumbs = []
         # add all parents to breadcrumbs
         for parent in parents:
-            breadcrumbs.append({'name': parent.name, 'id': parent.id})
+            breadcrumbs.append({"name": parent.name, "id": parent.id})
         # add current category to breadcrumbs
-        breadcrumbs.append({'name': category.name, 'id': category.id})
-        context['breadcrumbs'] = breadcrumbs
-        context['category'] = category
+        breadcrumbs.append({"name": category.name, "id": category.id})
+        context["breadcrumbs"] = breadcrumbs
+        context["category"] = category
         return context
 
 
@@ -92,14 +92,24 @@ class Items(ListView):
         # get the current category
         category = get_object_or_404(Category, id=self.kwargs['pk'])
         items = category.stock_items.all()
+        fields = ("name", "size", "matchcode", "details", "price", "quantity")
 
         # create and configure stock items table
         table = ItemTable(items)
         RequestConfig(self.request).configure(table)
 
-        context['category'] = category
-        context['items'] = items
-        context['table'] = table
+        # create stock items dictionary
+        items_dic = []
+        for item in items:
+            item_dic = {}
+            for field in fields:
+                item_dic[field] = getattr(item, field)
+            items_dic.append(item_dic)
+
+        context["category"] = category
+        context["table"] = table
+        context["items_dic"] = items_dic
+
         return context
 
 
