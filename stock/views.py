@@ -1,6 +1,7 @@
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404
 from django_tables2 import RequestConfig
+from django.urls import reverse_lazy
 from .models import Category, Item
 from .forms import CategoryForm, ItemForm
 from .tables import ItemTable
@@ -90,7 +91,7 @@ class Items(ListView):
         context = super().get_context_data(**kwargs)
 
         # get the current category
-        category = get_object_or_404(Category, id=self.kwargs['pk'])
+        category = get_object_or_404(Category, id=self.kwargs["pk"])
         items = category.stock_items.all()
         fields = ("name", "size", "matchcode", "details", "price", "quantity")
 
@@ -134,4 +135,10 @@ class EditItem(UpdateView):
     template_name = "stock/edit_item.html"
     model = Item
     form_class = ItemForm
-    success_url = "/stock/"
+
+    def get_success_url(self):
+        # get the current category
+        category_id = self.object.category.id
+
+        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        return success_url
