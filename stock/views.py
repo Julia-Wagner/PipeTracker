@@ -125,3 +125,13 @@ class AddItem(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AddItem, self).form_valid(form)
+
+
+class EditItem(UpdateView):
+    """
+    Edit a Stock Item
+    """
+    template_name = "stock/edit_item.html"
+    model = Item
+    form_class = ItemForm
+    success_url = "/stock/"
