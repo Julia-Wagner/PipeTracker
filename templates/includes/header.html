@@ -42,7 +42,7 @@
                     </li>
                     <li>
                         <a href="{% url 'account_logout' %}" aria-current="{% if url_name == 'account_logout' %}page{% endif %}"
-                           class="{% if url_name == 'account_logout' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Logout ({{user.username}})</a>
+                           class="{% if url_name == 'account_logout' %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Logout ({{ user.username }})</a>
                     </li>
                     {% else %}
                     <li>

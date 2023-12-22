@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}Edit Category {{object.name}}{% endblock %}
+{% block title %}Edit Category {{ object.name }}{% endblock %}
 
 {% block content %}
 
 <div class="text-center">
     <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-        Edit Category "{{object.name}}"</h1>
+        Edit Category "{{ object.name }}"</h1>
 
     <form method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto">
         {% csrf_token %}

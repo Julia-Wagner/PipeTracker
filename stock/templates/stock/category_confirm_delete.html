@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}Delete Category {{object.name}}{% endblock %}
+{% block title %}Delete Category {{ object.name }}{% endblock %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
     <form method="POST" class="max-w-screen-xl mx-auto">
         {% csrf_token %}
         <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">Are you
-            sure you want to delete the category "{{object.name}}"?</p>
+            sure you want to delete the category "{{ object.name }}"?</p>
         <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">All subcategories and stock items for this category will be deleted too.</p>
         <button type="submit"
                 class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">
