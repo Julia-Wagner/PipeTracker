@@ -142,3 +142,17 @@ class EditItem(UpdateView):
 
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
         return success_url
+
+
+class DeleteItem(DeleteView):
+    """
+    Delete a Stock Item
+    """
+    model = Item
+
+    def get_success_url(self):
+        # get the current category
+        category_id = self.object.category.id
+
+        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        return success_url

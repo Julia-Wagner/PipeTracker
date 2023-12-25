@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Delete Stock Item {{ object.name }}{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
+        Confirm Deletion</h1>
+
+    <form method="POST" class="max-w-screen-xl mx-auto">
+        {% csrf_token %}
+        <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">Are you
+            sure you want to delete the stock item "{{ object.name }}"?</p>
+        <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">The
+            item will also be deleted from open delivery notes.</p>
+        <button type="submit"
+                class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">
+            Confirm
+        </button>
+    </form>
+    <a class="font-bold block w-fit m-auto text-darkblue bg-customwhite border border-darkblue hover:bg-lightblue hover:text-customblack hover:border-lightblue focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none"
+       href="{% url 'stock_edit_item' object.id %}">Back to Stock Item</a>
+</div>
+
+{% endblock %}

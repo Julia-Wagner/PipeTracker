@@ -8,6 +8,7 @@ module.exports = {
         darkblue: "#274060",
         customwhite: "#F9F9F9",
         customblack: "#041020",
+        danger: "#bb1515",
       },
     },
   },
