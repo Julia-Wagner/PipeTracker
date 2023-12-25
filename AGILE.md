@@ -58,3 +58,9 @@ For my third sprint, I want to concentrate on CRUD functionality for stock items
 
 ![Sprint 3 start](docs/agile/sprint3_start.png)
 *Start of Sprint 3*
+
+Because this sprint ended with the holidays, I tried to stick to thinking about the MVP and focused on getting the full CRUD for stock items. I managed to achieve this and finished all my user stories for this sprint.
+
+![Sprint 3 end](docs/agile/sprint3_end.png)
+*End of Sprint 3*
+
