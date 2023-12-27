@@ -64,3 +64,8 @@ Because this sprint ended with the holidays, I tried to stick to thinking about 
 ![Sprint 3 end](docs/agile/sprint3_end.png)
 *End of Sprint 3*
 
+### **Sprint 4 (26.12. - 01.01.)**
+I decided to look at delivery notes for my next sprint. I added two *must have* and one *should have* user stories with a **total of 13 story points**.
+
+![Sprint 4 start](docs/agile/sprint4_start.png)
+*Start of Sprint 4*
