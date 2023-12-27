@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     # Apps
     'home',
     'stock',
+    'delivery',
 ]
 
 # allauth
