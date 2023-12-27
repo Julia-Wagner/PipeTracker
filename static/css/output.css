@@ -918,6 +918,11 @@ video {
   border-bottom-width: 1px;
 }
 
+.border-danger {
+  --tw-border-opacity: 1;
+  border-color: rgb(187 21 21 / var(--tw-border-opacity));
+}
+
 .border-darkblue {
   --tw-border-opacity: 1;
   border-color: rgb(39 64 96 / var(--tw-border-opacity));
@@ -926,11 +931,6 @@ video {
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-
-.border-danger {
-  --tw-border-opacity: 1;
-  border-color: rgb(187 21 21 / var(--tw-border-opacity));
 }
 
 .border-b-customwhite {
@@ -943,6 +943,11 @@ video {
   background-color: rgb(249 249 249 / var(--tw-bg-opacity));
 }
 
+.bg-danger {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 21 21 / var(--tw-bg-opacity));
+}
+
 .bg-darkblue {
   --tw-bg-opacity: 1;
   background-color: rgb(39 64 96 / var(--tw-bg-opacity));
@@ -951,11 +956,6 @@ video {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
-
-.bg-danger {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 21 21 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -1533,14 +1533,14 @@ nav li a {
   color: rgb(249 249 249 / var(--tw-text-opacity));
 }
 
-.hover\:text-lightblue:hover {
-  --tw-text-opacity: 1;
-  color: rgb(0 178 202 / var(--tw-text-opacity));
-}
-
 .hover\:text-danger:hover {
   --tw-text-opacity: 1;
   color: rgb(187 21 21 / var(--tw-text-opacity));
+}
+
+.hover\:text-lightblue:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 178 202 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
