@@ -32,8 +32,8 @@
                             Items</a>
                     </li>
                     <li>
-                        <a href="#"
-                           class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Delivery
+                        <a href="{% url 'delivery_notes' %}" aria-current="{% if 'delivery' in url_name %}page{% endif %}"
+                           class="{% if 'delivery' in url_name %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Delivery
                             Notes</a>
                     </li>
                     <li>
