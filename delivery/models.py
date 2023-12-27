@@ -16,7 +16,7 @@ class Customer(models.Model):
         ordering = ["number"]
 
     def __str__(self):
-        return str(self.number)
+        return f"{self.first_name} {self.last_name} ({self.number})"
 
 
 class Note(models.Model):
@@ -37,4 +37,5 @@ class Note(models.Model):
         ordering = ["-date"]
 
     def __str__(self):
-        return str(self.title)
+        customer_str = f"{self.customer.first_name} {self.customer.last_name}"
+        return f"{self.title} ({customer_str})"
