@@ -1,6 +1,7 @@
 import django_tables2 as tables
 from django.utils.html import format_html
 from django.utils.timezone import localtime
+from django_tables2.utils import A
 from .models import Note
 
 
@@ -19,6 +20,8 @@ class NoteTable(tables.Table):
     """
     date = DateColumn(verbose_name="created at")
     user = tables.Column(verbose_name="created by")
+    edit = tables.LinkColumn("delivery_edit_note", args=[A("pk")],
+                             text="Edit", orderable=False)
 
     class Meta:
         model = Note

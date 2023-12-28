@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView
 from django_tables2 import RequestConfig
 from .models import Note
 from .forms import NoteForm
@@ -49,3 +49,13 @@ class AddNote(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AddNote, self).form_valid(form)
+
+
+class EditNote(UpdateView):
+    """
+    Edit a Stock Item
+    """
+    template_name = "delivery/edit_note.html"
+    model = Note
+    form_class = NoteForm
+    success_url = "/delivery/"
