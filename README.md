@@ -32,6 +32,9 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
     * [**Colors and Fonts**](#colors-and-fonts)
     * [**Logo**](#logo)
 * [**Features**](#features)
+  * [**Landing Page**](#landing-page)
+  * [**Authentication**](#authentication)
+  * [**Messages**](#messages)
 * [**Agile Process**](#agile-process)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
@@ -41,6 +44,9 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
   * [**File Changes**](#file-changes)
   * [**Heroku Setup**](#heroku-setup)
   * [**Final Changes**](#final-changes)
+* [**Technologies, Libraries and Frameworks**](#technologies-libraries-and-frameworks)
+  * [**Tailwind**](#tailwind)
+  * [**Packages**](#packages)
 * [**Credits**](#credits)
   * [**Content**](#content)
   * [**Media and Design**](#media-and-design)
@@ -389,6 +395,13 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 
 - I used the [Tailwind CSS documentation](https://tailwindcss.com/docs/installation) to learn about the basics and installing it.
 - [Flowbite](https://flowbite.com/docs/getting-started/introduction/) was a great resource to get inspiration on how to use Tailwind classes. I copied and adapted some components of my page, like the navbar with the mobile menu from this open-source library.
+
+## **Packages**
+- [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html) - an app for creating HTML tables.
+- [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX.
+- [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter.
+- [Pillow](https://pypi.org/project/Pillow/) - Python Imaging Library used for *ImageField*.
+- [whitenoise](https://pypi.org/project/whitenoise/) - static file serving for Python web apps.
 
 # **Credits**
 
