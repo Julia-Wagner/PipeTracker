@@ -382,11 +382,20 @@ You can use a database of your choice, following are the instructions if you use
    - Go to the *Deploy tab* and connect your GitHub repository
    - Click on *Deploy Branch* at the bottom of the page
 
+# **Technologies, Libraries and Frameworks**
+
+## **Tailwind**
+I decided to use Tailwind for this project. I already knew Bootstrap from previous experience, but did not know anything about Tailwind. So I decided to use this project as an opportunity to get to know it. After some initial installation troubles I really began to like it and its utility-first approach.
+
+- I used the [Tailwind CSS documentation](https://tailwindcss.com/docs/installation) to learn about the basics and installing it.
+- [Flowbite](https://flowbite.com/docs/getting-started/introduction/) was a great resource to get inspiration on how to use Tailwind classes. I copied and adapted some components of my page, like the navbar with the mobile menu from this open-source library.
+
 # **Credits**
 
 ## **Content**
 
 - I used the walkthrough projects from Code Institute and the [Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) as a general reference for the project.
+- For the planning stage, I used this article about [Guide for sprint planning with GitHub issues](https://codetree.com/guides/sprint-planning-github-issues).
 
 ## **Media and Design**
 
