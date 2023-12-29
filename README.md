@@ -31,10 +31,16 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
     * [**Design**](#design)
     * [**Colors and Fonts**](#colors-and-fonts)
     * [**Logo**](#logo)
+* [**Features**](#features)
 * [**Agile Process**](#agile-process)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
   * [**Project Setup**](#project-setup)
+  * [**Database Setup**](#database-setup)
+  * [**Cloudinary Setup**](#cloudinary-setup)
+  * [**File Changes**](#file-changes)
+  * [**Heroku Setup**](#heroku-setup)
+  * [**Final Changes**](#final-changes)
 * [**Credits**](#credits)
   * [**Content**](#content)
   * [**Media and Design**](#media-and-design)
@@ -221,6 +227,14 @@ I will use the same fonts for this project as I used on the website. **Roboto** 
 I also used the existing logo to create a new logo for **PipeTracker**.
 
 ![Logo](docs/screenshots/logo.png)
+
+# **Features**
+
+## **Landing Page**
+Because of the nature of my application, it does not make much sense to have features available to logged-out users. So I created a landing page with a brief explanation of what the application is about and a link to register or login.
+
+![landing page](docs/screenshots/logged_out.png)
+
 
 # **Agile Process**
 
