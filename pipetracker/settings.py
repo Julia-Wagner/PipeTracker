@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url
+from django.contrib.messages import  constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,6 +80,14 @@ ACCOUNT_USERNAME_MIN_LENGTH = 5
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"
+
+MESSAGE_TAGS = {
+    messages.DEBUG: "border-darkblue text-darkblue",
+    messages.INFO: "border-darkblue text-darkblue",
+    messages.SUCCESS: "border-success text-success",
+    messages.WARNING: "border-warning text-warning",
+    messages.ERROR: "border-danger text-danger",
+}
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'

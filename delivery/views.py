@@ -1,6 +1,7 @@
 from django.views.generic import CreateView, ListView, UpdateView
 from django_tables2 import RequestConfig
 from django.shortcuts import redirect
+from django.contrib import messages
 from .models import Note
 from .forms import NoteForm
 from .tables import NoteTable
@@ -66,6 +67,8 @@ class EditNote(UpdateView):
         note = self.get_object()
 
         if note.status == "closed":
+            (messages.error
+             (request, "Closed delivery notes can not be edited."))
             return redirect("/delivery/")
 
         # call parent dispatch method
