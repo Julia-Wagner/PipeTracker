@@ -402,6 +402,9 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 - [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter.
 - [Pillow](https://pypi.org/project/Pillow/) - Python Imaging Library used for *ImageField*.
 - [whitenoise](https://pypi.org/project/whitenoise/) - static file serving for Python web apps.
+- [django-allauth](https://docs.allauth.org/en/latest/) - authentication, registration, account management.
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - control the rendering behaviour of Django forms.
+- [cloudinary](https://pypi.org/project/cloudinary/) -  integrate the application with Cloudinary.
 
 # **Credits**
 
