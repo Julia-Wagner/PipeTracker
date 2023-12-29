@@ -253,6 +253,17 @@ After successfully logging in, the user is redirected to the Dashboard and a suc
 ![Logout](docs/screenshots/logout.png)
 *Screenshot of the Logout page*
 
+## **Messages**
+Success and error messages are shown to the user for example after logging in or out, after adding, updating or deleting an element or if a user tries to edit a closed delivery note.
+
+![Success message](docs/screenshots/success_message.png)
+*Success message after creating a category*
+
+![Error message](docs/screenshots/error_message.png)
+*Error message after trying to edit a closed delivery note*
+
+The messages can be closed using the icon, after 4 seconds they are closed automatically.
+
 # **Agile Process**
 
 I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) to plan and document my work. The details of my agile approach can be found in the separate [AGILE.md file](AGILE.md).
