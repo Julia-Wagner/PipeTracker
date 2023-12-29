@@ -227,14 +227,31 @@ I will use the same fonts for this project as I used on the website. **Roboto** 
 I also used the existing logo to create a new logo for **PipeTracker**.
 
 ![Logo](docs/screenshots/logo.png)
+*PipeTracker Logo*
 
 # **Features**
 
 ## **Landing Page**
 Because of the nature of my application, it does not make much sense to have features available to logged-out users. So I created a landing page with a brief explanation of what the application is about and a link to register or login.
 
-![landing page](docs/screenshots/logged_out.png)
+![Landing Page](docs/screenshots/logged_out.png)
+*Screenshot of the landing page*
 
+## **Authentication**
+The **AllAuth** and **Crispy Forms** packages are used for authentication. I added custom CSS using Tailwind classes to adapt the forms to my design.
+
+To create an account, users are required to add their email, username and password. Password requirements are shown and in the case of invalid input, the user gets clear feedback.
+
+![Sign Up](docs/screenshots/register.png)
+*Screenshot of the Sign Up page*
+
+![Login](docs/screenshots/login.png)
+*Screenshot of the Login page*
+
+After successfully logging in, the user is redirected to the Dashboard and a success message is showing. The available pages and a logout link with the username of the currently logged-in user are shown in the header.
+
+![Logout](docs/screenshots/logout.png)
+*Screenshot of the Logout page*
 
 # **Agile Process**
 
@@ -248,7 +265,7 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
 
 The first step is to create a new repository, using the [Code Institute Template](https://github.com/Code-Institute-Org/ci-full-template). After creating the repository, you can open it in the IDE of your choice.
 
-If you choose to work a local IDE, it is important to create a **virtual environment** before continuing. I am using PyCharm, where the local environment can be conveniently set up by adding a new interpreter. Another way is by typing `python -m venv .venv` in the terminal.
+If you choose to work in a local IDE, it is important to create a **virtual environment** before continuing. I am using PyCharm, where the local environment can be conveniently set up by adding a new interpreter. Another way is by typing `python -m venv .venv` in the terminal.
 
 ## **Project Setup**
 
