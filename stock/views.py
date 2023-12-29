@@ -2,6 +2,7 @@ from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404
 from django_tables2 import RequestConfig
 from django.urls import reverse_lazy
+from django.contrib import messages
 from .models import Category, Item
 from .forms import CategoryForm, ItemForm
 from .tables import ItemTable
@@ -58,7 +59,11 @@ class AddCategory(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(AddCategory, self).form_valid(form)
+        response = super(AddCategory, self).form_valid(form)
+        # add success message
+        messages.success(self.request,
+                         "Category created successfully.")
+        return response
 
 
 class DeleteCategory(DeleteView):
@@ -67,6 +72,12 @@ class DeleteCategory(DeleteView):
     """
     model = Category
     success_url = "/stock/"
+
+    # add success message
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Category deleted.")
+        return response
 
 
 class EditCategory(UpdateView):
@@ -77,6 +88,12 @@ class EditCategory(UpdateView):
     model = Category
     form_class = CategoryForm
     success_url = "/stock/"
+
+    # add success message
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Changes saved.")
+        return response
 
 
 class Items(ListView):
@@ -125,7 +142,11 @@ class AddItem(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(AddItem, self).form_valid(form)
+        response = super(AddItem, self).form_valid(form)
+        # add success message
+        messages.success(self.request,
+                         "Stock Item created successfully.")
+        return response
 
 
 class EditItem(UpdateView):
@@ -143,6 +164,12 @@ class EditItem(UpdateView):
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
         return success_url
 
+    # add success message
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Changes saved.")
+        return response
+
 
 class DeleteItem(DeleteView):
     """
@@ -156,3 +183,9 @@ class DeleteItem(DeleteView):
 
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
         return success_url
+
+    # add success message
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Stock Item deleted.")
+        return response

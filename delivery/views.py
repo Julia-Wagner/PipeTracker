@@ -50,7 +50,11 @@ class AddNote(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(AddNote, self).form_valid(form)
+        response = super(AddNote, self).form_valid(form)
+        # add success message
+        messages.success(self.request,
+                         "Delivery note created successfully.")
+        return response
 
 
 class EditNote(UpdateView):
@@ -73,3 +77,9 @@ class EditNote(UpdateView):
 
         # call parent dispatch method
         return super().dispatch(request, *args, **kwargs)
+
+    # add success message
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Changes saved.")
+        return response
