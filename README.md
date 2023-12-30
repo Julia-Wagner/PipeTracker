@@ -44,6 +44,7 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
   * [**File Changes**](#file-changes)
   * [**Heroku Setup**](#heroku-setup)
   * [**Final Changes**](#final-changes)
+  * [**Forking**](#forking)
 * [**Technologies, Libraries and Frameworks**](#technologies-libraries-and-frameworks)
   * [**Tailwind**](#tailwind)
   * [**Packages**](#packages)
@@ -158,42 +159,42 @@ From the features defined above I was able to create epics and break these down 
 I created wireframes for desktop, tablet and mobile for each of the main parts of the application.
 
 <details>
-    <summary><strong>Landing Page</strong></summary>  
+    <summary><strong>Landing Page</strong></summary>
     <img src="docs/wireframes/landing_page.png">
 </details>
 
 <details>
-    <summary><strong>Dashboard</strong></summary>  
+    <summary><strong>Dashboard</strong></summary>
     <img src="docs/wireframes/dashboard.png">
 </details>
 
 <details>
-    <summary><strong>Categories</strong></summary>  
+    <summary><strong>Categories</strong></summary>
     <img src="docs/wireframes/categories.png">
 </details>
 
 <details open>
-    <summary><strong>Stock Items</strong></summary>  
+    <summary><strong>Stock Items</strong></summary>
     <img src="docs/wireframes/stock_items.png">
 </details>
 
 <details>
-    <summary><strong>Cart</strong></summary>  
+    <summary><strong>Cart</strong></summary>
     <img src="docs/wireframes/cart.png">
 </details>
 
 <details>
-    <summary><strong>Delivery notes</strong></summary>  
+    <summary><strong>Delivery notes</strong></summary>
     <img src="docs/wireframes/delivery_notes.png">
 </details>
 
 <details>
-    <summary><strong>Add delivery note</strong></summary>  
+    <summary><strong>Add delivery note</strong></summary>
     <img src="docs/wireframes/add_delivery_note.png">
 </details>
 
 <details>
-    <summary><strong>Detail delivery note</strong></summary>  
+    <summary><strong>Detail delivery note</strong></summary>
     <img src="docs/wireframes/detail_delivery_note.png">
 </details>
 
