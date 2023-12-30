@@ -388,6 +388,13 @@ You can use a database of your choice, following are the instructions if you use
    - Go to the *Deploy tab* and connect your GitHub repository
    - Click on *Deploy Branch* at the bottom of the page
 
+## **Forking**
+By forking, a copy of the project can be made in GitHub. The steps to fork this repository are:
+1. Log in to your GitHub account and navigate to [the PipeTracker repository](https://github.com/Julia-Wagner/PipeTracker).
+2. Click the **Fork** button on the top right of the repository.
+3. You can now open the forked copy of this project as your own repository.
+4. Follow the above steps to work on the project.
+
 # **Technologies, Libraries and Frameworks**
 
 ## **Tailwind**
@@ -411,7 +418,7 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 ## **Content**
 
 - I used the walkthrough projects from Code Institute and the [Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) as a general reference for the project.
-- For the planning stage, I used this article about [Guide for sprint planning with GitHub issues](https://codetree.com/guides/sprint-planning-github-issues).
+- For the planning stage, I used this article about [sprint planning with GitHub issues](https://codetree.com/guides/sprint-planning-github-issues).
 
 ## **Media and Design**
 
