@@ -2,8 +2,8 @@ from django.views.generic import CreateView, ListView, UpdateView
 from django_tables2 import RequestConfig
 from django.shortcuts import redirect
 from django.contrib import messages
-from .models import Note
-from .forms import NoteForm
+from .models import Note, Customer
+from .forms import NoteForm, CustomerForm
 from .tables import NoteTable
 
 
@@ -37,6 +37,24 @@ class DeliveryNotes(ListView):
         context["notes_dic"] = notes_dic
 
         return context
+
+
+class AddCustomer(CreateView):
+    """
+    Add customers view
+    """
+    template_name = "delivery/add_customer.html"
+    model = Customer
+    form_class = CustomerForm
+    success_url = "/delivery/add/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        response = super(AddCustomer, self).form_valid(form)
+        # add success message
+        messages.success(self.request,
+                         "Customer created successfully.")
+        return response
 
 
 class AddNote(CreateView):
