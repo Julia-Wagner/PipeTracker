@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django_tables2 import RequestConfig
 from django.shortcuts import redirect
 from django.contrib import messages
@@ -100,4 +100,30 @@ class EditNote(UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, "Changes saved.")
+        return response
+
+
+class DeleteNote(DeleteView):
+    """
+    Delete a delivery note
+    """
+    model = Note
+    success_url = "/delivery/"
+
+    # don´t allow deleting for closed notes
+    def dispatch(self, request, *args, **kwargs):
+        note = self.get_object()
+
+        if note.status == "closed":
+            (messages.error
+             (request, "Closed delivery notes can not be deleted."))
+            return redirect("/delivery/")
+
+        # call parent dispatch method
+        return super().dispatch(request, *args, **kwargs)
+
+    # add success message
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Delivery note deleted.")
         return response
