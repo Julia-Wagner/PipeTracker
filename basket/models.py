@@ -19,9 +19,13 @@ class Basket(models.Model):
 
 
 class BasketItem(models.Model):
-    basket = models.ForeignKey(Basket, on_delete=models.CASCADE)
+    """
+    Model to manage basket items
+    """
+    basket = models.ForeignKey(Basket, related_name='basket_items',
+                               on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    quantity = models.IntegerField(null=True, blank=True)
+    quantity = models.IntegerField(null=False, blank=False)
 
     def __str__(self):
-        return f"{self.item} ({self.quantity})"
+        return f"{self.basket} - {self.item} ({self.quantity})"

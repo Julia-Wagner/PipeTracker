@@ -7,7 +7,7 @@ class BasketAdmin(admin.ModelAdmin):
     list_display = ("user", "get_items_display", "date")
 
     def get_items_display(self, obj):
-        return ", ".join([str(item) for item in obj.item.all()])
+        return ", ".join([str(item) for item in obj.items.all()])
 
     get_items_display.short_description = "Items"
 
