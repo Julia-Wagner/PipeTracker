@@ -64,8 +64,19 @@ Because this sprint ended with the holidays, I tried to stick to thinking about 
 ![Sprint 3 end](docs/agile/sprint3_end.png)
 *End of Sprint 3*
 
-### **Sprint 4 (26.12. - 01.01.)**
+### **Sprint 4 (26.12. - 01.01.2024)**
 I decided to look at delivery notes for my next sprint. I added two *must have* and one *should have* user stories with a **total of 13 story points**.
 
 ![Sprint 4 start](docs/agile/sprint4_start.png)
 *Start of Sprint 4*
+
+I finished all planned user stories and added one more from the backlog to complete full CRUD for delivery notes.
+
+![Sprint 4 end](docs/agile/sprint4_end.png)
+*End of Sprint 4*
+
+### **Sprint 5 (02.01. - 08.01.)**
+The goal for sprint number 5 is to finish all user stories necessary for the MVP. I added user stories with a total of **15 story points**.
+
+![Sprint 5 start](docs/agile/sprint5_start.png)
+*Start of Sprint 5*
