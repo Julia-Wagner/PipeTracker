@@ -31,7 +31,7 @@ class Note(models.Model):
     status = models.CharField(max_length=100,
                               choices=[("open", "Open"), ("closed", "Closed")],
                               default="open")
-    date = models.DateTimeField(auto_now=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-date"]
