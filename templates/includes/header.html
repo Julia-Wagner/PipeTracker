@@ -37,8 +37,8 @@
                             Notes</a>
                     </li>
                     <li>
-                        <a href="#"
-                           class="block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Cart</a>
+                        <a href="{% url 'basket_items' %}" aria-current="{% if 'basket' in url_name %}page{% endif %}"
+                           class="{% if 'basket' in url_name %}active_nav{% endif %} block py-2 px-3 text-customblack hover:bg-customwhite md:hover:bg-transparent md:border-0 md:hover:text-lightblue md:p-0">Basket</a>
                     </li>
                     <li>
                         <a href="{% url 'account_logout' %}" aria-current="{% if url_name == 'account_logout' %}page{% endif %}"
