@@ -232,8 +232,14 @@ class ItemToBasket(View):
             basket_item.save()
         # create new item
         else:
-            BasketItem.objects.create(basket=basket, item=item, quantity=quantity)
+            BasketItem.objects.create(basket=basket, item=item,
+                                      quantity=quantity),
 
-        messages.success(request, f"{item} ({quantity}) added to your basket.")
+        # reduce stock item quantity
+        item.quantity -= quantity
+        item.save()
+
+        messages.success(request,
+                         f"{item} ({quantity}) added to your basket.")
 
         return HttpResponseRedirect(redirect_url)
