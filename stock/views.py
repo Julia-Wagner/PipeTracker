@@ -1,8 +1,11 @@
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views import View
 from django.shortcuts import get_object_or_404
 from django_tables2 import RequestConfig
 from django.urls import reverse_lazy
 from django.contrib import messages
+
+from basket.models import BasketItem, Basket
 from .models import Category, Item
 from .forms import CategoryForm, ItemForm
 from .tables import ItemTable
@@ -189,3 +192,36 @@ class DeleteItem(DeleteView):
         response = super().form_valid(form)
         messages.success(self.request, "Stock Item deleted.")
         return response
+
+
+class ItemToBasket(View):
+    """
+    Add Item to basket view
+    """
+
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        item_id = self.kwargs.get("pk")
+        item = get_object_or_404(Item, id=item_id)
+
+        # get or create users basket
+        basket, created = Basket.objects.get_or_create(user=user)
+
+        # check if item is already in basket
+        exists = BasketItem.objects.filter(basket=basket, item=item).exists()
+
+        # update item if already in basket
+        if exists:
+            basket_item = BasketItem.objects.get(basket=basket, item=item)
+            basket_item.quantity += 1
+            basket_item.save()
+        # create new item
+        else:
+            BasketItem.objects.create(basket=basket, item=item, quantity=1)
+
+        messages.success(request, f"{item} added to your basket.")
+
+        # get the success url
+        category_id = item.category.id
+        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        return success_url
