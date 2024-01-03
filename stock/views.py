@@ -202,6 +202,9 @@ class ItemToBasket(View):
 
     def get(self, request, *args, **kwargs):
         user = self.request.user
+        # https://stackoverflow.com/questions/150505/how-to-get-get-request-values-in-django
+        quantity_param = request.GET.get("quantity", "1")
+        quantity = int(quantity_param)
         item_id = self.kwargs.get("pk")
         item = get_object_or_404(Item, id=item_id)
 
@@ -214,13 +217,13 @@ class ItemToBasket(View):
         # update item if already in basket
         if exists:
             basket_item = BasketItem.objects.get(basket=basket, item=item)
-            basket_item.quantity += 1
+            basket_item.quantity += quantity
             basket_item.save()
         # create new item
         else:
-            BasketItem.objects.create(basket=basket, item=item, quantity=1)
+            BasketItem.objects.create(basket=basket, item=item, quantity=quantity)
 
-        messages.success(request, f"{item} added to your basket.")
+        messages.success(request, f"{item} ({quantity}) added to your basket.")
 
         # get the success url
         category_id = item.category.id

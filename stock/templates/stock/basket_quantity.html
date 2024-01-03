@@ -1,0 +1,16 @@
+{% load static %}
+
+<input type="number" id="quantity_{{ record.id }}" value="1" min="1" max="{{ record.quantity }}"
+       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 inline-block mr-2 w-14 p-2.5">
+<a href="#" id="add_to_basket_{{ record.id }}" class="font-bold text-darkblue hover:text-lightblue">
+    Add
+</a>
+
+<script>
+    document.getElementById("add_to_basket_{{ record.id }}").addEventListener("click", function(event) {
+        event.preventDefault();
+        let quantity = document.getElementById("quantity_{{ record.id }}").value;
+        let url = "{% url 'stock_to_basket' record.id %}?quantity=" + quantity;
+        window.location.href = url;
+    });
+</script>

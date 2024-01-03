@@ -13,11 +13,14 @@ class ItemTable(tables.Table):
     #                          verbose_name="action",
     #                          attrs={"a": {"class": "font-bold text-darkblue "
     #                                                "hover:text-lightblue"}})
-    basket = tables.LinkColumn("stock_to_basket", args=[A("pk")],
-                               text="Add to basket", orderable=False,
-                               verbose_name="action",
-                               attrs={"a": {"class": "font-bold text-darkblue "
-                                                     "hover:text-lightblue"}})
+    # basket = tables.LinkColumn("stock_to_basket", args=[A("pk")],
+    #                            text="Add to basket", orderable=False,
+    #                            verbose_name="action",
+    #                            attrs={"a": {"class": "font-bold text-darkblue "
+    #                                                  "hover:text-lightblue"}})
+    basket = tables.TemplateColumn(template_name="stock/basket_quantity.html",
+                                   orderable=False,
+                                   verbose_name="Add to basket")
 
     class Meta:
         model = Item
