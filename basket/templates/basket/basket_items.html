@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %}Your Basket{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <div class="mb-5 heading-button-row">
+        <h1 class="mt-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
+            Your Basket</h1>
+    </div>
+    <div class="flex flex-wrap justify-center">
+        <!-- table for bigger screens -->
+        <div class="hidden md:flex flex-wrap justify-center">
+            {% render_table table %}
+        </div>
+        <!-- cards for smaller screens -->
+        <div class="block md:hidden">
+            {% for item_dic in items_dic %}
+            <div class="grid mb-5 mobile-card shadow-md border border-darkblue">
+                {% for field, item in item_dic.items %}
+                <div class="text-customwhite bg-darkblue uppercase font-bold p-3 border-b border-b-customwhite">
+                    {{ field }}
+                </div>
+                <div class="bg-customwhite text-customblack p-3 border border-darkblue break-words">
+                    {{ item }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
