@@ -204,9 +204,20 @@ class ItemToBasket(View):
         user = self.request.user
         # https://stackoverflow.com/questions/150505/how-to-get-get-request-values-in-django
         quantity_param = request.GET.get("quantity", "1")
-        quantity = int(quantity_param)
+        # convert to float and then int to ensure correct value
+        quantity = int(float(quantity_param))
         item_id = self.kwargs.get("pk")
         item = get_object_or_404(Item, id=item_id)
+
+        # get the redirect url
+        category_id = item.category.id
+        redirect_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+
+        # check if quantity is available
+        if quantity > item.quantity:
+            messages.error(request,
+                           f"{item}: only {item.quantity} available.")
+            return HttpResponseRedirect(redirect_url)
 
         # get or create users basket
         basket, created = Basket.objects.get_or_create(user=user)
@@ -225,7 +236,4 @@ class ItemToBasket(View):
 
         messages.success(request, f"{item} ({quantity}) added to your basket.")
 
-        # get the success url
-        category_id = item.category.id
-        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
-        return HttpResponseRedirect(success_url)
+        return HttpResponseRedirect(redirect_url)
