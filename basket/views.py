@@ -54,8 +54,13 @@ class BasketItemDecrease(View):
         basket_item = get_object_or_404(BasketItem, id=basket_item_id)
         stock_item = basket_item.item
 
+        # decrease basket item quantity
         basket_item.quantity -= 1
         basket_item.save()
+
+        # increase stock item quantity
+        stock_item.quantity += 1
+        stock_item.save()
 
         messages.success(request,
                          f"{stock_item} quantity changed.")
@@ -72,10 +77,19 @@ class BasketItemIncrease(View):
         basket_item = get_object_or_404(BasketItem, id=basket_item_id)
         stock_item = basket_item.item
 
-        basket_item.quantity += 1
-        basket_item.save()
+        if stock_item.quantity >= 1:
+            # increase basket item quantity
+            basket_item.quantity += 1
+            basket_item.save()
 
-        messages.success(request,
-                         f"{stock_item} quantity changed.")
+            # decrease stock item quantity
+            stock_item.quantity -= 1
+            stock_item.save()
+
+            messages.success(request,
+                             f"{stock_item} quantity changed.")
+        else:
+            messages.error(request,
+                           f"No more {stock_item} available.")
 
         return redirect("/basket/")
