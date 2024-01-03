@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.views import View
 from django.shortcuts import get_object_or_404
@@ -224,4 +225,4 @@ class ItemToBasket(View):
         # get the success url
         category_id = item.category.id
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
-        return success_url
+        return HttpResponseRedirect(success_url)
