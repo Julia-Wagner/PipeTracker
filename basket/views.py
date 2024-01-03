@@ -1,5 +1,9 @@
+from django.shortcuts import get_object_or_404, redirect
+from django.views import View
 from django.views.generic import ListView
 from django_tables2 import RequestConfig
+from django.contrib import messages
+
 from .models import Basket, BasketItem
 from .tables import BasketTable
 
@@ -40,3 +44,38 @@ class BasketItems(ListView):
 
         return context
 
+
+class BasketItemDecrease(View):
+    """
+    Decrease the quantity of the basket item
+    """
+    def get(self, request, *args, **kwargs):
+        basket_item_id = self.kwargs.get("pk")
+        basket_item = get_object_or_404(BasketItem, id=basket_item_id)
+        stock_item = basket_item.item
+
+        basket_item.quantity -= 1
+        basket_item.save()
+
+        messages.success(request,
+                         f"{stock_item} quantity changed.")
+
+        return redirect("/basket/")
+
+
+class BasketItemIncrease(View):
+    """
+    Increase the quantity of the basket item
+    """
+    def get(self, request, *args, **kwargs):
+        basket_item_id = self.kwargs.get("pk")
+        basket_item = get_object_or_404(BasketItem, id=basket_item_id)
+        stock_item = basket_item.item
+
+        basket_item.quantity += 1
+        basket_item.save()
+
+        messages.success(request,
+                         f"{stock_item} quantity changed.")
+
+        return redirect("/basket/")
