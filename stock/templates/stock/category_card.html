@@ -1,4 +1,4 @@
-<div class="m-4">
+<section class="m-4">
     <a href="{% if category.children.all %}{% url 'stock_categories_children' category.id %}{% else %}{% url 'stock_items' category.id %}{% endif %}"
        aria-label="Click to view stock items for {{ category.name }}">
         <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
@@ -28,4 +28,4 @@
             Delete {{ category.name }}
         </a>
     </div>
-</div>
+</section>
