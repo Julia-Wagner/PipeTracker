@@ -39,3 +39,8 @@ class Note(models.Model):
     def __str__(self):
         customer_str = f"{self.customer.first_name} {self.customer.last_name}"
         return f"{self.title} ({customer_str})"
+
+    def basket_text(self):
+        date = self.date.strftime('%d.%m.%Y')
+        return (f"{self.title} for {self.customer.first_name} "
+                f"{self.customer.last_name} ({date})")

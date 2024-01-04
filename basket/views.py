@@ -6,6 +6,7 @@ from django.contrib import messages
 
 from .models import Basket, BasketItem
 from .tables import BasketTable
+from delivery.models import Note
 
 
 class BasketItems(ListView):
@@ -38,6 +39,10 @@ class BasketItems(ListView):
                 item_dic[column.verbose_name] = cell
             items_dic.append(item_dic)
 
+        # get available delivery notes
+        notes = Note.objects.filter(status="open").all()
+
+        context["notes"] = notes
         context["table"] = table
         context["items_dic"] = items_dic
         context["basket_items"] = basket_items
