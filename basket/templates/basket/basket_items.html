@@ -2,7 +2,8 @@
 {% load render_table from django_tables2 %}
 
 {% block extra_css %}
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet">
 {% endblock %}
 
 {% block title %}Your Basket{% endblock %}
@@ -38,12 +39,14 @@
     <div class="mt-12 md:flex md:justify-end">
         <form class="grid md:grid-cols-[1fr_2fr_1fr] md:justify-items-start items-center gap-4">
             <label for="note-search"
-                   class="mr-2 font-bold text-darkblue">Add to delivery note:</label>
+                   class="mr-2 font-bold text-darkblue">Add to delivery
+                note:</label>
             <select id="note-search" class="select2" required>
-                    {% for note in notes %}
-                    <option value="{{ note.id }}">{{ note.basket_text }}</option>
-                    {% endfor %}
-                </select>
+                <option value="" selected disabled>Choose a delivery note...</option>
+                {% for note in notes %}
+                <option value="{{ note.id }}">{{ note.basket_text }}</option>
+                {% endfor %}
+            </select>
             <button type="submit"
                     class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 ml-2 focus:outline-none">
                 Add
@@ -59,10 +62,8 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $(".select2").select2({
-            placeholder: "Choose a delivery note..."
-        });
+    $(document).ready(function () {
+        $(".select2").select2();
     });
 </script>
 {% endblock %}
