@@ -3,9 +3,9 @@ from django.views.generic import (CreateView, ListView, UpdateView,
 from django_tables2 import RequestConfig
 from django.shortcuts import redirect
 from django.contrib import messages
-from .models import Note, Customer
+from .models import Note, Customer, NoteItem
 from .forms import NoteForm, CustomerForm
-from .tables import NoteTable
+from .tables import NoteTable, NoteDetailsTable
 
 
 class DeliveryNotes(ListView):
@@ -137,3 +137,16 @@ class NoteDetail(DetailView):
     template_name = "delivery/note_detail.html"
     model = Note
     context_object_name = "note"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        note_items = NoteItem.objects.filter(note=self.object)
+
+        # create and configure note items table
+        table = NoteDetailsTable(note_items)
+        RequestConfig(self.request).configure(table)
+
+        context["table"] = table
+
+        return context

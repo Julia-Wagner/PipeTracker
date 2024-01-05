@@ -2,7 +2,8 @@ import django_tables2 as tables
 from django.utils.html import format_html
 from django.utils.timezone import localtime
 from django_tables2.utils import A
-from .models import Note
+
+from .models import Note, NoteItem
 
 
 class DateColumn(tables.Column):
@@ -38,4 +39,19 @@ class NoteTable(tables.Table):
             "class": lambda record: "bg-customwhite border-b hover:bg-gray-200"
             if record.status == "open" else "bg-danger bg-opacity-25 border-b "
                                             "hover:bg-gray-200"
+        }
+
+
+class NoteDetailsTable(tables.Table):
+    """
+    Delivery Note details table
+    """
+
+    class Meta:
+        model = NoteItem
+        template_name = "django_tables2/table.html"
+        fields = ("quantity", "item__name", "item__size", "item__matchcode",
+                  "item__price")
+        row_attrs = {
+            "class": "bg-customwhite border-b hover:bg-gray-200"
         }
