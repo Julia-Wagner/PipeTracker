@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer, Note
+from .models import Customer, Note, NoteItem
 
 
 @admin.register(Customer)
@@ -10,6 +10,18 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ("customer", "title", "status", "date")
+    list_display = ("customer", "title", "status", "get_items_display", "date")
     search_fields = ["customer", "title"]
     list_filter = ("status",)
+
+    def get_items_display(self, obj):
+        return ", ".join([str(item) for item in obj.items.all()])
+
+    get_items_display.short_description = "Items"
+
+
+@admin.register(NoteItem)
+class NoteItemAdmin(admin.ModelAdmin):
+    list_display = ("note", "item", "quantity")
+    search_fields = ["note__title", "item__name"]
+    list_filter = ("note", "item",)
