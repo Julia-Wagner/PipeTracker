@@ -42,6 +42,7 @@ class BasketItems(ListView):
         # get available delivery notes
         notes = Note.objects.filter(status="open").all()
 
+        context["basket"] = basket
         context["notes"] = notes
         context["table"] = table
         context["items_dic"] = items_dic
@@ -96,5 +97,25 @@ class BasketItemIncrease(View):
         else:
             messages.error(request,
                            f"No more {stock_item} available.")
+
+        return redirect("/basket/")
+
+
+class BasketToNote(View):
+    """
+    Add the items of the basket to the selected delivery note
+    """
+    def post(self, request, *args, **kwargs):
+        user = self.request.user
+        note_param = request.POST.get("note")
+        note_id = int(note_param)
+        basket_id = self.kwargs.get("pk")
+        basket = get_object_or_404(Basket, id=basket_id)
+        basket_items = basket.items.all()
+        # basket_items.delete()
+        note = get_object_or_404(Note, id=note_id)
+
+        messages.success(request,
+                         f"Items added to delivery note: {note}.")
 
         return redirect("/basket/")

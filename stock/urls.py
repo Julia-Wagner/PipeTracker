@@ -27,6 +27,7 @@ urlpatterns = [
     path("items/delete/<int:pk>/",
          login_required(DeleteItem.as_view()),
          name="stock_delete_item"),
+    # add stock items to the basket
     path("basket/<int:pk>/",
          login_required(ItemToBasket.as_view()),
          name="stock_to_basket"),

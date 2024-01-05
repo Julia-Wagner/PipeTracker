@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from .views import (BasketItems, BasketItemDecrease, BasketItemIncrease)
+from .views import (BasketItems, BasketItemDecrease, BasketItemIncrease,
+                    BasketToNote)
 
 urlpatterns = [
     path("", login_required(BasketItems.as_view()),
@@ -11,4 +12,8 @@ urlpatterns = [
     path("quantity/increase/<int:pk>/",
          login_required(BasketItemIncrease.as_view()),
          name="basket_quantity_increase"),
+    # add basket items to a delivery note
+    path("<int:pk>/note/",
+         login_required(BasketToNote.as_view()),
+         name="basket_to_note"),
 ]

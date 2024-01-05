@@ -37,12 +37,15 @@
         </div>
     </div>
     <div class="mt-12 md:flex md:justify-end">
-        <form class="grid md:grid-cols-[1fr_2fr_1fr] md:justify-items-start items-center gap-4">
+        <form method="POST" action="{% url 'basket_to_note' basket.id %}" id="note-form"
+              class="grid md:grid-cols-[1fr_2fr_1fr] md:justify-items-start items-center gap-4">
+            {% csrf_token %}
             <label for="note-search"
                    class="mr-2 font-bold text-darkblue">Add to delivery
                 note:</label>
-            <select id="note-search" class="select2" required>
-                <option value="" selected disabled>Choose a delivery note...</option>
+            <select id="note-search" name="note" class="select2" required>
+                <option value="" selected disabled>Choose a delivery note...
+                </option>
                 {% for note in notes %}
                 <option value="{{ note.id }}">{{ note.basket_text }}</option>
                 {% endfor %}
@@ -62,6 +65,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
+    // initialize select2
     $(document).ready(function () {
         $(".select2").select2();
     });
