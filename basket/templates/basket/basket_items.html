@@ -11,51 +11,54 @@
 {% block content %}
 
 <div class="text-center">
-    <div class="mb-5 heading-button-row">
-        <h1 class="mt-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-            Your Basket</h1>
+    <div class="mb-5">
+        <h1 class="mt-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Your Basket</h1>
     </div>
-    <div class="flex flex-wrap justify-center">
-        <!-- table for bigger screens -->
-        <div class="hidden md:flex flex-wrap justify-center">
-            {% render_table table %}
-        </div>
-        <!-- cards for smaller screens -->
-        <div class="block md:hidden">
-            {% for item_dic in items_dic %}
-            <div class="grid mb-5 mobile-card shadow-md border border-darkblue">
-                {% for field, item in item_dic.items %}
-                <div class="text-customwhite bg-darkblue uppercase font-bold p-3 border-b border-b-customwhite">
-                    {{ field }}
-                </div>
-                <div class="bg-customwhite text-customblack p-3 border border-darkblue break-words">
-                    {{ item }}
+    {% if basket_items %}
+        <div class="flex flex-wrap justify-center">
+            <!-- table for bigger screens -->
+            <div class="hidden md:flex flex-wrap justify-center">
+                {% render_table table %}
+            </div>
+            <!-- cards for smaller screens -->
+            <div class="block md:hidden">
+                {% for item_dic in items_dic %}
+                <div class="grid mb-5 mobile-card shadow-md border border-darkblue">
+                    {% for field, item in item_dic.items %}
+                    <div class="text-customwhite bg-darkblue uppercase font-bold p-3 border-b border-b-customwhite">
+                        {{ field }}
+                    </div>
+                    <div class="bg-customwhite text-customblack p-3 border border-darkblue break-words">
+                        {{ item }}
+                    </div>
+                    {% endfor %}
                 </div>
                 {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
-    <div class="mt-12 md:flex md:justify-end">
-        <form method="POST" action="{% url 'basket_to_note' basket.id %}" id="note-form"
-              class="grid md:grid-cols-[1fr_2fr_1fr] md:justify-items-start items-center gap-4">
-            {% csrf_token %}
-            <label for="note-search"
-                   class="mr-2 font-bold text-darkblue">Add to delivery
-                note:</label>
-            <select id="note-search" name="note" class="select2" required>
-                <option value="" selected disabled>Choose a delivery note...
-                </option>
-                {% for note in notes %}
-                <option value="{{ note.id }}">{{ note.basket_text }}</option>
-                {% endfor %}
-            </select>
-            <button type="submit"
-                    class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 ml-2 focus:outline-none">
-                Add
-            </button>
-        </form>
-    </div>
+        <div class="mt-12 md:flex md:justify-end">
+            <form method="POST" action="{% url 'basket_to_note' basket.id %}" id="note-form"
+                  class="grid md:grid-cols-[1fr_2fr_1fr] md:justify-items-start items-center gap-4">
+                {% csrf_token %}
+                <label for="note-search"
+                       class="mr-2 font-bold text-darkblue">Add to delivery
+                    note:</label>
+                <select id="note-search" name="note" class="select2" required>
+                    <option value="" selected disabled>Choose a delivery note...
+                    </option>
+                    {% for note in notes %}
+                    <option value="{{ note.id }}">{{ note.basket_text }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit"
+                        class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 ml-2 focus:outline-none">
+                    Add
+                </button>
+            </form>
+        </div>
+    {% else %}
+        <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">Your basket is empty.</p>
+    {% endif %}
 </div>
 
 {% endblock %}

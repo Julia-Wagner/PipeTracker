@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from .models import Basket, BasketItem
 from .tables import BasketTable
-from delivery.models import Note
+from delivery.models import Note, NoteItem
 
 
 class BasketItems(ListView):
@@ -106,16 +106,33 @@ class BasketToNote(View):
     Add the items of the basket to the selected delivery note
     """
     def post(self, request, *args, **kwargs):
-        user = self.request.user
         note_param = request.POST.get("note")
         note_id = int(note_param)
         basket_id = self.kwargs.get("pk")
         basket = get_object_or_404(Basket, id=basket_id)
-        basket_items = basket.items.all()
-        # basket_items.delete()
+        basket_items = basket.basket_items.all()
         note = get_object_or_404(Note, id=note_id)
 
+        for basket_item in basket_items:
+            stock_item = basket_item.item
+            # check if item is already in delivery note
+            exists = NoteItem.objects.filter(note=note,
+                                             item=stock_item).exists()
+
+            # update item if already in delivery note
+            if exists:
+                note_item = NoteItem.objects.get(note=note, item=stock_item)
+                note_item.quantity += basket_item.quantity
+                note_item.save()
+            # create new item
+            else:
+                NoteItem.objects.create(note=note, item=stock_item,
+                                        quantity=basket_item.quantity),
+
+            # remove item from basket
+            basket_item.delete()
+
         messages.success(request,
-                         f"Items added to delivery note: {note}.")
+                         f"Stock items added to your delivery note.")
 
         return redirect("/basket/")
