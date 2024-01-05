@@ -22,14 +22,18 @@ class NoteTable(tables.Table):
     user = tables.Column(verbose_name="created by")
     edit = tables.LinkColumn("delivery_edit_note", args=[A("pk")],
                              text="Edit", orderable=False,
-                             verbose_name="action",
+                             verbose_name="edit",
                              attrs={"a": {"class": "font-bold text-darkblue "
                                                    "hover:text-lightblue"}})
+    title = tables.LinkColumn("delivery_note_detail", args=[A("pk")],
+                              verbose_name="title (click to open)",
+                              attrs={"a": {"class": "font-bold text-darkblue "
+                                                    "hover:text-lightblue"}})
 
     class Meta:
         model = Note
         template_name = "django_tables2/table.html"
-        fields = ("customer", "title", "user", "date", "status")
+        fields = ("customer", "title", "user", "date")
         row_attrs = {
             "class": lambda record: "bg-customwhite border-b hover:bg-gray-200"
             if record.status == "open" else "bg-danger bg-opacity-25 border-b "

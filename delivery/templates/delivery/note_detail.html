@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Delivery Note {{ note.title }}{% endblock %}
+
+{% block content %}
+
+<section class="text-center">
+    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">{{ note.title }}</h1>
+    <p class="mb-2 text-xl font-bold text-customblack lg:text-2xl">for {{ note.customer }}</p>
+    <p class="mb-6 text-lg font-bold text-customblack lg:text-xl">created {{ note.date|date:"d.m.Y" }}</p>
+    <a href="{% url 'delivery_edit_note' note.id %}"
+       class="svg-button text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">
+        Edit note
+    </a>
+</section>
+
+{% endblock %}

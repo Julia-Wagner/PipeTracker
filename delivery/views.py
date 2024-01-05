@@ -1,4 +1,5 @@
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import (CreateView, ListView, UpdateView,
+                                  DeleteView, DetailView)
 from django_tables2 import RequestConfig
 from django.shortcuts import redirect
 from django.contrib import messages
@@ -127,3 +128,13 @@ class DeleteNote(DeleteView):
         response = super().form_valid(form)
         messages.success(self.request, "Delivery note deleted.")
         return response
+
+
+class NoteDetail(DetailView):
+    """
+    Detail view for a delivery note
+    """
+    template_name = "delivery/note_detail.html"
+    model = Note
+    context_object_name = "note"
+

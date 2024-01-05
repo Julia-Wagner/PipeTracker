@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from .views import (DeliveryNotes, AddNote, EditNote, DeleteNote, AddCustomer)
+from .views import (DeliveryNotes, AddNote, EditNote, DeleteNote, AddCustomer,
+                    NoteDetail)
 
 urlpatterns = [
     path("", login_required(DeliveryNotes.as_view()),
@@ -13,4 +14,6 @@ urlpatterns = [
          name="delivery_edit_note"),
     path("delete/<int:pk>/", login_required(DeleteNote.as_view()),
          name="delivery_delete_note"),
+    path("<int:pk>/", login_required(NoteDetail.as_view()),
+         name="delivery_note_detail"),
 ]
