@@ -22,7 +22,7 @@ class BasketItem(models.Model):
     """
     Model to manage basket items
     """
-    basket = models.ForeignKey(Basket, related_name='basket_items',
+    basket = models.ForeignKey(Basket, related_name="basket_items",
                                on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)

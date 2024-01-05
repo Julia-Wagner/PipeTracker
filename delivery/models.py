@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from stock.models import Item
+
 
 class Customer(models.Model):
     """
@@ -32,6 +34,7 @@ class Note(models.Model):
                               choices=[("open", "Open"), ("closed", "Closed")],
                               default="open")
     date = models.DateTimeField(auto_now_add=True)
+    items = models.ManyToManyField(Item, through="NoteItem")
 
     class Meta:
         ordering = ["-date"]
@@ -44,3 +47,16 @@ class Note(models.Model):
         date = self.date.strftime('%d.%m.%Y')
         return (f"{self.title} for {self.customer.first_name} "
                 f"{self.customer.last_name} ({date})")
+
+
+class NoteItem(models.Model):
+    """
+    Model to manage delivery note items
+    """
+    note = models.ForeignKey(Note, related_name="note_items",
+                             on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False)
+
+    def __str__(self):
+        return f"{self.note} - {self.item} ({self.quantity})"
