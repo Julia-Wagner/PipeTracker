@@ -14,3 +14,6 @@ class BasketTable(tables.Table):
         template_name = "django_tables2/table.html"
         fields = ("quantity", "item__name", "item__size", "item__matchcode",
                   "item__details")
+        row_attrs = {
+            "class": "bg-customwhite border-b hover:bg-gray-200"
+        }

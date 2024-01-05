@@ -21,3 +21,6 @@ class ItemTable(tables.Table):
         model = Item
         template_name = "django_tables2/table.html"
         fields = ("quantity", "name", "size", "matchcode", "details", "price")
+        row_attrs = {
+            "class": "bg-customwhite border-b hover:bg-gray-200"
+        }
