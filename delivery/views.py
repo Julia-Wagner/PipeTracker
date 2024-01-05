@@ -137,4 +137,3 @@ class NoteDetail(DetailView):
     template_name = "delivery/note_detail.html"
     model = Note
     context_object_name = "note"
-

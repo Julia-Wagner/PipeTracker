@@ -5,7 +5,14 @@
 {% block content %}
 
 <section class="text-center">
-    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">{{ note.title }}</h1>
+    <div class="mb-5 heading-button-row">
+        <h1 class="col-start-2 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">{{ note.title }}</h1>
+        <label class="relative inline-flex items-center justify-self-center">
+            <input type="checkbox" value="" class="sr-only peer" checked disabled>
+            <div class="{% if note.status == 'open' %}peer-checked:bg-success{% else %}peer-checked:bg-danger{% endif %} w-12 h-7 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+            <span class="ms-3 text-md font-bold text-customblack">{{ note.status }}</span>
+        </label>
+    </div>
     <p class="mb-2 text-xl font-bold text-customblack lg:text-2xl">for {{ note.customer }}</p>
     <p class="mb-6 text-lg font-bold text-customblack lg:text-xl">created {{ note.date|date:"d.m.Y" }}</p>
     <a href="{% url 'delivery_edit_note' note.id %}"
