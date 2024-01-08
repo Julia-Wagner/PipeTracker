@@ -46,6 +46,8 @@ class NoteDetailsTable(tables.Table):
     """
     Delivery Note details table
     """
+    quantity = tables.TemplateColumn(
+        template_name="delivery/quantity_field.html", orderable=False)
 
     class Meta:
         model = NoteItem

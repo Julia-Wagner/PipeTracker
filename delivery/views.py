@@ -1,7 +1,8 @@
+from django.views import View
 from django.views.generic import (CreateView, ListView, UpdateView,
                                   DeleteView, DetailView)
 from django_tables2 import RequestConfig
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
 from .models import Note, Customer, NoteItem
 from .forms import NoteForm, CustomerForm
@@ -150,3 +151,53 @@ class NoteDetail(DetailView):
         context["table"] = table
 
         return context
+
+
+class DeliveryItemDecrease(View):
+    """
+    Decrease the quantity of the delivery item
+    """
+    def get(self, request, *args, **kwargs):
+        delivery_item_id = self.kwargs.get("pk")
+        delivery_item = get_object_or_404(NoteItem, id=delivery_item_id)
+        stock_item = delivery_item.item
+
+        # decrease delivery item quantity
+        delivery_item.quantity -= 1
+        delivery_item.save()
+
+        # increase stock item quantity
+        stock_item.quantity += 1
+        stock_item.save()
+
+        messages.success(request,
+                         f"{stock_item} quantity changed.")
+
+        return redirect("delivery_note_detail", pk=delivery_item.note)
+
+
+class DeliveryItemIncrease(View):
+    """
+    Increase the quantity of the delivery item
+    """
+    def get(self, request, *args, **kwargs):
+        delivery_item_id = self.kwargs.get("pk")
+        delivery_item = get_object_or_404(NoteItem, id=delivery_item_id)
+        stock_item = delivery_item.item
+
+        if stock_item.quantity >= 1:
+            # increase delivery item quantity
+            delivery_item.quantity += 1
+            delivery_item.save()
+
+            # decrease stock item quantity
+            stock_item.quantity -= 1
+            stock_item.save()
+
+            messages.success(request,
+                             f"{stock_item} quantity changed.")
+        else:
+            messages.error(request,
+                           f"No more {stock_item} available.")
+
+        return redirect("delivery_note_detail", pk=delivery_item.note.id)
