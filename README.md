@@ -35,6 +35,7 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
   * [**Landing Page**](#landing-page)
   * [**Authentication**](#authentication)
   * [**Messages**](#messages)
+  * [**Stock Items and Categories**](#stock-items-and-categories)
 * [**Agile Process**](#agile-process)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
@@ -206,7 +207,7 @@ As it might be necessary for my customer to create subcategories for categories,
 
 While creating the database schema I was also thinking about how I will implement the cart. At first, I was not sure if I should add a *Cart* table or use *Local Storage* to store stock items in the cart. However, I decided to add a table because it is likely that my customer will access the application using different devices. So to ensure the cart is stored and always up-to-date on each device, I will save the cart information in the database instead of local storage.
 
-![Database Schema](docs/screenshots/database_schema.png)
+![Database Schema](docs/screenshots/database_schema.png)\
 *Database Schema for PipeTracker*
 
 ## **Surface Plane**
@@ -215,7 +216,7 @@ While creating the database schema I was also thinking about how I will implemen
 
 As mentioned above, I already created a [website](https://p-wagner.at/), as well as all the designs and logos for my customer´s company before starting this project. I will use the existing design for this project. As a reference, here is what the company´s business card I designed looks like.
 
-![Business card](docs/screenshots/business_card.jpg)
+![Business card](docs/screenshots/business_card.jpg)\
 *Existing design created by myself*
 
 I used shades of blue and the background representing water as it is fitting for a plumbing company. The logo is my customer´s name with the services he offers.
@@ -224,7 +225,7 @@ I used shades of blue and the background representing water as it is fitting for
 
 From this existing design, I created the color scheme for this project. I used [contrast-grid.eightshapes.com](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23274060%0D%0A%2300B2CA%0D%0A%23041020%0D%0A%23f9f9f9&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) to check the contrast and possible color combinations.
 
-![Color contrast](docs/screenshots/color_contrast.png)
+![Color contrast](docs/screenshots/color_contrast.png)\
 *Accessibility/contrast check for color scheme*
 
 I will use the same fonts for this project as I used on the website. **Roboto** and **Montserrat** are both Google Fonts and fit well with the logo and design of the company.
@@ -233,43 +234,72 @@ I will use the same fonts for this project as I used on the website. **Roboto** 
 
 I also used the existing logo to create a new logo for **PipeTracker**.
 
-![Logo](docs/screenshots/logo.png)
+![Logo](docs/screenshots/logo.png)\
 *PipeTracker Logo*
 
 # **Features**
 
 ## **Landing Page**
+
 Because of the nature of my application, it does not make much sense to have features available to logged-out users. So I created a landing page with a brief explanation of what the application is about and a link to register or login.
 
-![Landing Page](docs/screenshots/logged_out.png)
+![Landing Page](docs/screenshots/logged_out.png)\
 *Screenshot of the landing page*
 
 ## **Authentication**
+
 The **AllAuth** and **Crispy Forms** packages are used for authentication. I added custom CSS using Tailwind classes to adapt the forms to my design.
 
 To create an account, users are required to add their email, username and password. Password requirements are shown and in the case of invalid input, the user gets clear feedback.
 
-![Sign Up](docs/screenshots/register.png)
+![Sign Up](docs/screenshots/register.png)\
 *Screenshot of the Sign Up page*
 
-![Login](docs/screenshots/login.png)
+![Login](docs/screenshots/login.png)\
 *Screenshot of the Login page*
 
 After successfully logging in, the user is redirected to the Dashboard and a success message is showing. The available pages and a logout link with the username of the currently logged-in user are shown in the header.
 
-![Logout](docs/screenshots/logout.png)
+![Logout](docs/screenshots/logout.png)\
 *Screenshot of the Logout page*
 
 ## **Messages**
+
 Success and error messages are shown to the user for example after logging in or out, after adding, updating or deleting an element or if a user tries to edit a closed delivery note.
 
-![Success message](docs/screenshots/success_message.png)
+![Success message](docs/screenshots/success_message.png)\
 *Success message after creating a category*
 
-![Error message](docs/screenshots/error_message.png)
+![Error message](docs/screenshots/error_message.png)\
 *Error message after trying to edit a closed delivery note*
 
 The messages can be closed using the icon, after 4 seconds they are closed automatically.
+
+## **Stock Items and Categories**
+After clicking **Stock Items** in the menu, all available categories are shown as cards. They can be opened, edited or deleted.
+
+![Categories](docs/screenshots/categories.png)\
+*Categories with CRUD*
+
+Each category can contain either stock items or one or many subcategories, not both. If the selected category has one or many subcategories, they are shown and breadcrumbs appear at the top left to indicate the levels of categories and subcategories.
+
+![Subcategories](docs/screenshots/subcategory.png)\
+*Subcategories with CRUD*
+
+A new category or stock item can be added at each of the **Stock Items** pages. When adding a stock item, only categories with no sub-categories can be chosen and when adding a new category, only categories with no stock items can be chosen as a parent category.
+
+![Add stock item](docs/screenshots/add_item.png)\
+*Add a stock item (mobile)*
+
+If the selected category does not have any subcategories, the stock items of this category are shown. The items are presented in a table that is orderable by relevant fields. 
+
+Full CRUD is also available for stock items. By clicking edit, the selected stock item can be edited or deleted. The item quantity can also be edited directly in the table by clicking **-** or **+**. The stock item can be added to the basket by choosing the desired amount and clicking **Add**. There can never be added more items to the basket, than available in the stock.
+
+![Stock Items](docs/screenshots/stock_items.png)\
+*Stock Items table*
+
+![Edit stock item](docs/screenshots/edit_item.png)\
+*Edit a stock item*
 
 # **Agile Process**
 
