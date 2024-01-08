@@ -7,6 +7,8 @@ class ItemTable(tables.Table):
     """
     Stock Items table
     """
+    quantity = tables.TemplateColumn(
+        template_name="stock/quantity_field.html")
     details = tables.Column(orderable=False)
     edit = tables.LinkColumn("stock_edit_item", args=[A("pk")],
                              text="Edit", orderable=False,

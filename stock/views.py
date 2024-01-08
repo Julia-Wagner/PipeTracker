@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.views import View
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django_tables2 import RequestConfig
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -243,3 +243,55 @@ class ItemToBasket(View):
                          f"{item} ({quantity}) added to your basket.")
 
         return HttpResponseRedirect(redirect_url)
+
+
+class StockItemDecrease(View):
+    """
+    Decrease the quantity of the stock item
+    """
+    def get_success_url(self):
+        # get the current category
+        category_id = self.object.category.id
+
+        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        return success_url
+
+    def get(self, request, *args, **kwargs):
+        stock_item_id = self.kwargs.get("pk")
+        stock_item = get_object_or_404(Item, id=stock_item_id)
+
+        if stock_item.quantity >= 1:
+            # decrease stock item quantity
+            stock_item.quantity -= 1
+            stock_item.save()
+
+            messages.success(request,
+                             f"{stock_item} quantity changed.")
+        else:
+            messages.error(request,
+                           f"Quantity can not be less than 0.")
+
+        # get the success url
+        category_id = stock_item.category.id
+        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        return HttpResponseRedirect(success_url)
+
+
+class StockItemIncrease(View):
+    """
+    Increase the quantity of the stock item
+    """
+    def get(self, request, *args, **kwargs):
+        stock_item_id = self.kwargs.get("pk")
+        stock_item = get_object_or_404(Item, id=stock_item_id)
+
+        stock_item.quantity += 1
+        stock_item.save()
+
+        messages.success(request,
+                         f"{stock_item} quantity changed.")
+
+        # get the success url
+        category_id = stock_item.category.id
+        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        return HttpResponseRedirect(success_url)
