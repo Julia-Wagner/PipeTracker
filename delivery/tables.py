@@ -23,7 +23,6 @@ class NoteTable(tables.Table):
     user = tables.Column(verbose_name="created by")
     edit = tables.LinkColumn("delivery_edit_note", args=[A("pk")],
                              text="Edit", orderable=False,
-                             verbose_name="edit",
                              attrs={"a": {"class": "font-bold text-darkblue "
                                                    "hover:text-lightblue"}})
     title = tables.LinkColumn("delivery_note_detail", args=[A("pk")],

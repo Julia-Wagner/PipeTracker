@@ -12,7 +12,6 @@ class ItemTable(tables.Table):
     details = tables.Column(orderable=False)
     edit = tables.LinkColumn("stock_edit_item", args=[A("pk")],
                              text="Edit", orderable=False,
-                             verbose_name="action",
                              attrs={"a": {"class": "font-bold text-darkblue "
                                                    "hover:text-lightblue"}})
     basket = tables.TemplateColumn(template_name="stock/basket_quantity.html",
