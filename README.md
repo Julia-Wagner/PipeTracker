@@ -301,6 +301,16 @@ Full CRUD is also available for stock items. By clicking edit, the selected stoc
 ![Edit stock item](docs/screenshots/edit_item.png)\
 *Edit a stock item*
 
+## **Basket**
+In my wireframes, I called this page **Cart**. However, after showing the application to some people, I noticed that this name might be confusing, as there is nothing to buy on this page. I changed the name to **Basket**, to indicate that it is a place to collect stock items before adding them to a delivery note. This is due to my customer telling me, that he will have lots of stock items to add to a delivery note at once. So choosing a delivery note for each item would be a lot of extra steps, especially when there are many delivery notes. So the basket can be used as a collection to quickly add each stock item and when finished, the delivery note can be chosen and the stock items are added to it.
+
+![Basket](docs/screenshots/basket.png)\
+*Basket*
+
+The items that were added to the basket are also presented in a table. The quantity can be changed, if that happens, the quantity of the original stock item is also updated automatically.
+
+Underneath the table, there is a *select field* to choose a delivery note. Only open delivery notes are available here. I decided to use [select2](https://select2.org/) for this field because I wanted to make it searchable in case there are many open delivery notes. After choosing a delivery note and clicking **Add**, the items are added to the note and deleted from the basket.
+
 # **Agile Process**
 
 I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) to plan and document my work. The details of my agile approach can be found in the separate [AGILE.md file](AGILE.md).
