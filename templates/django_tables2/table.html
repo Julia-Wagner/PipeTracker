@@ -13,7 +13,7 @@
                 <div class="flex items-center">
                     {{ column.header }}
                     {% if column.orderable %}
-                    <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}">
+                    <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}" aria-label="sort the table by this column">
                         <svg class="w-3 h-3 ms-1.5" aria-hidden="true"
                              xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                              viewBox="0 0 24 24">
