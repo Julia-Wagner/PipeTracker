@@ -276,6 +276,7 @@ Success and error messages are shown to the user for example after logging in or
 The messages can be closed using the icon, after 4 seconds they are closed automatically.
 
 ## **Stock Items and Categories**
+
 After clicking **Stock Items** in the menu, all available categories are shown as cards. They can be opened, edited or deleted.
 
 ![Categories](docs/screenshots/categories.png)\
@@ -302,6 +303,7 @@ Full CRUD is also available for stock items. By clicking edit, the selected stoc
 *Edit a stock item*
 
 ## **Basket**
+
 In my wireframes, I called this page **Cart**. However, after showing the application to some people, I noticed that this name might be confusing, as there is nothing to buy on this page. I changed the name to **Basket**, to indicate that it is a place to collect stock items before adding them to a delivery note. This is due to my customer telling me, that he will have lots of stock items to add to a delivery note at once. So choosing a delivery note for each item would be a lot of extra steps, especially when there are many delivery notes. So the basket can be used as a collection to quickly add each stock item and when finished, the delivery note can be chosen and the stock items are added to it.
 
 ![Basket](docs/screenshots/basket.png)\
@@ -310,6 +312,33 @@ In my wireframes, I called this page **Cart**. However, after showing the applic
 The items that were added to the basket are also presented in a table. The quantity can be changed, if that happens, the quantity of the original stock item is also updated automatically.
 
 Underneath the table, there is a *select field* to choose a delivery note. Only open delivery notes are available here. I decided to use [select2](https://select2.org/) for this field because I wanted to make it searchable in case there are many open delivery notes. After choosing a delivery note and clicking **Add**, the items are added to the note and deleted from the basket.
+
+## **Delivery Notes**
+
+Delivery notes are shown in a table, the columns are orderable and closed delivery notes have a red background. The title of the note can be clicked to open the detail page for the delivery note. Open delivery notes can be edited and have a clickable link in the table. New delivery notes can be added with the **Add button** as known from the other pages.
+
+![Delivery notes](docs/screenshots/delivery_notes.png)\
+*Delivery Notes*
+
+When adding a delivery note, a customer, title and status are required. The user can choose an existing customer or create a new one.
+
+![Add delivery note](docs/screenshots/add_note.png)\
+*Add a delivery note (tablet)*
+
+Customers can only be created when creating a delivery note, as they are only important for this step. Customers can not be edited or deleted within the application, only in the administration terminal.
+
+![Add customer](docs/screenshots/add_customer.png)\
+*Add a customer (tablet)*
+
+The detail page of a delivery note contains all the information about the delivery note itself. The status is shown with a red or green toggle that is not clickable. On the detail page, the user finds another link to edit the delivery note, if it is open.
+
+Underneath the information about the delivery note, a table containing all the stock items added to the delivery note is shown.
+
+![Delivery note detail](docs/screenshots/note_detail.png)\
+*Delivery note detail*
+
+![Edit delivery note](docs/screenshots/edit_note.png)\
+*Edit a delivery note (mobile)*
 
 # **Agile Process**
 
