@@ -21,10 +21,8 @@ class NoteTable(tables.Table):
     """
     date = DateColumn(verbose_name="created at")
     user = tables.Column(verbose_name="created by")
-    edit = tables.LinkColumn("delivery_edit_note", args=[A("pk")],
-                             text="Edit", orderable=False,
-                             attrs={"a": {"class": "font-bold text-darkblue "
-                                                   "hover:text-lightblue"}})
+    edit = tables.TemplateColumn(template_name="delivery/edit_link.html",
+                                 orderable=False)
     title = tables.LinkColumn("delivery_note_detail", args=[A("pk")],
                               verbose_name="title (click to open)",
                               attrs={"a": {"class": "font-bold text-darkblue "
