@@ -80,3 +80,16 @@ The goal for sprint number 5 is to finish all user stories necessary for the MVP
 
 ![Sprint 5 start](docs/agile/sprint5_start.png)
 *Start of Sprint 5*
+
+I finished all planned user stories and added one *could have* story from the backlog. I reached my goal for this sprint by completing all user stories that are necessary for the MVP.
+
+![Sprint 5 end](docs/agile/sprint5_end.png)
+*End of Sprint 5*
+
+### **Sprint 6 (09.01. - 15.01.)**
+After completing the features for the MVP in the last sprint, I want to start this sprint with an intense testing phase. I want to identify bugs and issues in the application and let my customer test the application to give me feedback for further implementation.
+
+Additionally, I added two user stories for this sprint with a total of **13 story points**.
+
+![Sprint 6 start](docs/agile/sprint6_start.png)
+*Start of Sprint 6*
