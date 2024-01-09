@@ -9,9 +9,14 @@
   * [**Sprints**](#sprints)
     * [**Sprint 1 (05.12. - 11.12.)**](#sprint-1-0512---1112)
     * [**Sprint 2 (12.12. - 18.12.)**](#sprint-2-1212---1812)
+    * [**Sprint 3 (19.12. - 25.12.)**](#sprint-3-1912---2512)
+    * [**Sprint 4 (26.12. - 01.01.2024)**](#sprint-4-2612---01012024)
+    * [**Sprint 5 (02.01. - 08.01.)**](#sprint-5-0201---0801)
+    * [**Sprint 6 (09.01. - 15.01.)**](#sprint-6-0901---1501)
 <!-- TOC -->
 
 ## **Methodology**
+
 I used an agile approach to plan and work on my project. I looked at different agile tools that I am familiar with, like *Jira* and *ClickUp*. However, I decided to use a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) as it seems to be the most commonly used by Code Institute students and I imagined it to be the easiest tool to evaluate.
 
 I decided to group my features into **Epics** and create several **User Stories** for each epic. To prioritize the stories, I used **MoSCoW Prioritization**. To represent this in my Kanban board I created custom labels (*must have*, *should have*, *could have* and *won´t have*).
@@ -27,9 +32,11 @@ I added all my user stories with the according epic, acceptance criteria and tas
 *The initial setup of my Kanban board with all User Stories in the Backlog*
 
 ## **Sprints**
+
 Below is a summary of each of my sprints. As described above, I am using milestones for sprints. To focus on the tasks of my current sprint, I am using a filter for the current milestone to only see the issues added to my current sprint.
 
 ### **Sprint 1 (05.12. - 11.12.)**
+
 For my first sprint, I added two dev tasks, to set up and deploy the project. Additionally, I added user stories with a total of **11 story points**.
 
 ![Sprint 1 start](docs/agile/sprint1_start.png)
@@ -43,6 +50,7 @@ I did not manage to finish all the tasks planned for my first sprint. This was m
 I will move the unfinished tasks back to the backlog and continue working on them in my next sprint.
 
 ### **Sprint 2 (12.12. - 18.12.)**
+
 For my next sprint, I added one dev task, to add templates for the header and footer. Additionally, I added user stories with a total of **11 story points**.
 
 ![Sprint 2 start](docs/agile/sprint2_start.png)
@@ -54,6 +62,7 @@ My second sprint was very successful. After getting the general setup and author
 *End of Sprint 2*
 
 ### **Sprint 3 (19.12. - 25.12.)**
+
 For my third sprint, I want to concentrate on CRUD functionality for stock items. I added user stories with a total of **13 story points**.
 
 ![Sprint 3 start](docs/agile/sprint3_start.png)
@@ -65,6 +74,7 @@ Because this sprint ended with the holidays, I tried to stick to thinking about 
 *End of Sprint 3*
 
 ### **Sprint 4 (26.12. - 01.01.2024)**
+
 I decided to look at delivery notes for my next sprint. I added two *must have* and one *should have* user stories with a **total of 13 story points**.
 
 ![Sprint 4 start](docs/agile/sprint4_start.png)
@@ -76,6 +86,7 @@ I finished all planned user stories and added one more from the backlog to compl
 *End of Sprint 4*
 
 ### **Sprint 5 (02.01. - 08.01.)**
+
 The goal for sprint number 5 is to finish all user stories necessary for the MVP. I added user stories with a total of **15 story points**.
 
 ![Sprint 5 start](docs/agile/sprint5_start.png)
@@ -87,6 +98,7 @@ I finished all planned user stories and added one *could have* story from the ba
 *End of Sprint 5*
 
 ### **Sprint 6 (09.01. - 15.01.)**
+
 After completing the features for the MVP in the last sprint, I want to start this sprint with an intense testing phase. I want to identify bugs and issues in the application and let my customer test the application to give me feedback for further implementation.
 
 Additionally, I added two user stories for this sprint with a total of **13 story points**.
