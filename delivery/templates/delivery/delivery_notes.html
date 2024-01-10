@@ -19,26 +19,9 @@
             Add
         </a>
     </div>
+    <!-- render table -->
     <div class="flex flex-wrap justify-center">
-        <!-- table for bigger screens -->
-        <div class="hidden md:flex flex-wrap justify-center">
-            {% render_table table %}
-        </div>
-        <!-- cards for smaller screens -->
-        <div class="block md:hidden">
-            {% for note_dic in notes_dic %}
-            <div class="grid mb-5 mobile-card shadow-md border border-darkblue">
-                {% for field, note in note_dic.items %}
-                <div class="text-customwhite bg-darkblue uppercase font-bold p-3 border-b border-b-customwhite">
-                    {{ field }}
-                </div>
-                <div class="bg-customwhite text-customblack p-3 border border-darkblue break-words">
-                    {{ note }}
-                </div>
-                {% endfor %}
-            </div>
-            {% endfor %}
-        </div>
+        {% render_table table %}
     </div>
 </div>
 

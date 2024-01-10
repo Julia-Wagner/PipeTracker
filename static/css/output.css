@@ -965,10 +965,6 @@ video {
   white-space: nowrap;
 }
 
-.break-words {
-  overflow-wrap: break-word;
-}
-
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1023,11 +1019,6 @@ video {
   border-color: rgb(207 187 31 / var(--tw-border-opacity));
 }
 
-.border-b-customwhite {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(249 249 249 / var(--tw-border-opacity));
-}
-
 .bg-customwhite {
   --tw-bg-opacity: 1;
   background-color: rgb(249 249 249 / var(--tw-bg-opacity));
@@ -1072,10 +1063,6 @@ video {
 
 .p-2\.5 {
   padding: 0.625rem;
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .p-4 {
@@ -1579,10 +1566,6 @@ nav li a {
 #dropdown-menu {
   grid-column: 3;
   justify-self: end;
-}
-
-.mobile-card {
-  grid-template-columns: 130px minmax(130px, 1fr);
 }
 
 /* Forms */

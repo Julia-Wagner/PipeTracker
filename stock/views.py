@@ -120,17 +120,8 @@ class Items(ListView):
         table = ItemTable(items)
         RequestConfig(self.request).configure(table)
 
-        # create stock items dictionary
-        items_dic = []
-        for item in items:
-            item_dic = {}
-            for field in fields:
-                item_dic[field] = getattr(item, field)
-            items_dic.append(item_dic)
-
         context["category"] = category
         context["table"] = table
-        context["items_dic"] = items_dic
 
         return context
 

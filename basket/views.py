@@ -30,22 +30,12 @@ class BasketItems(ListView):
         table = BasketTable(basket_items)
         RequestConfig(self.request).configure(table)
 
-        # create basket items dictionary
-        items_dic = []
-        for row in table.rows:
-            item_dic = {}
-            for column, cell in row.items():
-                # use verbose name for heading
-                item_dic[column.verbose_name] = cell
-            items_dic.append(item_dic)
-
         # get available delivery notes
         notes = Note.objects.filter(status="open").all()
 
         context["basket"] = basket
         context["notes"] = notes
         context["table"] = table
-        context["items_dic"] = items_dic
         context["basket_items"] = basket_items
 
         return context

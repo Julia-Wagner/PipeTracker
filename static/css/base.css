@@ -74,10 +74,6 @@ nav li a {
     justify-self: end;
 }
 
-.mobile-card {
-    grid-template-columns: 130px minmax(130px, 1fr);
-}
-
 /* Forms */
 #id_password1_helptext {
     padding: 1rem;

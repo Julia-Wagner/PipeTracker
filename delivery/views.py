@@ -26,17 +26,7 @@ class DeliveryNotes(ListView):
         table = NoteTable(notes)
         RequestConfig(self.request).configure(table)
 
-        # create delivery notes dictionary
-        notes_dic = []
-        for row in table.rows:
-            note_dic = {}
-            for column, cell in row.items():
-                # use verbose name for heading
-                note_dic[column.verbose_name] = cell
-            notes_dic.append(note_dic)
-
         context["table"] = table
-        context["notes_dic"] = notes_dic
 
         return context
 
