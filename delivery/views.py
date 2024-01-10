@@ -173,7 +173,7 @@ class DeliveryItemDecrease(View):
         messages.success(request,
                          f"{stock_item} quantity changed.")
 
-        return redirect("delivery_note_detail", pk=delivery_item.note)
+        return redirect("delivery_note_detail", pk=delivery_item.note.id)
 
 
 class DeliveryItemIncrease(View):
