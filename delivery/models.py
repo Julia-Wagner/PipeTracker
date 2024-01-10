@@ -44,6 +44,7 @@ class Note(models.Model):
         return f"{self.title} ({customer_str})"
 
     def basket_text(self):
+        # format the text to show in basket select
         date = self.date.strftime('%d.%m.%Y')
         return (f"{self.title} for {self.customer.first_name} "
                 f"{self.customer.last_name} ({date})")

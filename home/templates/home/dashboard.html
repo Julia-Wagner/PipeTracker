@@ -5,8 +5,37 @@
 {% block content %}
 
 <div class="text-center">
-    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-        Dashboard</h1>
+    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Dashboard</h1>
+
+    <section>
+        <h2 class="mb-5 text-xl font-bold text-darkblue md:text-2xl lg:text-3xl">Statistics</h2>
+        <dl class="grid max-w-screen-lg grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mx-auto text-gray-900">
+            <div class="flex flex-col items-center justify-center p-6 shadow-md border">
+                <dt class="mb-2 text-3xl font-extrabold text-darkblue">€ {{ stock_total }}</dt>
+                <dd class="text-customblack">Total value in stock</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center p-6 shadow-md border">
+                <dt class="mb-2 text-3xl font-extrabold text-darkblue">{{ stock_items_number }}</dt>
+                <dd class="text-customblack">Different stock items</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center p-6 shadow-md border">
+                <dt class="mb-2 text-3xl font-extrabold text-darkblue">{{ stock_items_total_number }}</dt>
+                <dd class="text-customblack">Total number of stock items</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center p-6 shadow-md border">
+                <dt class="mb-2 text-3xl font-extrabold text-darkblue">€ {{ delivery_notes_total }}</dt>
+                <dd class="text-customblack">Total value in delivery notes</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center p-6 shadow-md border">
+                <dt class="mb-2 text-3xl font-extrabold text-darkblue">{{ delivery_notes_number_open }}</dt>
+                <dd class="text-customblack">Open delivery notes</dd>
+            </div>
+            <div class="flex flex-col items-center justify-center p-6 shadow-md border">
+                <dt class="mb-2 text-3xl font-extrabold text-darkblue">{{ delivery_notes_number_closed }}</dt>
+                <dd class="text-customblack">Closed delivery notes</dd>
+            </div>
+        </dl>
+    </section>
 </div>
 
 {% endblock %}
