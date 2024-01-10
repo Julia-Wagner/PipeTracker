@@ -25,7 +25,6 @@ class Dashboard(TemplateView):
 
         # get the delivery note numbers
         delivery_notes = Note.objects.all()
-        delivery_notes_number = delivery_notes.count()
         delivery_notes_number_open = (delivery_notes.
                                       filter(status="open").count())
         delivery_notes_number_closed = (delivery_notes.

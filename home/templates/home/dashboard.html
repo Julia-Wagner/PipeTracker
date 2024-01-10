@@ -5,9 +5,10 @@
 {% block content %}
 
 <div class="text-center">
-    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Dashboard</h1>
+    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
+        Dashboard</h1>
 
-    <section>
+    <section class="mt-8">
         <h2 class="mb-5 text-xl font-bold text-darkblue md:text-2xl lg:text-3xl">Statistics</h2>
         <dl class="grid max-w-screen-lg grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mx-auto text-gray-900">
             <div class="flex flex-col items-center justify-center p-6 shadow-md border">
@@ -35,6 +36,53 @@
                 <dd class="text-customblack">Closed delivery notes</dd>
             </div>
         </dl>
+    </section>
+
+    <section class="mt-10 mb-5">
+        <h2 class="mb-5 text-xl font-bold text-darkblue md:text-2xl lg:text-3xl">
+            Introduction for new users</h2>
+        <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">
+            PipeTracker is a powerful inventory management application designed specifically for plumbers.
+            Use it to improve your workflow and make tracking your inventory easier.
+            You can structure your stock items in categories and manage delivery notes to simplify your invoicing process.
+            Here is a step-by-step guide to help you get started:</p>
+        <div class="flex justify-center">
+            <ol class="space-y-4 list-decimal list-inside text-left text-lg">
+                <li>
+                    <span class="font-bold">Explore the Dashboard</span>
+                    <ul class="space-y-1 ps-5 list-disc list-inside">
+                        <li>Take a moment to explore the dashboard, above the introduction you´ll find your real-time statistics.</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="font-bold">Stock Management</span>
+                    <ul class="space-y-1 ps-5 list-disc list-inside">
+                        <li>Open <strong>Stock Items</strong> in the menu to efficiently manage your inventory.</li>
+                        <li>Organize items into categories and subcategories for easy accessibility.</li>
+                        <li>When you open a category with stock items, you can order the table based on your preferred criteria.</li>
+                        <li>Easily update item quantities with a simple click of the <strong>-</strong> or <strong>+</strong> buttons.</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="font-bold">Basket</span>
+                    <ul class="space-y-1 ps-5 list-disc list-inside">
+                        <li>Use the basket to collect stock items you want to add to a delivery note.</li>
+                        <li>No need to assign a delivery note for each item – simply gather them in the basket.</li>
+                        <li>Add items to the basket directly from the stock items table by specifying the quantity and clicking <strong>Add</strong>.</li>
+                        <li>You can also update the quantity in the basket, the stock item gets updated automatically.</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="font-bold">Delivery Notes</span>
+                    <ul class="space-y-1 ps-5 list-disc list-inside">
+                        <li>Create and manage multiple delivery notes as needed.</li>
+                        <li>Choose an existing customer or create a new one when adding a delivery note.</li>
+                        <li>When you are done with a delivery note, you can mark it as closed.</li>
+                        <li>Add items to your delivery note directly from your basket by selecting the desired note.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
     </section>
 </div>
 
