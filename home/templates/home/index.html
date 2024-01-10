@@ -26,6 +26,9 @@
        class="block w-fit m-auto font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">Register</a>
     <a href="{% url 'account_login' %}"
        class="block w-fit m-auto font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">Login</a>
+    {% else %}
+    <a href="{% url 'dashboard' %}"
+       class="block w-fit m-auto font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">Go to Dashboard</a>
     {% endif %}
 </section>
 
