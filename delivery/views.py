@@ -138,7 +138,12 @@ class NoteDetail(DetailView):
         table = NoteDetailsTable(note_items)
         RequestConfig(self.request).configure(table)
 
+        # https://stackoverflow.com/questions/68960662/django-sum-values-of-from-a-for-loop-in-template
+        total_cost = sum([(delivery_item.item.price * delivery_item.quantity)
+                          for delivery_item in note_items])
+
         context["table"] = table
+        context["total_cost"] = total_cost
 
         return context
 

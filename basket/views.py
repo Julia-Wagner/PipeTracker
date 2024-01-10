@@ -125,4 +125,4 @@ class BasketToNote(View):
         messages.success(request,
                          f"Stock items added to your delivery note.")
 
-        return redirect("/basket/")
+        return redirect("delivery_note_detail", pk=note_id)
