@@ -162,6 +162,11 @@ class DeliveryItemDecrease(View):
         delivery_item = get_object_or_404(NoteItem, id=delivery_item_id)
         stock_item = delivery_item.item
 
+        if delivery_item.note.status == "closed":
+            (messages.error
+             (request, "Closed delivery notes can not be edited."))
+            return redirect("delivery_note_detail", pk=delivery_item.note.id)
+
         # decrease delivery item quantity
         delivery_item.quantity -= 1
         delivery_item.save()
@@ -184,6 +189,11 @@ class DeliveryItemIncrease(View):
         delivery_item_id = self.kwargs.get("pk")
         delivery_item = get_object_or_404(NoteItem, id=delivery_item_id)
         stock_item = delivery_item.item
+
+        if delivery_item.note.status == "closed":
+            (messages.error
+             (request, "Closed delivery notes can not be edited."))
+            return redirect("delivery_note_detail", pk=delivery_item.note.id)
 
         if stock_item.quantity >= 1:
             # increase delivery item quantity

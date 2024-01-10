@@ -1,3 +1,6 @@
+{% if record.note.status == "closed" %}
+<span class="font-bold">{{ record.quantity }}</span>
+{% else %}
 <span class="flex items-center">
     <a href="{% url 'delivery_quantity_decrease' record.id %}"
        class="font-bold p-2 mx-2 text-darkblue hover:text-lightblue inline-flex" aria-label="decrease delivery item quantity">
@@ -15,3 +18,4 @@
         </svg>
     </a>
 </span>
+{% endif %}
