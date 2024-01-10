@@ -1,4 +1,5 @@
 import django_tables2 as tables
+from django.utils.html import format_html
 from django_tables2.utils import A
 from .models import Item
 
@@ -10,6 +11,7 @@ class ItemTable(tables.Table):
     quantity = tables.TemplateColumn(
         template_name="stock/quantity_field.html")
     details = tables.Column(orderable=False)
+    price = tables.Column(accessor="price")
     edit = tables.LinkColumn("stock_edit_item", args=[A("pk")],
                              text="Edit", orderable=False,
                              attrs={"a": {"class": "font-bold text-darkblue "
@@ -25,3 +27,6 @@ class ItemTable(tables.Table):
         row_attrs = {
             "class": "bg-customwhite border-b hover:bg-gray-200"
         }
+
+    def render_price(self, value):
+        return format_html("€ {}", value)

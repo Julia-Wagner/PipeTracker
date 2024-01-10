@@ -45,12 +45,15 @@ class NoteDetailsTable(tables.Table):
     """
     quantity = tables.TemplateColumn(
         template_name="delivery/quantity_field.html", orderable=False)
+    price = tables.Column(accessor="item__price", verbose_name="total")
 
     class Meta:
         model = NoteItem
         template_name = "django_tables2/table.html"
-        fields = ("quantity", "item__name", "item__size", "item__matchcode",
-                  "item__price")
+        fields = ("quantity", "item__name", "item__size", "item__matchcode")
         row_attrs = {
             "class": "bg-customwhite border-b hover:bg-gray-200"
         }
+
+    def render_price(self, value, record):
+        return format_html("€ {}", value * record.quantity)
