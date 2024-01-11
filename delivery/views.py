@@ -5,6 +5,7 @@ from django_tables2 import RequestConfig
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
 from django.http import FileResponse
+from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 import io
 
@@ -142,9 +143,7 @@ class NoteDetail(DetailView):
         table = NoteDetailsTable(note_items)
         RequestConfig(self.request).configure(table)
 
-        # https://stackoverflow.com/questions/68960662/django-sum-values-of-from-a-for-loop-in-template
-        total_cost = sum([(delivery_item.item.price * delivery_item.quantity)
-                          for delivery_item in note_items])
+        total_cost = self.object.get_total()
 
         context["table"] = table
         context["total_cost"] = total_cost
@@ -223,10 +222,28 @@ class ExportPDF(View):
         buffer = io.BytesIO()
 
         # create the PDF object, using the BytesIO buffer
-        pdf = canvas.Canvas(buffer)
+        w, h = A4
+        pdf = canvas.Canvas(buffer, pagesize=A4)
 
         # add PDF content
-        pdf.drawString(100, 800, f"Delivery Note: {note.title}")
+        # add the title
+        pdf.setFillColorRGB(0.15234375, 0.25, 0.375)
+        pdf.setFont("Helvetica-Bold", 20)
+        pdf.drawString(50, h - 60, f"Delivery Note: {note.title}")
+
+        # add the customer
+        pdf.setFillColorRGB(0.015625, 0.0625, 0.125)
+        pdf.setFont("Helvetica", 16)
+        pdf.drawString(50, h - 100, f"for {note.customer}")
+
+        # add the date
+        pdf.drawString(50, h - 130, f"created "
+                                    f"{note.date.strftime('%d.%m.%Y')}")
+
+        # add the total value
+        pdf.setFillColorRGB(0.73046875, 0.08203125, 0.08203125)
+        pdf.setFont("Helvetica", 16)
+        pdf.drawString(50, h - 160, f"Total value: € {note.get_total()}")
 
         # close the PDF object
         pdf.showPage()

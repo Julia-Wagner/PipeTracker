@@ -49,6 +49,12 @@ class Note(models.Model):
         return (f"{self.title} for {self.customer.first_name} "
                 f"{self.customer.last_name} ({date})")
 
+    def get_total(self):
+        note_items = NoteItem.objects.filter(note=self)
+        # https://stackoverflow.com/questions/68960662/django-sum-values-of-from-a-for-loop-in-template
+        return sum([(delivery_item.item.price * delivery_item.quantity)
+                          for delivery_item in note_items])
+
 
 class NoteItem(models.Model):
     """
