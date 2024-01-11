@@ -1,7 +1,8 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import (DeliveryNotes, AddNote, EditNote, DeleteNote, AddCustomer,
-                    NoteDetail, DeliveryItemDecrease, DeliveryItemIncrease)
+                    NoteDetail, DeliveryItemDecrease, DeliveryItemIncrease,
+                    ExportPDF)
 
 urlpatterns = [
     path("", login_required(DeliveryNotes.as_view()),
@@ -23,4 +24,9 @@ urlpatterns = [
     path("quantity/increase/<int:pk>/",
          login_required(DeliveryItemIncrease.as_view()),
          name="delivery_quantity_increase"),
+    # export as PDF
+    path("<int:pk>/export/",
+         login_required(ExportPDF.as_view()),
+         name="delivery_export_note"),
+
 ]

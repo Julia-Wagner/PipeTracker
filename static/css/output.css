@@ -650,6 +650,10 @@ video {
   margin: 0.25rem;
 }
 
+.m-10 {
+  margin: 2.5rem;
+}
+
 .m-4 {
   margin: 1rem;
 }
@@ -795,6 +799,10 @@ video {
   display: none;
 }
 
+.h-1 {
+  height: 0.25rem;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -904,6 +912,10 @@ video {
   flex-shrink: 1;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .border-collapse {
   border-collapse: collapse;
 }
@@ -946,6 +958,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -1350,20 +1366,52 @@ video {
   -2: space;
 }
 
+.\[-4\:-2\] {
+  -4: -2;
+}
+
+.\[-6\:-4\] {
+  -6: -4;
+}
+
+.\[-7\:-1\] {
+  -7: -1;
+}
+
 .\[-7\:-4\] {
   -7: -4;
+}
+
+.\[-8\:-2\] {
+  -8: -2;
+}
+
+.\[-8\:-4\] {
+  -8: -4;
 }
 
 .\[-\:\\w\] {
   -: \w;
 }
 
+.\[a\:b\] {
+  a: b;
+}
+
 .\[b\:e\] {
   b: e;
 }
 
+.\[b\:l\] {
+  b: l;
+}
+
 .\[bottom\:top\] {
   bottom: top;
+}
+
+.\[col-2\:col\+3\] {
+  col-2: col+3;
 }
 
 .\[cols_start\:cols_end\] {
@@ -1372,6 +1420,22 @@ video {
 
 .\[cur\:space\] {
   cur: space;
+}
+
+.\[cursor\:cursor\+10\] {
+  cursor: cursor+10;
+}
+
+.\[cursor\:cursor\+20\] {
+  cursor: cursor+20;
+}
+
+.\[cursor\:nextopenbracket\] {
+  cursor: nextopenbracket;
+}
+
+.\[cursorcount\:cursorcount\+20\] {
+  cursorcount: cursorcount+20;
 }
 
 .\[end\:next\] {
@@ -1386,8 +1450,60 @@ video {
   endpos: semicolon+1;
 }
 
+.\[f\:l\] {
+  f: l;
+}
+
+.\[firstbracket\:firstbracket\+20\] {
+  firstbracket: firstbracket+20;
+}
+
+.\[firstbracket\:firstbracket\+2\] {
+  firstbracket: firstbracket+2;
+}
+
+.\[firstbracket\:firstbracket\+4\] {
+  firstbracket: firstbracket+4;
+}
+
+.\[firstbracket\:firstbracket\+9\] {
+  firstbracket: firstbracket+9;
+}
+
+.\[glyphPos\:glyphPos\+glyphLen\] {
+  glyph-pos: glyphPos+glyphLen;
+}
+
+.\[hi\:n\] {
+  hi: n;
+}
+
+.\[i0\:il\] {
+  i0: il;
+}
+
 .\[i\:i\+1\] {
   i: i+1;
+}
+
+.\[i\:i\+2\] {
+  i: i+2;
+}
+
+.\[i\:i\+3\] {
+  i: i+3;
+}
+
+.\[i\:i\+chunkSize\] {
+  i: i+chunkSize;
+}
+
+.\[i\:i\+self\.row_regions\] {
+  i: i+self.row regions;
+}
+
+.\[i\:i\] {
+  i: i;
 }
 
 .\[i\:j\+tokcount\] {
@@ -1406,8 +1522,28 @@ video {
   inherit_ndx: inherit ndx+1;
 }
 
+.\[j0\:jl\] {
+  j0: jl;
+}
+
 .\[j\:chunk_end\] {
   j: chunk end;
+}
+
+.\[j\:i\] {
+  j: i;
+}
+
+.\[j\:j\+10\] {
+  j: j+10;
+}
+
+.\[j\:j\+bpp\] {
+  j: j+bpp;
+}
+
+.\[j\:j\+patternlen\] {
+  j: j+patternlen;
 }
 
 .\[last\:pos\] {
@@ -1430,6 +1566,10 @@ video {
   left: right;
 }
 
+.\[lineStartPos\:i\] {
+  line-start-pos: i;
+}
+
 .\[line_offset\:end_line\] {
   line_offset: end line;
 }
@@ -1450,8 +1590,24 @@ video {
   model_fields_start: model fields end;
 }
 
+.\[nextopenbracket\:nextopenbracket\+20\] {
+  nextopenbracket: nextopenbracket+20;
+}
+
+.\[nmw\:nmw\+1\] {
+  nmw: nmw+1;
+}
+
+.\[o-rowb\:o\] {
+  o-rowb: o;
+}
+
 .\[offset\:next_offset\] {
   offset: next offset;
+}
+
+.\[offset\:offset\+dcCount\] {
+  offset: offset+dcCount;
 }
 
 .\[ofs\:mlen\] {
@@ -1482,12 +1638,52 @@ video {
   parseopt_start: parseopt end;
 }
 
+.\[past\:past\+le\] {
+  past: past+le;
+}
+
+.\[pastfirstbracket\:closebracket\] {
+  pastfirstbracket: closebracket;
+}
+
 .\[pos\:end_pos\] {
   pos: end pos;
 }
 
+.\[pos\:i\] {
+  pos: i;
+}
+
+.\[pos\:nc\] {
+  pos: nc;
+}
+
 .\[pos\:new_pos\] {
   pos: new pos;
+}
+
+.\[pos\:pc\] {
+  pos: pc;
+}
+
+.\[pos\:pos\+2\] {
+  pos: pos+2;
+}
+
+.\[pos\:pos\+4\] {
+  pos: pos+4;
+}
+
+.\[pos\:pos\+columns\] {
+  pos: pos+columns;
+}
+
+.\[pos\:pos\+length\] {
+  pos: pos+length;
+}
+
+.\[pos_in_glyph\:pos_in_glyph\+2\] {
+  pos_in_glyph: pos in glyph+2;
 }
 
 .\[position\:offset\] {
@@ -1506,12 +1702,56 @@ video {
   prev_end: start;
 }
 
+.\[r_offset\:rows\+r_offset\] {
+  r_offset: rows+r offset;
+}
+
+.\[s1\:l1\] {
+  s1: l1;
+}
+
+.\[s2\:l2\] {
+  s2: l2;
+}
+
+.\[s3\:l3\] {
+  s3: l3;
+}
+
+.\[sFW\:sFWN\] {
+  s-f-w: sFWN;
+}
+
+.\[sc\:ec\+1\] {
+  sc: ec+1;
+}
+
+.\[sc\:ec\+2\] {
+  sc: ec+2;
+}
+
 .\[server\:main\] {
   server: main;
 }
 
+.\[span_sr\:n\] {
+  span_sr: n;
+}
+
+.\[sr\:er\+1\] {
+  sr: er+1;
+}
+
+.\[sr\:er\+2\] {
+  sr: er+2;
+}
+
 .\[start\:end\] {
   start: end;
+}
+
+.\[start\:j\] {
+  start: j;
 }
 
 .\[start\:loc\] {
@@ -1538,8 +1778,20 @@ video {
   startloc: loc;
 }
 
+.\[startpos\:i\+1\] {
+  startpos: i+1;
+}
+
 .\[top\:bottom\] {
   top: bottom;
+}
+
+.\[transparency\:transparency\+3\] {
+  transparency: transparency+3;
+}
+
+.\[tstart\:tend\] {
+  tstart: tend;
 }
 
 .\[upto\:next\] {
@@ -1552,6 +1804,10 @@ video {
 
 .\[user\:passwd\@\] {
   user: passwd@;
+}
+
+.\[x\:x\+2\] {
+  x: x+2;
 }
 
 /* Google fonts import Roboto and Montserrat */

@@ -4,6 +4,10 @@ from django.views.generic import (CreateView, ListView, UpdateView,
 from django_tables2 import RequestConfig
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+import io
+
 from .models import Note, Customer, NoteItem
 from .forms import NoteForm, CustomerForm
 from .tables import NoteTable, NoteDetailsTable
@@ -206,3 +210,31 @@ class DeliveryItemIncrease(View):
                            f"No more {stock_item} available.")
 
         return redirect("delivery_note_detail", pk=delivery_item.note.id)
+
+
+class ExportPDF(View):
+    """
+    Export the details of a delivery note to a PDF file
+    """
+    def get(self, request, *args, **kwargs):
+        note = Note.objects.get(pk=self.kwargs["pk"])
+
+        # create a file-like buffer for the PDF
+        buffer = io.BytesIO()
+
+        # create the PDF object, using the BytesIO buffer
+        pdf = canvas.Canvas(buffer)
+
+        # add PDF content
+        pdf.drawString(100, 800, f"Delivery Note: {note.title}")
+
+        # close the PDF object
+        pdf.showPage()
+        pdf.save()
+
+        # file response with PDF content
+        buffer.seek(0)
+        file_name = f"{note.title}_{note.customer.last_name}.pdf"
+        response = FileResponse(buffer, as_attachment=True,
+                                filename=file_name)
+        return response
