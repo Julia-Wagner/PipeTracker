@@ -475,6 +475,7 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 
 ## **Packages**
 - [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html) - an app for creating HTML tables.
+- [reportlab](https://docs.reportlab.com/) - output PDF files dynamically using Django views.
 - [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX.
 - [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter.
 - [Pillow](https://pypi.org/project/Pillow/) - Python Imaging Library used for *ImageField*.
