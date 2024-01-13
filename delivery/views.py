@@ -5,8 +5,9 @@ from django_tables2 import RequestConfig
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib import messages
 from django.http import FileResponse
+from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
+from reportlab.platypus import *
 import io
 
 from .models import Note, Customer, NoteItem
@@ -217,37 +218,25 @@ class ExportPDF(View):
     """
     def get(self, request, *args, **kwargs):
         note = Note.objects.get(pk=self.kwargs["pk"])
+        note_items = NoteItem.objects.filter(note=note)
 
         # create a file-like buffer for the PDF
         buffer = io.BytesIO()
 
-        # create the PDF object, using the BytesIO buffer
-        w, h = A4
-        pdf = canvas.Canvas(buffer, pagesize=A4)
+        # create the PDF object
+        pdf = SimpleDocTemplate(buffer, pagesize=A4)
 
         # add PDF content
-        # add the title
-        pdf.setFillColorRGB(0.15234375, 0.25, 0.375)
-        pdf.setFont("Helvetica-Bold", 20)
-        pdf.drawString(50, h - 60, f"Delivery Note: {note.title}")
+        content = []
 
-        # add the customer
-        pdf.setFillColorRGB(0.015625, 0.0625, 0.125)
-        pdf.setFont("Helvetica", 16)
-        pdf.drawString(50, h - 100, f"for {note.customer}")
+        # generate table
+        table = self.generate_table_content(note_items)
 
-        # add the date
-        pdf.drawString(50, h - 130, f"created "
-                                    f"{note.date.strftime('%d.%m.%Y')}")
+        # add the table to the content
+        content.append(table)
 
-        # add the total value
-        pdf.setFillColorRGB(0.73046875, 0.08203125, 0.08203125)
-        pdf.setFont("Helvetica", 16)
-        pdf.drawString(50, h - 160, f"Total value: € {note.get_total()}")
-
-        # close the PDF object
-        pdf.showPage()
-        pdf.save()
+        # build PDF
+        pdf.build(content)
 
         # file response with PDF content
         buffer.seek(0)
@@ -255,3 +244,37 @@ class ExportPDF(View):
         response = FileResponse(buffer, as_attachment=True,
                                 filename=file_name)
         return response
+
+    def generate_table_content(self, note_items):
+        # add table headers
+        table_data = [
+            ["Quantity", "Name", "Size", "Matchcode", "Total Price"]
+        ]
+
+        # add table content for each delivery item
+        for note_item in note_items:
+            table_data.append([
+                note_item.quantity,
+                note_item.item.name,
+                note_item.item.size,
+                note_item.item.matchcode,
+                f"€ {note_item.item.price * note_item.quantity}"
+            ])
+
+        # create the table element
+        table = Table(table_data)
+
+        # customize style
+        style = TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0),
+             colors.Color(0.15234375, 0.25, 0.375)),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("BACKGROUND", (0, 1), (-1, -1), colors.lightgrey),
+        ])
+
+        # apply style
+        table.setStyle(style)
+
+        return table
