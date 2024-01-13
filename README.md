@@ -490,6 +490,12 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 
 - I used the walkthrough projects from Code Institute and the [Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) as a general reference for the project.
 - For the planning stage, I used this article about [sprint planning with GitHub issues](https://codetree.com/guides/sprint-planning-github-issues).
+- The feature to export a delivery note as a PDF was not easy, these sources helped me find out how to reach my goal.
+  - [The official ReportLab Docs](https://docs.reportlab.com/)
+  - [This stackoverflow issue on how to use Colors in reportlab](https://stackoverflow.com/questions/20485792/color-codes-in-reportlabs-python)
+  - [This stackoverflow issue on how to create tables in reportlab](https://stackoverflow.com/questions/3372885/how-to-make-a-simple-table-in-reportlab)
+  - [This blog on how to create tables in reportlab](https://www.blog.pythonlibrary.org/2010/09/21/reportlab-tables-creating-tables-in-pdfs-with-python/)
+  - [This article about reportlab](https://pythonassets.com/posts/create-pdf-documents-in-python-with-reportlab/)
 
 ## **Media and Design**
 
