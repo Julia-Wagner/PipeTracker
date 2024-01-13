@@ -626,6 +626,10 @@ video {
   right: 0px;
 }
 
+.start-1 {
+  inset-inline-start: 0.25rem;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -787,12 +791,56 @@ video {
   display: table;
 }
 
+.inline-table {
+  display: inline-table;
+}
+
+.table-caption {
+  display: table-caption;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+.table-column {
+  display: table-column;
+}
+
+.table-column-group {
+  display: table-column-group;
+}
+
+.table-footer-group {
+  display: table-footer-group;
+}
+
+.table-header-group {
+  display: table-header-group;
+}
+
+.table-row-group {
+  display: table-row-group;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.flow-root {
+  display: flow-root;
+}
+
 .grid {
   display: grid;
 }
 
 .contents {
   display: contents;
+}
+
+.list-item {
+  display: list-item;
 }
 
 .hidden {
@@ -908,8 +956,16 @@ video {
   flex: 1 1 auto;
 }
 
+.flex-shrink {
+  flex-shrink: 1;
+}
+
 .shrink {
   flex-shrink: 1;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .grow {
@@ -1027,6 +1083,10 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.break-all {
+  word-break: break-all;
 }
 
 .rounded {
@@ -1246,6 +1306,41 @@ video {
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
+.slashed-zero {
+  --tw-slashed-zero: slashed-zero;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.lining-nums {
+  --tw-numeric-figure: lining-nums;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.oldstyle-nums {
+  --tw-numeric-figure: oldstyle-nums;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.proportional-nums {
+  --tw-numeric-spacing: proportional-nums;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.tabular-nums {
+  --tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.diagonal-fractions {
+  --tw-numeric-fraction: diagonal-fractions;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.stacked-fractions {
+  --tw-numeric-fraction: stacked-fractions;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
 .text-customblack {
   --tw-text-opacity: 1;
   color: rgb(4 16 32 / var(--tw-text-opacity));
@@ -1296,6 +1391,11 @@ video {
 
 .line-through {
   text-decoration-line: line-through;
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .shadow {
@@ -1362,6 +1462,14 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.\[-1\:-1\] {
+  -1: -1;
+}
+
+.\[-2\:-1\] {
+  -2: -1;
+}
+
 .\[-2\:space\] {
   -2: space;
 }
@@ -1394,6 +1502,14 @@ video {
   -: \w;
 }
 
+.\[-n\:-1\] {
+  -n: -1;
+}
+
+.\[_start\:\+_end\+1\] {
+  _start: + end+1;
+}
+
 .\[a\:b\] {
   a: b;
 }
@@ -1410,12 +1526,28 @@ video {
   bottom: top;
 }
 
+.\[cert_start\:cert_end\] {
+  cert_start: cert end;
+}
+
+.\[cluster\:next_cluster\] {
+  cluster: next cluster;
+}
+
+.\[coefficient_offset\:private_exponent_offset\] {
+  coefficient_offset: private exponent offset;
+}
+
 .\[col-2\:col\+3\] {
   col-2: col+3;
 }
 
 .\[cols_start\:cols_end\] {
   cols_start: cols end;
+}
+
+.\[contents_end\:contents_end\+2\] {
+  contents_end: contents end+2;
 }
 
 .\[cur\:space\] {
@@ -1450,8 +1582,20 @@ video {
   endpos: semicolon+1;
 }
 
+.\[exponent1_offset\:exponent2_offset\] {
+  exponent1_offset: exponent2 offset;
+}
+
+.\[exponent2_offset\:coefficient_offset\] {
+  exponent2_offset: coefficient offset;
+}
+
 .\[f\:l\] {
   f: l;
+}
+
+.\[first_element_idx\:last_element_idx\+1\] {
+  first_element_idx: last element idx+1;
 }
 
 .\[firstbracket\:firstbracket\+20\] {
@@ -1470,6 +1614,18 @@ video {
   firstbracket: firstbracket+9;
 }
 
+.\[fr\:to\] {
+  fr: to;
+}
+
+.\[g_offset\:public_offset\] {
+  g_offset: public offset;
+}
+
+.\[g_offset\:x_offset\] {
+  g_offset: x offset;
+}
+
 .\[glyphPos\:glyphPos\+glyphLen\] {
   glyph-pos: glyphPos+glyphLen;
 }
@@ -1480,6 +1636,14 @@ video {
 
 .\[i0\:il\] {
   i0: il;
+}
+
+.\[i1\:i2\] {
+  i1: i2;
+}
+
+.\[i\:hi\] {
+  i: hi;
 }
 
 .\[i\:i\+1\] {
@@ -1502,6 +1666,10 @@ video {
   i: i+self.row regions;
 }
 
+.\[i\:i\+vpr\] {
+  i: i+vpr;
+}
+
 .\[i\:i\] {
   i: i;
 }
@@ -1514,16 +1682,36 @@ video {
   i: j;
 }
 
+.\[index\:index\+1\] {
+  index: index+1;
+}
+
+.\[index\:index\+2\] {
+  index: index+2;
+}
+
 .\[index\:index\] {
   index: index;
+}
+
+.\[index\:newIndex\] {
+  index: newIndex;
 }
 
 .\[inherit_ndx\:inherit_ndx\+1\] {
   inherit_ndx: inherit ndx+1;
 }
 
+.\[j0\:j0\+cols\] {
+  j0: j0+cols;
+}
+
 .\[j0\:jl\] {
   j0: jl;
+}
+
+.\[j1\:j2\] {
+  j1: j2;
 }
 
 .\[j\:chunk_end\] {
@@ -1546,6 +1734,10 @@ video {
   j: j+patternlen;
 }
 
+.\[j\:k\] {
+  j: k;
+}
+
 .\[last\:pos\] {
   last: pos;
 }
@@ -1562,8 +1754,20 @@ video {
   last-e: s;
 }
 
+.\[last_i\:end_args\] {
+  last_i: end args;
+}
+
+.\[lbound\:ubound\] {
+  lbound: ubound;
+}
+
 .\[left\:right\] {
   left: right;
+}
+
+.\[length\:resume_index\] {
+  length: resume index;
 }
 
 .\[lineStartPos\:i\] {
@@ -1572,6 +1776,14 @@ video {
 
 .\[line_offset\:end_line\] {
   line_offset: end line;
+}
+
+.\[lo\:i\] {
+  lo: i;
+}
+
+.\[loc-1\:loc\+10\] {
+  loc-1: loc+10;
 }
 
 .\[loc\:maxloc\] {
@@ -1588,6 +1800,10 @@ video {
 
 .\[model_fields_start\:model_fields_end\] {
   model_fields_start: model fields end;
+}
+
+.\[n1\:regionCount\] {
+  n1: regionCount;
 }
 
 .\[nextopenbracket\:nextopenbracket\+20\] {
@@ -1610,8 +1826,16 @@ video {
   offset: offset+dcCount;
 }
 
+.\[offset\:pos\] {
+  offset: pos;
+}
+
 .\[ofs\:mlen\] {
   ofs: mlen;
+}
+
+.\[oldPosition\:self\.data\.position\] {
+  old-position: self.data.position;
 }
 
 .\[p1\:p2\] {
@@ -1624,6 +1848,14 @@ video {
 
 .\[p\:p\] {
   p: p;
+}
+
+.\[p_offset\:g_offset\] {
+  p_offset: g offset;
+}
+
+.\[page_number\:page_number\] {
+  page_number: page number;
 }
 
 .\[parse_start\:parse_end\] {
@@ -1646,6 +1878,14 @@ video {
   pastfirstbracket: closebracket;
 }
 
+.\[pointer\:contents_end-len\(trailer\)\] {
+  pointer: contents end-len(trailer);
+}
+
+.\[pos\:endPos\] {
+  pos: endPos;
+}
+
 .\[pos\:end_pos\] {
   pos: end pos;
 }
@@ -1660,6 +1900,18 @@ video {
 
 .\[pos\:new_pos\] {
   pos: new pos;
+}
+
+.\[pos\:newpos\] {
+  pos: newpos;
+}
+
+.\[pos\:nextPos\] {
+  pos: nextPos;
+}
+
+.\[pos\:nextpos\] {
+  pos: nextpos;
 }
 
 .\[pos\:pc\] {
@@ -1702,6 +1954,26 @@ video {
   prev_end: start;
 }
 
+.\[prime1_offset\:prime2_offset\] {
+  prime1_offset: prime2 offset;
+}
+
+.\[prime2_offset\:exponent1_offset\] {
+  prime2_offset: exponent1 offset;
+}
+
+.\[public_offset\:private_offset\] {
+  public_offset: private offset;
+}
+
+.\[q_offset\:g_offset\] {
+  q_offset: g offset;
+}
+
+.\[q_offset\:p_offset\] {
+  q_offset: p offset;
+}
+
 .\[r_offset\:rows\+r_offset\] {
   r_offset: rows+r offset;
 }
@@ -1718,6 +1990,10 @@ video {
   s3: l3;
 }
 
+.\[s\:e\] {
+  s: e;
+}
+
 .\[sFW\:sFWN\] {
   s-f-w: sFWN;
 }
@@ -1732,6 +2008,10 @@ video {
 
 .\[server\:main\] {
   server: main;
+}
+
+.\[sig_end\:eof\] {
+  sig_end: eof;
 }
 
 .\[span_sr\:n\] {
@@ -1758,8 +2038,16 @@ video {
   start: loc;
 }
 
+.\[start\:pointer\] {
+  start: pointer;
+}
+
 .\[start\:pos\] {
   start: pos;
+}
+
+.\[start\:start\+length\] {
+  start: start+length;
 }
 
 .\[start\:stop\] {
@@ -1774,12 +2062,20 @@ video {
   start_pos: pos;
 }
 
+.\[start_word\:stop_word\] {
+  start_word: stop word;
+}
+
 .\[startloc\:loc\] {
   startloc: loc;
 }
 
 .\[startpos\:i\+1\] {
   startpos: i+1;
+}
+
+.\[token_start_pos\:pos\] {
+  token_start_pos: pos;
 }
 
 .\[top\:bottom\] {
@@ -1792,6 +2088,10 @@ video {
 
 .\[tstart\:tend\] {
   tstart: tend;
+}
+
+.\[tuplei\:next_ti\] {
+  tuplei: next ti;
 }
 
 .\[upto\:next\] {
@@ -2026,6 +2326,11 @@ nav li a {
 .hover\:text-danger:hover {
   --tw-text-opacity: 1;
   color: rgb(187 21 21 / var(--tw-text-opacity));
+}
+
+.hover\:text-darkblue:hover {
+  --tw-text-opacity: 1;
+  color: rgb(39 64 96 / var(--tw-text-opacity));
 }
 
 .hover\:text-lightblue:hover {

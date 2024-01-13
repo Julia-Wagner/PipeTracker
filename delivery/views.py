@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.http import FileResponse
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import *
 import io
 
@@ -228,6 +229,30 @@ class ExportPDF(View):
 
         # add PDF content
         content = []
+
+        # add title, customer, date, and total value as a paragraph
+        # load styles and customize headings
+        styles = getSampleStyleSheet()
+        heading1 = styles["Heading1"]
+        heading1.spaceAfter = 10
+        heading1.textColor = (0.15234375, 0.25, 0.375)
+        heading2 = styles["Heading2"]
+        heading2.spaceAfter = 20
+        heading2.textColor = (0.73046875, 0.08203125, 0.08203125)
+
+        note_paragraph = Paragraph(f"Delivery Note: {note.title}",
+                                   heading1)
+        customer_paragraph = Paragraph(f"For: {note.customer}",
+                                       styles["Heading3"])
+        date_paragraph = Paragraph(f"Created: "
+                                   f"{note.date.strftime('%d.%m.%Y')}",
+                                   styles["Heading3"])
+        total_paragraph = Paragraph(f"Total value: € {note.get_total()}",
+                                    heading2)
+        content.append(KeepTogether([note_paragraph]))
+        content.append(KeepTogether([customer_paragraph]))
+        content.append(KeepTogether([date_paragraph]))
+        content.append(KeepTogether([total_paragraph]))
 
         # generate table
         table = self.generate_table_content(note_items)
