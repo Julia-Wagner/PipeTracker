@@ -334,8 +334,15 @@ The detail page of a delivery note contains all the information about the delive
 
 Underneath the information about the delivery note, a table containing all the stock items added to the delivery note is shown.
 
+The button **Export as PDF** saves the delivery note data with all items to a PDF and downloads the file.
+
 ![Delivery note detail](docs/screenshots/note_detail.png)\
 *Delivery note detail*
+
+The exported PDF is really simple, but contains all the necessary information.
+
+![Exported Delivery note](docs/screenshots/note_export.png)\
+*Delivery note Export PDF*
 
 ![Edit delivery note](docs/screenshots/edit_note.png)\
 *Edit a delivery note (mobile)*
