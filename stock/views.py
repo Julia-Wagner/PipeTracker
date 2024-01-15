@@ -59,7 +59,7 @@ class AddCategory(CreateView):
     template_name = "stock/add_category.html"
     model = Category
     form_class = CategoryForm
-    success_url = "/stock/"
+    success_url = reverse_lazy("stock_categories")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -75,7 +75,7 @@ class DeleteCategory(DeleteView):
     Delete a Category
     """
     model = Category
-    success_url = "/stock/"
+    success_url = reverse_lazy("stock_categories")
 
     # add success message
     def form_valid(self, form):
@@ -91,7 +91,7 @@ class EditCategory(UpdateView):
     template_name = "stock/edit_category.html"
     model = Category
     form_class = CategoryForm
-    success_url = "/stock/"
+    success_url = reverse_lazy("stock_categories")
 
     # add success message
     def form_valid(self, form):
@@ -133,7 +133,7 @@ class AddItem(CreateView):
     template_name = "stock/add_item.html"
     model = Item
     form_class = ItemForm
-    success_url = "/stock/"
+    success_url = reverse_lazy("stock_categories")
 
     def form_valid(self, form):
         form.instance.user = self.request.user

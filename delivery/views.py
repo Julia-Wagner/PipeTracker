@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import (CreateView, ListView, UpdateView,
                                   DeleteView, DetailView)
@@ -45,7 +46,7 @@ class AddCustomer(CreateView):
     template_name = "delivery/add_customer.html"
     model = Customer
     form_class = CustomerForm
-    success_url = "/delivery/add/"
+    success_url = reverse_lazy("delivery_add_note")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -63,7 +64,7 @@ class AddNote(CreateView):
     template_name = "delivery/add_note.html"
     model = Note
     form_class = NoteForm
-    success_url = "/delivery/"
+    success_url = reverse_lazy("delivery_notes")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -81,7 +82,7 @@ class EditNote(UpdateView):
     template_name = "delivery/edit_note.html"
     model = Note
     form_class = NoteForm
-    success_url = "/delivery/"
+    success_url = reverse_lazy("delivery_notes")
 
     # don´t allow editing for closed notes
     def dispatch(self, request, *args, **kwargs):
@@ -107,7 +108,7 @@ class DeleteNote(DeleteView):
     Delete a delivery note
     """
     model = Note
-    success_url = "/delivery/"
+    success_url = reverse_lazy("delivery_notes")
 
     # don´t allow deleting for closed notes
     def dispatch(self, request, *args, **kwargs):
