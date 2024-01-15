@@ -1,3 +1,5 @@
+import csv
+
 from django import forms
 from .models import Category, Item
 from crispy_forms.helper import FormHelper
@@ -79,3 +81,34 @@ class ItemForm(forms.ModelForm):
             "size": "Size",
             "details": "Details",
         }
+
+
+class UploadForm(forms.Form):
+    """
+    Form to upload a CSV file
+    """
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add custom classes to the form.
+        """
+        super(UploadForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.label_class = "block mb-2 text-customblack font-bold"
+        self.helper.form_tag = False
+
+    file = forms.FileField(
+        label="CSV File",
+        help_text="Upload a CSV file.",
+        widget=forms.ClearableFileInput(attrs={"accept": "text/csv"})
+    )
+
+    def clean_file(self):
+        csv_file = self.cleaned_data["file"]
+        try:
+            decoded_file = csv_file.read().decode("utf-8")
+            csv.DictReader(decoded_file)
+        except Exception as e:
+            raise ValidationError("Please upload a valid CSV file.")
+
+        return csv_file

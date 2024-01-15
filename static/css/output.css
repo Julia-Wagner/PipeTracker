@@ -2198,6 +2198,7 @@ nav li a {
 .invalid-feedback {
   font-size: .9rem;
   color: #bb1515;
+  display: block;
 }
 
 /* Media Queries */
