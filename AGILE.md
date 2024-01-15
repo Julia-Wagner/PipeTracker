@@ -105,3 +105,15 @@ Additionally, I added two user stories for this sprint with a total of **13 stor
 
 ![Sprint 6 start](docs/agile/sprint6_start.png)
 *Start of Sprint 6*
+
+While testing the application thoroughly, I added **Bug** and **Testing** issues to my Kanban board and added them to this sprint. I managed to fix all found bugs and finish the planned user stories.
+
+![Sprint 6 end](docs/agile/sprint6_end.png)
+*End of Sprint 6*
+
+### **Sprint 7 (16.01. - 22.01.)**
+
+For this sprint I only added one user story, which I gave **13 story points**. It is a feature that I am not sure if it is possible, so I will probably spend a lot of time trying different ways of doing it.
+
+![Sprint 7 start](docs/agile/sprint7_start.png)
+*Start of Sprint 7*
