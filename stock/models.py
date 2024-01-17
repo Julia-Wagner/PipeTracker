@@ -52,7 +52,8 @@ class Item(models.Model):
                                  related_name="stock_items",
                                  on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=False, blank=False)
-    matchcode = models.CharField(max_length=100, null=True, blank=True)
+    matchcode = models.CharField(max_length=100, null=False, blank=False,
+                                 unique=True)
     price = models.DecimalField(decimal_places=2, max_digits=10, null=False,
                                 blank=False)
     quantity = models.IntegerField(null=False, blank=False)
