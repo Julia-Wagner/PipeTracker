@@ -102,13 +102,3 @@ class UploadForm(forms.Form):
         help_text="Upload a CSV file.",
         widget=forms.ClearableFileInput(attrs={"accept": "text/csv"})
     )
-
-    def clean_file(self):
-        csv_file = self.cleaned_data["file"]
-        try:
-            decoded_file = csv_file.read().decode("utf-8")
-            csv.DictReader(decoded_file)
-        except Exception as e:
-            raise ValidationError("Please upload a valid CSV file.")
-
-        return csv_file

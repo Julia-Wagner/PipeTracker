@@ -1,5 +1,10 @@
+import csv
+from decimal import Decimal
+
+
 from django.http import HttpResponseRedirect
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, \
+    FormView
 from django.views import View
 from django.shortcuts import get_object_or_404, redirect
 from django_tables2 import RequestConfig
@@ -8,7 +13,7 @@ from django.contrib import messages
 
 from basket.models import BasketItem, Basket
 from .models import Category, Item
-from .forms import CategoryForm, ItemForm
+from .forms import CategoryForm, ItemForm, UploadForm
 from .tables import ItemTable
 
 
@@ -124,6 +129,76 @@ class Items(ListView):
         context["table"] = table
 
         return context
+
+
+class AddItemFromUpload(FormView):
+    template_name = "stock/upload_file.html"
+    form_class = UploadForm
+    success_url = reverse_lazy("stock_categories")
+
+    def form_valid(self, form):
+        csv_file = form.cleaned_data["file"]
+
+        try:
+            # read the uploaded file
+            decoded_file = csv_file.read().decode("utf-8-sig").splitlines()
+            reader = csv.DictReader(decoded_file, delimiter=";")
+
+            # remove BOM from field names
+            # https://github.com/dbt-labs/dbt-core/issues/1177
+            reader.fieldnames = [field.lstrip("\ufeff") for field in
+                                 reader.fieldnames]
+
+            # make sure the file has the required fields
+            required_fields = ["category", "name", "matchcode", "price",
+                               "quantity", "size", "details"]
+            for field in required_fields:
+                if field not in reader.fieldnames:
+                    messages.error(
+                        self.request,
+                        f"Missing field in file: '{field}'. "
+                        f"Please upload a valid CSV using the example file.")
+                    return super().form_invalid(form)
+
+            # process each row
+            counter = 0
+            for row in reader:
+                # get the values
+                category = get_object_or_404(Category, id=int(row["category"]))
+                name = row["name"]
+                matchcode = row["matchcode"]
+                # https://stackoverflow.com/questions/4643991/python-converting-string-into-decimal-number
+                price = Decimal(row["price"].replace(",", "."))
+                quantity = int(row["quantity"])
+                size = row["size"]
+                details = row["details"]
+
+                # check if item already exists
+                existing_item = Item.objects.filter(
+                    matchcode=matchcode).first()
+
+                if not existing_item:
+                    # create a stock item for the row
+                    Item.objects.create(
+                        user=self.request.user,
+                        category=category,
+                        name=name,
+                        matchcode=matchcode,
+                        price=price,
+                        quantity=quantity,
+                        size=size,
+                        details=details
+                    )
+                    counter += 1
+
+            messages.success(self.request,
+                             f"{counter} items created successfully.")
+            return super().form_valid(form)
+
+        except Exception as e:
+            messages.error(self.request,
+                           f"{e}. Please upload a valid CSV file.")
+            return super().form_invalid(form)
 
 
 class AddItem(CreateView):
