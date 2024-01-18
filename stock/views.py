@@ -1,6 +1,5 @@
 import csv
-from decimal import Decimal
-
+from decimal import Decimal, DecimalException
 
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, \
@@ -167,9 +166,31 @@ class AddItemFromUpload(FormView):
                 category = get_object_or_404(Category, id=int(row["category"]))
                 name = row["name"]
                 matchcode = row["matchcode"]
-                # https://stackoverflow.com/questions/4643991/python-converting-string-into-decimal-number
-                price = Decimal(row["price"].replace(",", "."))
-                quantity = int(row["quantity"])
+                # convert price and set default for missing value
+                raw_price = row["price"]
+                if raw_price is None or raw_price == "":
+                    price = 0.00
+                else:
+                    try:
+                        # https://stackoverflow.com/questions/4643991/python-converting-string-into-decimal-number
+                        price = Decimal(raw_price.replace(",", "."))
+                    except (ValueError, DecimalException):
+                        # no valid integer
+                        messages.error(self.request,
+                                       f"Invalid price value: "
+                                       f"'{raw_price}' for item '{name}'.")
+                # convert quantity and set default for missing value
+                raw_quantity = row.get("quantity", "1")
+                if raw_quantity is None or raw_quantity == "":
+                    quantity = 0
+                else:
+                    try:
+                        quantity = int(raw_quantity)
+                    except ValueError:
+                        # no valid integer
+                        messages.error(self.request,
+                                       f"Invalid quantity value: "
+                                       f"'{raw_quantity}' for item '{name}'.")
                 size = row["size"]
                 details = row["details"]
 
@@ -178,18 +199,29 @@ class AddItemFromUpload(FormView):
                     matchcode=matchcode).first()
 
                 if not existing_item:
-                    # create a stock item for the row
-                    Item.objects.create(
-                        user=self.request.user,
-                        category=category,
-                        name=name,
-                        matchcode=matchcode,
-                        price=price,
-                        quantity=quantity,
-                        size=size,
-                        details=details
-                    )
-                    counter += 1
+                    # check that all required fields are given
+                    if all(value is not None and value.strip() != "" for value
+                           in [name, matchcode]):
+                        # create a stock item for the row
+                        Item.objects.create(
+                            user=self.request.user,
+                            category=category,
+                            name=name,
+                            matchcode=matchcode,
+                            price=price,
+                            quantity=quantity,
+                            size=size,
+                            details=details
+                        )
+                        counter += 1
+                    else:
+                        messages.error(
+                            self.request,
+                            "One or more required fields missing or empty.")
+                else:
+                    messages.error(
+                        self.request,
+                        f"Item '{existing_item.name}' already exists.")
 
             messages.success(self.request,
                              f"{counter} items created successfully.")
@@ -197,7 +229,7 @@ class AddItemFromUpload(FormView):
 
         except Exception as e:
             messages.error(self.request,
-                           f"{e}. Please upload a valid CSV file.")
+                           "Please upload a valid CSV file.")
             return super().form_invalid(form)
 
 
