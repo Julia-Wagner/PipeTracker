@@ -36,6 +36,11 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
   * [**Authentication**](#authentication)
   * [**Messages**](#messages)
   * [**Stock Items and Categories**](#stock-items-and-categories)
+    * [**Categories**](#categories)
+    * [**Stock Items**](#stock-items)
+    * [**CSV Upload**](#csv-upload)
+  * [**Basket**](#basket)
+  * [**Delivery Notes**](#delivery-notes)
 * [**Agile Process**](#agile-process)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
@@ -277,6 +282,8 @@ The messages can be closed using the icon, after 4 seconds they are closed autom
 
 ## **Stock Items and Categories**
 
+### **Categories**
+
 After clicking **Stock Items** in the menu, all available categories are shown as cards. They can be opened, edited or deleted.
 
 ![Categories](docs/screenshots/categories.png)\
@@ -292,6 +299,8 @@ A new category or stock item can be added at each of the **Stock Items** pages. 
 ![Add stock item](docs/screenshots/add_item.png)\
 *Add a stock item (mobile)*
 
+### **Stock Items**
+
 If the selected category does not have any subcategories, the stock items of this category are shown. The items are presented in a table that is orderable by relevant fields. 
 
 Full CRUD is also available for stock items. By clicking edit, the selected stock item can be edited or deleted. The item quantity can also be edited directly in the table by clicking **-** or **+**. The stock item can be added to the basket by choosing the desired amount and clicking **Add**. There can never be added more items to the basket, than available in the stock.
@@ -301,6 +310,20 @@ Full CRUD is also available for stock items. By clicking edit, the selected stoc
 
 ![Edit stock item](docs/screenshots/edit_item.png)\
 *Edit a stock item*
+
+### **CSV Upload**
+
+A CSV file can be uploaded to automatically create stock items. The form checks the file extension to only allow uploading **.csv** files. The uploaded file is then validated to check if all the required fields are in the file and if the given values have the correct format.
+
+Any errors in the file are reported to the user. If there are no errors, the stock items are created. The number of created stock items is then printed in a message to the user. If the file contains a stock item that already exists, it is skipped to avoid unintentional changes to the existing stock.
+
+![CSV Upload](docs/screenshots/csv_upload.png)\
+*CSV Upload*
+
+An example file containing the necessary columns can be downloaded, to help the user by providing a validated template.
+
+![Example file](docs/screenshots/example_file.png)\
+*Example CSV file*
 
 ## **Basket**
 
@@ -339,7 +362,7 @@ The button **Export as PDF** saves the delivery note data with all items to a PD
 ![Delivery note detail](docs/screenshots/note_detail.png)\
 *Delivery note detail*
 
-The exported PDF is really simple, but contains all the necessary information.
+The exported PDF is really simple but contains all the necessary information.
 
 ![Exported Delivery note](docs/screenshots/note_export.png)\
 *Delivery note Export PDF*
