@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .views import (AddCategory, Categories, CategoriesChildren,
                     DeleteCategory, EditCategory,
                     Items, AddItem, EditItem, DeleteItem, ItemToBasket,
-                    StockItemDecrease, StockItemIncrease, AddItemFromUpload)
+                    StockItemDecrease, StockItemIncrease, AddItemFromUpload,
+                    SearchItems)
 
 urlpatterns = [
     # categories
@@ -42,4 +43,7 @@ urlpatterns = [
     # upload CSV file
     path("items/add/upload", login_required(AddItemFromUpload.as_view()),
          name="stock_add_item_upload"),
+    # search results stock items
+    path("items/search/", login_required(SearchItems.as_view()),
+         name="stock_items_search"),
 ]

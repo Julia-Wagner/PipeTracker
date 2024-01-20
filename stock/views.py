@@ -9,6 +9,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django_tables2 import RequestConfig
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.db.models import Q
 
 from basket.models import BasketItem, Basket
 from .models import Category, Item
@@ -104,6 +105,39 @@ class EditCategory(UpdateView):
         return response
 
 
+class SearchItems(ListView):
+    """
+    List all stock items from the search query
+    """
+    template_name = "stock/items.html"
+    model = Item
+    context_object_name = "items"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # get items from search query
+        query = self.request.GET.get("q")
+        if query:
+            items = self.model.objects.filter(
+                Q(name__icontains=query) |
+                Q(size__icontains=query) |
+                Q(matchcode__icontains=query)
+            )
+        else:
+            # get all stock items
+            items = self.model.objects.all()
+
+        # create and configure stock items table
+        table = ItemTable(items)
+        RequestConfig(self.request).configure(table)
+
+        context["category"] = query
+        context["table"] = table
+
+        return context
+
+
 class Items(ListView):
     """
     List all stock items
@@ -118,13 +152,12 @@ class Items(ListView):
         # get the current category
         category = get_object_or_404(Category, id=self.kwargs["pk"])
         items = category.stock_items.all()
-        fields = ("name", "size", "matchcode", "details", "price", "quantity")
 
         # create and configure stock items table
         table = ItemTable(items)
         RequestConfig(self.request).configure(table)
 
-        context["category"] = category
+        context["category"] = category.name
         context["table"] = table
 
         return context
