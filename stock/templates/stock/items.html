@@ -8,9 +8,10 @@
 <section class="text-center">
     <div class="mb-5 heading-button-row">
         <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-            Stock Items for {{ category.name }}</h1>
+            Stock Items for "{{ category }}"</h1>
         {% include "stock/add_button.html" %}
     </div>
+    {% include "stock/search_bar.html" %}
     <!-- table for bigger screens -->
     <div class="flex flex-wrap justify-center">
         {% render_table table %}

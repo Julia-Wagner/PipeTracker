@@ -10,6 +10,7 @@
             Choose a Category</h1>
         {% include "stock/add_button.html" %}
     </div>
+    {% include "stock/search_bar.html" %}
     <div class="flex flex-wrap justify-center">
         {% for category in categories %}
             {% include "stock/category_card.html" with category=category %}
