@@ -57,16 +57,17 @@
                 <li>
                     <span class="font-bold">Stock Management</span>
                     <ul class="space-y-1 ps-5 list-disc list-inside">
-                        <li>Open <strong>Stock Items</strong> in the menu to efficiently manage your inventory.</li>
+                        <li>Open <a href="{% url 'stock_categories' %}" class="text-darkblue font-bold hover:text-lightblue" target="_blank">Stock Items</a> in the menu to efficiently manage your inventory.</li>
                         <li>Organize items into categories and subcategories for easy accessibility.</li>
                         <li>When you open a category with stock items, you can order the table based on your preferred criteria.</li>
                         <li>Easily update item quantities with a simple click of the <strong>-</strong> or <strong>+</strong> buttons.</li>
+                        <li>Automatically create stock items by <a href="{% url 'stock_add_item_upload' %}" class="text-darkblue font-bold hover:text-lightblue" target="_blank">uploading a CSV file</a> following the structure of the example file.</li>
                     </ul>
                 </li>
                 <li>
                     <span class="font-bold">Basket</span>
                     <ul class="space-y-1 ps-5 list-disc list-inside">
-                        <li>Use the basket to collect stock items you want to add to a delivery note.</li>
+                        <li>Use the <a href="{% url 'basket_items' %}" class="text-darkblue font-bold hover:text-lightblue" target="_blank">basket</a> to collect stock items you want to add to a delivery note.</li>
                         <li>No need to assign a delivery note for each item – simply gather them in the basket.</li>
                         <li>Add items to the basket directly from the stock items table by specifying the quantity and clicking <strong>Add</strong>.</li>
                         <li>You can also update the quantity in the basket, the stock item gets updated automatically.</li>
@@ -75,7 +76,7 @@
                 <li>
                     <span class="font-bold">Delivery Notes</span>
                     <ul class="space-y-1 ps-5 list-disc list-inside">
-                        <li>Create and manage multiple delivery notes as needed.</li>
+                        <li>Create and manage multiple <a href="{% url 'delivery_notes' %}" class="text-darkblue font-bold hover:text-lightblue" target="_blank">delivery notes</a> as needed.</li>
                         <li>Choose an existing customer or create a new one when adding a delivery note.</li>
                         <li>When you are done with a delivery note, you can mark it as closed.</li>
                         <li>Add items to your delivery note directly from your basket by selecting the desired note.</li>
