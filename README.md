@@ -282,6 +282,11 @@ The messages can be closed using the icon, after 4 seconds they are closed autom
 
 ## **Stock Items and Categories**
 
+Stock items are grouped into categories, to list the items, the user must first choose a category. The search bar is an alternative to quickly find a specific item. The *matchcode*, *size* or *name* of the stock item can be entered and all matching results are shown in a table, using the same template as the normal stock items table.
+
+![Stock Items search results](docs/screenshots/items_search.png)\
+*Stock Items search results (tablet)*
+
 ### **Categories**
 
 After clicking **Stock Items** in the menu, all available categories are shown as cards. They can be opened, edited or deleted.
