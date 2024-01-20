@@ -55,6 +55,7 @@ nav li a {
 
 /* Stock Items */
 .heading-button-row {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
