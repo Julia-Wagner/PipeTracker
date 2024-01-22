@@ -350,8 +350,10 @@ class ItemDetail(DetailView):
         )
 
         # add the link to the code
-        qr.add_data(reverse_lazy("stock_item_detail",
-                                 args=[self.kwargs["pk"]]))
+        absolute_url = self.request.build_absolute_uri(
+            reverse_lazy("stock_item_detail", args=[self.kwargs["pk"]])
+        )
+        qr.add_data(absolute_url)
         qr.make(fit=True)
 
         # generate image from the code
