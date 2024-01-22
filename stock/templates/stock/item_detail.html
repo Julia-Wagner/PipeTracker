@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Stock Item {{ item.name }}{% endblock %}
+
+{% block content %}
+
+<section class="text-center">
+    <div class="mb-5">
+        <h1 class="col-start-2 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
+            {{ item.name }}</h1>
+    </div>
+    <a href="{% url 'stock_edit_item' item.id %}"
+       class="mb-5 text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">
+        Edit item
+    </a>
+    <p class="mb-2 text-xl text-customblack lg:text-2xl"><span class="font-bold">Size:</span> {{ item.size }}</p>
+    <p class="mb-2 text-xl text-customblack lg:text-2xl"><span class="font-bold">Matchcode:</span> {{ item.matchcode }}</p>
+    <p class="mb-2 text-xl text-customblack lg:text-2xl"><span class="font-bold">Details:</span> {{ item.details }}</p>
+    <p class="mb-2 text-xl text-customblack lg:text-2xl"><span class="font-bold">Price:</span> € {{ item.price }}</p>
+    <div class="mt-8 mb-2 text-xl font-bold text-customblack lg:text-2xl">Quantity:</div>
+    <div class="flex items-center justify-center mb-8">
+        <a href="{% url 'stock_quantity_decrease' item.id %}"
+           class="font-bold p-2 mx-2 text-darkblue hover:text-lightblue inline-flex"
+           aria-label="decrease stock item quantity">
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                 height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path stroke="currentColor" d="M0 9h24v6h-24z"/>
+            </svg>
+        </a>
+        <span class="font-bold text-xl lg:text-2xl">{{ item.quantity }}</span>
+        <a href="{% url 'stock_quantity_increase' item.id %}"
+           class="font-bold p-2 mx-2 text-darkblue hover:text-lightblue inline-flex"
+           aria-label="increase stock item quantity">
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                 height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path stroke="currentColor"
+                      d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+            </svg>
+        </a>
+    </div>
+    <div class="my-8">
+        <label for="quantity_{{ item.id }}" class="sr-only">Add to basket quantity</label>
+        <input type="number" id="quantity_{{ item.id }}" value="1" min="1"
+               max="{{ item.quantity }}"
+               class="text-md lg:text-lg bg-gray-50 border border-darkblue text-customblack rounded-lg focus:ring-blue-500 focus:border-blue-500 inline-block mr-2 w-14 p-2.5">
+        <a href="#" id="add_to_basket_{{ item.id }}"
+           class="font-bold text-darkblue text-lg hover:text-lightblue">
+            Add to basket
+        </a>
+    </div>
+    {% include "stock/back_button.html" %}
+</section>
+
+<script>
+    document.getElementById("add_to_basket_{{ item.id }}").addEventListener("click", function(event) {
+        event.preventDefault();
+        let quantity = document.getElementById("quantity_{{ item.id }}").value;
+        let url = "{% url 'stock_to_basket' item.id %}?quantity=" + quantity;
+        window.location.href = url;
+    });
+</script>
+
+{% endblock %}
