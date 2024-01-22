@@ -3,7 +3,7 @@ from decimal import Decimal, DecimalException
 
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, \
-    FormView
+    FormView, DetailView
 from django.views import View
 from django.shortcuts import get_object_or_404, redirect
 from django_tables2 import RequestConfig
@@ -326,6 +326,15 @@ class DeleteItem(DeleteView):
         return response
 
 
+class ItemDetail(DetailView):
+    """
+    Detail view for a stock item
+    """
+    template_name = "stock/item_detail.html"
+    model = Item
+    context_object_name = "item"
+
+
 class ItemToBasket(View):
     """
     Add Item to basket view
@@ -343,6 +352,7 @@ class ItemToBasket(View):
         # get the redirect url
         category_id = item.category.id
         redirect_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
+        previous_url = request.META.get("HTTP_REFERER")
 
         # check if quantity is available
         if quantity > item.quantity:
@@ -373,21 +383,18 @@ class ItemToBasket(View):
         messages.success(request,
                          f"{item} ({quantity}) added to your basket.")
 
-        return HttpResponseRedirect(redirect_url)
+        return redirect(previous_url or redirect_url)
 
 
 class StockItemDecrease(View):
     """
     Decrease the quantity of the stock item
     """
-    def get_success_url(self):
-        # get the current category
-        category_id = self.object.category.id
-
-        success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
-        return success_url
-
     def get(self, request, *args, **kwargs):
+        # store last URL
+        request.session["previous_url"] = (
+            self.request.META.get("HTTP_REFERER", None))
+
         stock_item_id = self.kwargs.get("pk")
         stock_item = get_object_or_404(Item, id=stock_item_id)
 
@@ -405,7 +412,9 @@ class StockItemDecrease(View):
         # get the success url
         category_id = stock_item.category.id
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
-        return HttpResponseRedirect(success_url)
+        previous_url = request.META.get("HTTP_REFERER")
+
+        return redirect(previous_url or success_url)
 
 
 class StockItemIncrease(View):
@@ -425,4 +434,6 @@ class StockItemIncrease(View):
         # get the success url
         category_id = stock_item.category.id
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
-        return HttpResponseRedirect(success_url)
+        previous_url = request.META.get("HTTP_REFERER")
+
+        return redirect(previous_url or success_url)

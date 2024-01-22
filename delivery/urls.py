@@ -17,6 +17,7 @@ urlpatterns = [
          name="delivery_delete_note"),
     path("<int:pk>/", login_required(NoteDetail.as_view()),
          name="delivery_note_detail"),
+
     # decrease increase delivery item quantity
     path("quantity/decrease/<int:pk>/",
          login_required(DeliveryItemDecrease.as_view()),
@@ -24,6 +25,7 @@ urlpatterns = [
     path("quantity/increase/<int:pk>/",
          login_required(DeliveryItemIncrease.as_view()),
          name="delivery_quantity_increase"),
+
     # export as PDF
     path("<int:pk>/export/",
          login_required(ExportPDF.as_view()),

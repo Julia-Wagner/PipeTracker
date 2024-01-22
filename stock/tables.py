@@ -10,6 +10,10 @@ class ItemTable(tables.Table):
     """
     quantity = tables.TemplateColumn(
         template_name="stock/quantity_field.html")
+    name = tables.LinkColumn("stock_item_detail", args=[A("pk")],
+                             verbose_name="name (click to open)",
+                             attrs={"a": {"class": "font-bold text-darkblue "
+                                                   "hover:text-lightblue"}})
     details = tables.Column(orderable=False)
     price = tables.Column(accessor="price")
     edit = tables.LinkColumn("stock_edit_item", args=[A("pk")],
