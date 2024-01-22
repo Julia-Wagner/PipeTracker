@@ -13,6 +13,8 @@
     * [**Sprint 4 (26.12. - 01.01.2024)**](#sprint-4-2612---01012024)
     * [**Sprint 5 (02.01. - 08.01.)**](#sprint-5-0201---0801)
     * [**Sprint 6 (09.01. - 15.01.)**](#sprint-6-0901---1501)
+    * [**Sprint 7 (16.01. - 22.01.)**](#sprint-7-1601---2201)
+    * [**Sprint 8 (23.01. - 29.01.)**](#sprint-8-2301---2901)
 <!-- TOC -->
 
 ## **Methodology**
@@ -113,7 +115,21 @@ While testing the application thoroughly, I added **Bug** and **Testing** issues
 
 ### **Sprint 7 (16.01. - 22.01.)**
 
-For this sprint I only added one user story, which I gave **13 story points**. It is a feature that I am not sure if it is possible, so I will probably spend a lot of time trying different ways of doing it.
+For this sprint, I only added one user story, which I gave **13 story points**. It is a feature that I am not sure if it is possible, so I will probably spend a lot of time trying different ways of doing it.
 
 ![Sprint 7 start](docs/agile/sprint7_start.png)
 *Start of Sprint 7*
+
+During this sprint, I did a lot of research and came to the conclusion, that the user story is not implementable the way I planned it. The file format I wanted to use was created specifically for German plumbing retailers. To create and use such files, a paid tool is needed.
+
+So I decided to rewrite my user story and instead upload CSV files to automatically create stock items. I finished my user story and added and implemented another **Dev Task**, to add a search bar for stock items.
+
+![Sprint 7 end](docs/agile/sprint7_end.png)
+*End of Sprint 7*
+
+### **Sprint 8 (23.01. - 29.01.)**
+
+For this sprint, I added one user story with **8 story points**. Additionally, I added **Testing Tasks**, as this will be my last sprint if everything goes as planned.
+
+![Sprint 8 start](docs/agile/sprint8_start.png)
+*Start of Sprint 8*
