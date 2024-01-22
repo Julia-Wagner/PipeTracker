@@ -1,6 +1,9 @@
 import csv
+import qrcode
+import io
 from decimal import Decimal, DecimalException
 
+from cloudinary import uploader
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, \
     FormView, DetailView
@@ -333,6 +336,37 @@ class ItemDetail(DetailView):
     template_name = "stock/item_detail.html"
     model = Item
     context_object_name = "item"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # create the QR code
+        # https://pypi.org/project/qrcode/
+        qr = qrcode.QRCode(
+            version=None,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+
+        # add the link to the code
+        qr.add_data(reverse_lazy("stock_item_detail",
+                                 args=[self.kwargs["pk"]]))
+        qr.make(fit=True)
+
+        # generate image from the code
+        img = qr.make_image(fill_color=(39, 64, 96),
+                            back_color=(229, 231, 235))
+
+        # save image
+        # https://cloudinary.com/documentation/upload_images
+        buffer = io.BytesIO()
+        img.save(buffer, kind="PNG")
+
+        response = uploader.upload(buffer.getvalue(), folder="qr_codes")
+
+        context["qr_image"] = response["url"]
+        return context
 
 
 class ItemToBasket(View):
