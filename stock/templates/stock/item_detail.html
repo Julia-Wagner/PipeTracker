@@ -5,9 +5,9 @@
 {% block content %}
 
 <section class="text-center">
-    <div class="mb-5 heading-button-row">
+    <div class="mb-5 relative">
         <h1 class="col-start-2 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">{{ item.name }}</h1>
-        <div class="qr-code">
+        <div class="relative mx-auto my-6 md:absolute top-0 right-0 max-w-[150px]">
             <img src="{{ qr_image }}" alt="QR Code for page">
         </div>
     </div>
