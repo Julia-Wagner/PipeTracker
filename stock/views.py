@@ -367,7 +367,7 @@ class ItemDetail(DetailView):
 
         response = uploader.upload(buffer.getvalue(), folder="qr_codes")
 
-        context["qr_image"] = response["url"]
+        context["qr_image"] = response["secure_url"]
         return context
 
 
