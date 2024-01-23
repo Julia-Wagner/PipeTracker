@@ -18,6 +18,8 @@
             Save Category
         </button>
     </form>
+    <a class="font-bold block w-fit m-auto text-customwhite bg-danger border border-danger hover:bg-customwhite hover:text-danger focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none"
+       href="{% url 'stock_delete_category' object.id %}">Delete Category</a>
     {% include "stock/back_button.html" %}
 </section>
 
