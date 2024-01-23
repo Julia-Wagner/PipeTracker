@@ -2,8 +2,8 @@
     <a href="{% if category.children.all %}{% url 'stock_categories_children' category.id %}{% else %}{% url 'stock_items' category.id %}{% endif %}"
        aria-label="Click to view stock items for {{ category.name }}">
         <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
-            <img src="{{ category.image.url }}"
-                 alt="{{ category.image_alt }}">
+            <img src="{{ category.image.url }}" alt="{{ category.image_alt }}"
+            class="pt-3 px-3 object-contain w-[380px] h-[285px]">
             <h2 class="p-4 text-2xl font-bold text-darkblue inline-flex items-center">
                 {{ category.name }}
                 <svg class="w-6 h-6 ms-3"
