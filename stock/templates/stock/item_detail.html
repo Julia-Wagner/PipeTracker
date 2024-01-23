@@ -6,10 +6,10 @@
 
 <section class="text-center">
     <div class="mb-5 relative">
-        <h1 class="col-start-2 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">{{ item.name }}</h1>
         <div class="relative mx-auto my-6 md:absolute top-0 right-0 max-w-[150px]">
             <img src="{{ qr_image }}" alt="QR Code for page">
         </div>
+        <h1 class="col-start-2 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">{{ item.name }}</h1>
     </div>
     <a href="{% url 'stock_edit_item' item.id %}"
        class="mb-5 text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">
