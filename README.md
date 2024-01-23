@@ -38,6 +38,7 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
   * [**Stock Items and Categories**](#stock-items-and-categories)
     * [**Categories**](#categories)
     * [**Stock Items**](#stock-items)
+    * [**QR Code**](#qr-code)
     * [**CSV Upload**](#csv-upload)
   * [**Basket**](#basket)
   * [**Delivery Notes**](#delivery-notes)
@@ -315,6 +316,18 @@ Full CRUD is also available for stock items. By clicking edit, the selected stoc
 
 ![Edit stock item](docs/screenshots/edit_item.png)\
 *Edit a stock item*
+
+### **QR Code**
+
+When opening the detail page of a stock item, a QR code for this page is generated and shown. This QR code can be printed out and placed in the physical stock of the plumber. This way the plumber can easily scan the QR code of the item they want to change or add to a delivery note.
+
+![QR Code](docs/screenshots/qr_code.png)\
+*QR code for a stock item*
+
+When scanning the QR code, provided the user is logged in, the detail page of the according stock item is opened. If the user is not authenticated, the application redirects the user to the login page and after logging in to the scanned item. 
+
+![Stock Item Detail Page](docs/screenshots/stock_item_detail.png)\
+*Stock Item Detail Page (mobile)*
 
 ### **CSV Upload**
 
