@@ -4,6 +4,7 @@ PipeTracker is an inventory management application specifically designed for plu
 
 Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
 
+![Am I responsive Screenshot](docs/screenshots/amiresponsive.png)
 
 # **Table of Contents**
 
@@ -551,3 +552,4 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 - [Lucidchart](https://lucid.app/lucidchart/82318076-4a7b-4349-b6c6-c66c1f0d098e/edit?viewport_loc=0%2C-7%2C1462%2C1135%2C0_0&invitationId=inv_1c1b2e93-1683-407e-a6be-9134e668b788) was used to create the Database Schema.
 - I used [Balsamiq](https://balsamiq.com/) to create the wireframes.
 - I used [contrast-grid.eightshapes.com](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23274060%0D%0A%2300B2CA%0D%0A%23041020%0D%0A%23f9f9f9&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) to check the contrast and possible color combinations.
+- The screenshot at the top of this document was taken from [Am I Responsive?](https://ui.dev/amiresponsive?url=https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
