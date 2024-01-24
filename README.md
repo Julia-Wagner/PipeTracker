@@ -316,7 +316,7 @@ Full CRUD is also available for stock items. By clicking edit, the selected stoc
 *Stock Items table*
 
 ![Edit stock item](docs/screenshots/edit_item.png)\
-*Edit a stock item*
+*Edit a stock item (tablet)*
 
 ### **QR Code**
 
