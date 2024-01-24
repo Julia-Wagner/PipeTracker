@@ -28,3 +28,6 @@ urlpatterns = [
 
 # custom error pages
 handler404 = "pipetracker.views.entry_not_found"
+handler500 = "pipetracker.views.server_error"
+handler403 = "pipetracker.views.permission_denied"
+handler400 = "pipetracker.views.bad_request"
