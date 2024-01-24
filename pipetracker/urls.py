@@ -25,3 +25,6 @@ urlpatterns = [
     path("delivery/", include("delivery.urls")),
     path("basket/", include("basket.urls")),
 ]
+
+# custom error pages
+handler404 = "pipetracker.views.entry_not_found"

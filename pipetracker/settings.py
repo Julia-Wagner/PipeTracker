@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'django_tables2',
 
     # Apps
+    'pipetracker',
     'home',
     'stock',
     'delivery',
