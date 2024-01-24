@@ -4,7 +4,8 @@ PipeTracker is an inventory management application specifically designed for plu
 
 Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
 
-![Am I responsive Screenshot](docs/screenshots/amiresponsive.png)
+![Am I responsive Screenshot](docs/screenshots/amiresponsive.png)\
+*Am I Responsive Screenshot*
 
 # **Table of Contents**
 
@@ -281,6 +282,22 @@ Success and error messages are shown to the user for example after logging in or
 *Error message after trying to edit a closed delivery note*
 
 The messages can be closed using the icon, after 4 seconds they are closed automatically.
+
+## **Custom Error Pages**
+
+I added custom error pages for the **404**, **500**, **400** and **403** errors. The error pages include the sites header and footer. Depending on whether the user is logged-in or not, the pages include a link to the dashboard or to register and log in.
+
+![Custom 404 page](docs/screenshots/custom_404.png)\
+*Custom 404 error page (mobile)*
+
+![Custom 500 page](docs/screenshots/custom_500.png)\
+*Custom 500 error page (mobile)*
+
+![Custom 400 page](docs/screenshots/custom_400.png)\
+*Custom 400 error page (mobile)*
+
+![Custom 403 page](docs/screenshots/custom_403.png)\
+*Custom 403 error page (mobile)*
 
 ## **Stock Items and Categories**
 
