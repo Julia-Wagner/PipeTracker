@@ -218,6 +218,11 @@ While creating the database schema I was also thinking about how I will implemen
 ![Database Schema](docs/screenshots/database_schema.png)\
 *Database Schema for PipeTracker*
 
+After finishing  my project, I exported an ERD from Django following [this tutorial](https://www.wplogout.com/export-database-diagrams-erd-from-django/). It shows my custom apps **delivery**, **stock** and **basket** with the created tables as well as other necessary relations, like the tables created by the **allauth** package.
+
+![Final ERD](erd.png)\
+*Final ERD*
+
 ## **Surface Plane**
 
 ### **Design**
@@ -543,6 +548,8 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 - [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html) - an app for creating HTML tables.
 - [reportlab](https://docs.reportlab.com/) - output PDF files dynamically using Django views.
 - [qrcode](https://pypi.org/project/qrcode/) - generate QR codes as PNG images.
+- [graphviz](https://graphviz.org/) - graph visualization software, used for generating the ERD.
+- [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - collection of custom extensions for the Django Framework, used for generating the ERD.
 - [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX.
 - [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter.
 - [Pillow](https://pypi.org/project/Pillow/) - Python Imaging Library used for *ImageField*.
@@ -564,6 +571,7 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
   - [This blog on how to create tables in reportlab](https://www.blog.pythonlibrary.org/2010/09/21/reportlab-tables-creating-tables-in-pdfs-with-python/)
   - [This article about reportlab](https://pythonassets.com/posts/create-pdf-documents-in-python-with-reportlab/)
 - I used [this article about custom error pages](https://dev.to/riyanagueco/creating-a-custom-error-page-on-django-3nnd) as a reference.
+- I followed [this tutorial](https://www.wplogout.com/export-database-diagrams-erd-from-django/) to export an ERD for my project.
 
 ## **Media and Design**
 

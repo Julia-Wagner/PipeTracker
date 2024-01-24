@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'django_tables2',
+    'django_extensions',
 
     # Apps
     'pipetracker',
@@ -218,3 +219,9 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# https://www.wplogout.com/export-database-diagrams-erd-from-django/
+GRAPH_MODELS = {
+    'all_applications': True,
+    'graph_models': True,
+}
