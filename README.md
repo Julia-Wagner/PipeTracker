@@ -542,6 +542,7 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 ## **Packages**
 - [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html) - an app for creating HTML tables.
 - [reportlab](https://docs.reportlab.com/) - output PDF files dynamically using Django views.
+- [qrcode](https://pypi.org/project/qrcode/) - generate QR codes as PNG images.
 - [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX.
 - [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter.
 - [Pillow](https://pypi.org/project/Pillow/) - Python Imaging Library used for *ImageField*.
@@ -562,6 +563,7 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
   - [This stackoverflow issue on how to create tables in reportlab](https://stackoverflow.com/questions/3372885/how-to-make-a-simple-table-in-reportlab)
   - [This blog on how to create tables in reportlab](https://www.blog.pythonlibrary.org/2010/09/21/reportlab-tables-creating-tables-in-pdfs-with-python/)
   - [This article about reportlab](https://pythonassets.com/posts/create-pdf-documents-in-python-with-reportlab/)
+- I used [this article about custom error pages](https://dev.to/riyanagueco/creating-a-custom-error-page-on-django-3nnd) as a reference.
 
 ## **Media and Design**
 
