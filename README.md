@@ -7,10 +7,20 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
 ![Am I responsive Screenshot](docs/screenshots/amiresponsive.png)\
 *Am I Responsive Screenshot*
 
+## **Introduction**
+
+I am aware that the application is quite extensive and might seem complicated to use. This is due to the fact that it was created as a real-world application for a real customer. It is not designed to be used by just anyone, but by plumbers and employees of plumbing businesses. 
+
+In a real-world scenario, new users of the application would be trained to use the application. To facilitate working with the application, I added an introduction to the most important features to the dashboard. This way new users can get an overview of the application.
+
+![Introduction for new users](docs/screenshots/introduction.png)
+*Introduction for new users*
+
 # **Table of Contents**
 
 <!-- TOC -->
 * [**PipeTracker**](#pipetracker)
+  * [**Introduction**](#introduction)
 * [**Table of Contents**](#table-of-contents)
 * [**Planning**](#planning)
   * [**Strategy Plane**](#strategy-plane)
@@ -37,6 +47,7 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
   * [**Landing Page**](#landing-page)
   * [**Authentication**](#authentication)
   * [**Messages**](#messages)
+  * [**Custom Error Pages**](#custom-error-pages)
   * [**Stock Items and Categories**](#stock-items-and-categories)
     * [**Categories**](#categories)
     * [**Stock Items**](#stock-items)
