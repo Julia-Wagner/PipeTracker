@@ -431,6 +431,10 @@ I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/
 
 I took various steps to ensure security for this project. As the application is designed to be used by employees of a plumbing business, logging in is required for all actions. I used the **login_required** decorator for my urlpatterns, this ensures that the user is logged in, before calling the view.
 
+## **Authentication and Authorization**
+
+**Django AllAuth** was used to implement user authentication. The package ensures secure user registration and login. Role-based access control ensures that only a superuser has access to the admin panel. Other roles like *plumbers*, *warehouse employees*, etc. are planned for future versions of the application. However, these additional roles are not necessary for the first release.
+
 # **Deployment**
 
 Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
