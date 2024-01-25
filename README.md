@@ -44,6 +44,7 @@ In a real-world scenario, new users of the application would be trained to use t
     * [**Colors and Fonts**](#colors-and-fonts)
     * [**Logo**](#logo)
 * [**Features**](#features)
+  * [**CRUD**](#crud)
   * [**Landing Page**](#landing-page)
   * [**Authentication**](#authentication)
   * [**Messages**](#messages)
@@ -140,6 +141,7 @@ From the features defined above I was able to create epics and break these down 
 | As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**. | **COULD HAVE** |
 
 ### **Epic: Stock Items**
+
 | User Story                                                                                                            | Priority        |
 |-----------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                | **MUST HAVE**   |
@@ -150,11 +152,13 @@ From the features defined above I was able to create epics and break these down 
 | As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.               | **MUST HAVE**   |
 
 ### **Epic: Statistics**
+
 | User Story                                                                                                            | Priority        |
 |-----------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **have a dashboard with statistics**, so that I can **make decisions for my business**. | **SHOULD HAVE** |
 
 ### **Epic: Delivery Notes**
+
 | User Story                                                                                                                            | Priority        |
 |---------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **create and view delivery notes**, so that I can **track where my stock items went**.                  | **MUST HAVE**   |
@@ -163,6 +167,7 @@ From the features defined above I was able to create epics and break these down 
 | As a **site user**, I want to **delete delivery notes**, so that I can **remove unnecessary delivery notes**.                         | **COULD HAVE**  |
 
 ### **Epic: Cart**
+
 | User Story                                                                                                              | Priority       |
 |-------------------------------------------------------------------------------------------------------------------------|----------------|
 | As a **site user**, I want to **add stock items to the cart**, so that I can **collect the items I need**.              | **MUST HAVE**  |
@@ -171,6 +176,7 @@ From the features defined above I was able to create epics and break these down 
 | As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**. | **MUST HAVE**  |
 
 ### **Epic: Export/Import**
+
 | User Story                                                                                                                                                            | Priority        |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | As a **site user**, I want to **export the items in the cart**, so that I can **easily create a list of items to order**.                                             | **SHOULD HAVE** |
@@ -267,6 +273,18 @@ I also used the existing logo to create a new logo for **PipeTracker**.
 *PipeTracker Logo*
 
 # **Features**
+
+## **CRUD**
+
+CRUD (Create, Read, Update and Delete) is available for many features of PipeTracker. Below is a table showing the features providing (full) CRUD functionality.
+
+| **Feature**       | **Create**                                         | **Read** | **Update** | **Delete**                                                |
+|-------------------|----------------------------------------------------|----------|------------|-----------------------------------------------------------|
+| **Category**      | &check;                                            | &check;  | &check;    | &check;                                                   |
+| **Stock Item**    | &check;                                            | &check;  | &check;    | &check;                                                   |
+| **Delivery Note** | &check;                                            | &check;  | &check;    | &check;                                                   |
+| **Basket**        | The basket is automatically created for each user. | &check;  | &check;    | The basket can be empty and items can be removed from it. |
+
 
 ## **Landing Page**
 
@@ -558,6 +576,7 @@ You can use a database of your choice, following are the instructions if you use
    - **DISABLE_COLLECTSTATIC** with the value 1
 
 ## **Final Changes**
+
 1. Add `ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"]` in **settings.py**
 2. Create a **media**, **static** and **templates** directory and a **Procfile** file in the base directory
 3. Add `web gunicorn pipetracker.wsgi` to **Procfile**
@@ -566,6 +585,7 @@ You can use a database of your choice, following are the instructions if you use
    - Click on *Deploy Branch* at the bottom of the page
 
 ## **Forking**
+
 Forking creates a copy of the project on GitHub. Follow these steps to fork this repository:
 1. Log in to your GitHub account and navigate to [the PipeTracker repository](https://github.com/Julia-Wagner/PipeTracker).
 2. Click the **Fork** button on the top right of the repository.
@@ -575,12 +595,14 @@ Forking creates a copy of the project on GitHub. Follow these steps to fork this
 # **Technologies, Libraries and Frameworks**
 
 ## **Tailwind**
+
 I decided to use Tailwind for this project. I already knew Bootstrap from previous experience, but did not know anything about Tailwind. So I decided to use this project as an opportunity to get to know it. After some initial installation troubles I really began to like it and its utility-first approach.
 
 - I referred to the [Tailwind CSS documentation](https://tailwindcss.com/docs/installation) to learn about the basics and installing it.
 - [Flowbite](https://flowbite.com/docs/getting-started/introduction/) was a great resource to get inspiration on how to use Tailwind classes. I copied and adapted some components of my page, like the navbar with the mobile menu from this open-source library.
 
 ## **Packages**
+
 - [django-tables2](https://django-tables2.readthedocs.io/en/latest/index.html) - an app for creating HTML tables.
 - [reportlab](https://docs.reportlab.com/) - output PDF files dynamically using Django views.
 - [qrcode](https://pypi.org/project/qrcode/) - generate QR codes as PNG images.
