@@ -56,6 +56,7 @@ In a real-world scenario, new users of the application would be trained to use t
   * [**Basket**](#basket)
   * [**Delivery Notes**](#delivery-notes)
 * [**Agile Process**](#agile-process)
+* [**Security**](#security)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
   * [**Project Setup**](#project-setup)
@@ -75,7 +76,7 @@ In a real-world scenario, new users of the application would be trained to use t
 
 # **Planning**
 
-I tried to structure my planning phase using the 5 UX planes - strategy, scope, structure, skeleton and surface. The planning process was iterative and while getting a better idea of the project´s scope and speaking to my customer about his needs for the application these planes changed creating a user-centered design for PipeTracker.
+I structured my planning phase using the 5 UX planes - strategy, scope, structure, skeleton, and surface. The planning process was iterative. While gaining a better understanding of the project's scope and discussing my customer's needs for the application, these planes evolved, creating a user-centered design for PipeTracker.
 
 ## **Strategy Plane**
 
@@ -426,6 +427,10 @@ The exported PDF is really simple but contains all the necessary information.
 
 I used a [GitHub Projects Board](https://github.com/users/Julia-Wagner/projects/2) to plan and document my work. The details of my agile approach can be found in the separate [AGILE.md file](AGILE.md).
 
+# **Security**
+
+I took various steps to ensure security for this project. As the application is designed to be used by employees of a plumbing business, logging in is required for all actions. I used the **login_required** decorator for my urlpatterns, this ensures that the user is logged in, before calling the view.
+
 # **Deployment**
 
 Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
@@ -492,7 +497,7 @@ You can use a database of your choice, following are the instructions if you use
     os.environ["DATABASE_URL"]= "copiedDatabaseURL"
     os.environ["CLOUDINARY_URL"] = "copiedCloudinaryURL"
     ```
-3. After these changes run `python manage.py migrate` to migrate your database structure to the ElephantSQL database.
+3. After these changes, run `python manage.py migrate` to migrate your database structure to the ElephantSQL database.
 4. In the **settings.py** file add this code to link to Cloudinary:
     ```
     INSTALLED_APPS = [...
@@ -541,7 +546,7 @@ You can use a database of your choice, following are the instructions if you use
    - Click on *Deploy Branch* at the bottom of the page
 
 ## **Forking**
-By forking, a copy of the project can be made in GitHub. The steps to fork this repository are:
+Forking creates a copy of the project on GitHub. Follow these steps to fork this repository:
 1. Log in to your GitHub account and navigate to [the PipeTracker repository](https://github.com/Julia-Wagner/PipeTracker).
 2. Click the **Fork** button on the top right of the repository.
 3. You can now open the forked copy of this project as your own repository.
@@ -552,7 +557,7 @@ By forking, a copy of the project can be made in GitHub. The steps to fork this 
 ## **Tailwind**
 I decided to use Tailwind for this project. I already knew Bootstrap from previous experience, but did not know anything about Tailwind. So I decided to use this project as an opportunity to get to know it. After some initial installation troubles I really began to like it and its utility-first approach.
 
-- I used the [Tailwind CSS documentation](https://tailwindcss.com/docs/installation) to learn about the basics and installing it.
+- I referred to the [Tailwind CSS documentation](https://tailwindcss.com/docs/installation) to learn about the basics and installing it.
 - [Flowbite](https://flowbite.com/docs/getting-started/introduction/) was a great resource to get inspiration on how to use Tailwind classes. I copied and adapted some components of my page, like the navbar with the mobile menu from this open-source library.
 
 ## **Packages**
