@@ -435,6 +435,10 @@ I took various steps to ensure security for this project. As the application is 
 
 **Django AllAuth** was used to implement user authentication. The package ensures secure user registration and login. Role-based access control ensures that only a superuser has access to the admin panel. Other roles like *plumbers*, *warehouse employees*, etc. are planned for future versions of the application. However, these additional roles are not necessary for the first release.
 
+## **Defensive Design**
+
+I used a defensive design approach building this project. User input is validated and error messages provide feedback to the user. Users that are not logged in are redirected to the *Login* page if they try to access restricted content. When trying to delete data, a confirm page is always used before actually deleting the content. Custom error pages were implemented to stay consistent with the application design, depending on whether the user is logged in, they include links to the *Dashboard* or the *Login/Registration* pages.
+
 # **Deployment**
 
 Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
