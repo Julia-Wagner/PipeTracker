@@ -175,13 +175,20 @@ From the features defined above I was able to create epics and break these down 
 | As a **site user**, I want to **update my cart**, so that I can **change the number of added stock items**.             | **COULD HAVE** |
 | As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**. | **MUST HAVE**  |
 
+As described in the [features section](#basket), I decided to rename *Cart* to **Basket**. Apart from this name change, the user stories were implemented as planned.
+
 ### **Epic: Export/Import**
 
-| User Story                                                                                                                                                            | Priority        |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| As a **site user**, I want to **export the items in the cart**, so that I can **easily create a list of items to order**.                                             | **SHOULD HAVE** |
-| As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | **COULD HAVE**  |
-| As a **site user**, I want to **import Datanorm files**, so that I can **automatically update the prices of my stock items**.                                         | **COULD HAVE**  |
+| User Story                                                                                                                                                            | Priority           |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| As a **site user**, I want to **export a delivery note with its items**, so that I can **easily create an invoice for the customer**.                                 | **SHOULD HAVE**    |
+| As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | **COULD HAVE**     |
+| ~~As a **site user**, I want to **import Datanorm files**, so that I can **automatically update the prices of my stock items**.~~                                     | ~~**COULD HAVE**~~ |
+| As a **site user**, I want to **import CSV files**, so that I can **automatically create stock items**.                                                               | **COULD HAVE**     |
+
+When trying to implement the User Story for **Datanorm files**, I came to the conclusion, that the user story is not implementable the way I planned it. The file format I wanted to use was created specifically for German plumbing retailers. To create and use such files, a paid tool is needed.
+
+So I decided to rewrite my user story and instead upload CSV files to automatically create stock items.
 
 ## **Skeleton Plane**
 
@@ -402,7 +409,7 @@ An example file containing the necessary columns can be downloaded, to help the 
 
 ## **Basket**
 
-In my wireframes, I called this page **Cart**. However, after showing the application to some people, I noticed that this name might be confusing, as there is nothing to buy on this page. I changed the name to **Basket**, to indicate that it is a place to collect stock items before adding them to a delivery note. This is due to my customer telling me, that he will have lots of stock items to add to a delivery note at once. So choosing a delivery note for each item would be a lot of extra steps, especially when there are many delivery notes. So the basket can be used as a collection to quickly add each stock item and when finished, the delivery note can be chosen and the stock items are added to it.
+In my wireframes and User Stories I called this page **Cart**. However, after showing the application to some people, I noticed that this name might be confusing, as there is nothing to buy on this page. I changed the name to **Basket**, to indicate that it is a place to collect stock items before adding them to a delivery note. This is due to my customer telling me, that he will have lots of stock items to add to a delivery note at once. So choosing a delivery note for each item would be a lot of extra steps, especially when there are many delivery notes. So the basket can be used as a collection to quickly add each stock item and when finished, the delivery note can be chosen and the stock items are added to it.
 
 ![Basket](docs/screenshots/basket.png)\
 *Basket*
