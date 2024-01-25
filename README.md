@@ -57,6 +57,10 @@ In a real-world scenario, new users of the application would be trained to use t
   * [**Delivery Notes**](#delivery-notes)
 * [**Agile Process**](#agile-process)
 * [**Security**](#security)
+  * [**Authentication and Authorization**](#authentication-and-authorization)
+  * [**Defensive Design**](#defensive-design)
+  * [**CSRF Tokens**](#csrf-tokens)
+  * [**Robust Code**](#robust-code)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
   * [**Project Setup**](#project-setup)
@@ -302,7 +306,7 @@ The messages can be closed using the icon, after 4 seconds they are closed autom
 
 ## **Custom Error Pages**
 
-I added custom error pages for the **404**, **500**, **400** and **403** errors. The error pages include the sites header and footer. Depending on whether the user is logged-in or not, the pages include a link to the dashboard or to register and log in.
+I added custom error pages for the **404**, **500**, **400** and **403** errors. The error pages include the site's header and footer. Depending on whether the user is logged in or not, the pages include a link to the dashboard or to register and log in.
 
 ![Custom 404 page](docs/screenshots/custom_404.png)\
 *Custom 404 error page (mobile)*
@@ -437,7 +441,15 @@ I took various steps to ensure security for this project. As the application is 
 
 ## **Defensive Design**
 
-I used a defensive design approach building this project. User input is validated and error messages provide feedback to the user. Users that are not logged in are redirected to the *Login* page if they try to access restricted content. When trying to delete data, a confirm page is always used before actually deleting the content. Custom error pages were implemented to stay consistent with the application design, depending on whether the user is logged in, they include links to the *Dashboard* or the *Login/Registration* pages.
+I used a defensive design approach building this project. User input is validated and error messages provide feedback to the user. Users who are not logged in are redirected to the *Login* page if they try to access restricted content. When trying to delete data, a confirm page is always used before actually deleting the content. Custom error pages were implemented to stay consistent with the application design, depending on whether the user is logged in, they include links to the *Dashboard* or the *Login/Registration* pages.
+
+## **CSRF Tokens**
+
+Cross-Site Request Forgery (CSRF) protection is implemented using CSRF tokens. This prevents unauthorized requests from malicious websites.
+
+## **Robust Code**
+
+I frequently reviewed and improved my code to identify and eliminate security issues. Extensive testing ensures validated features and security. Sensitive information like secret keys and database credentials are stored as environment variables. This ensures that important data remains confidential and is not exposed.
 
 # **Deployment**
 
