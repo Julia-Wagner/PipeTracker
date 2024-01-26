@@ -288,12 +288,13 @@ I also used the existing logo to create a new logo for **PipeTracker**.
 
 CRUD (Create, Read, Update and Delete) is available for many features of PipeTracker. Below is a table showing the features providing (full) CRUD functionality.
 
-| **Feature**       | **Create**                                         | **Read** | **Update** | **Delete**                                                |
-|-------------------|----------------------------------------------------|----------|------------|-----------------------------------------------------------|
-| **Category**      | &check;                                            | &check;  | &check;    | &check;                                                   |
-| **Stock Item**    | &check;                                            | &check;  | &check;    | &check;                                                   |
-| **Delivery Note** | &check;                                            | &check;  | &check;    | &check;                                                   |
-| **Basket**        | The basket is automatically created for each user. | &check;  | &check;    | The basket can be empty and items can be removed from it. |
+| **Feature**       | **Create**                                         | **Read**                              | **Update**              | **Delete**                                                |
+|-------------------|----------------------------------------------------|---------------------------------------|-------------------------|-----------------------------------------------------------|
+| **Category**      | &check;                                            | &check;                               | &check;                 | &check;                                                   |
+| **Stock Item**    | &check;                                            | &check;                               | &check;                 | &check;                                                   |
+| **Delivery Note** | &check;                                            | &check;                               | &check;                 | &check;                                                   |
+| **Customer**      | &check;                                            | &check; (when adding a delivery note) | only in the admin panel | only in the admin panel                                   |
+| **Basket**        | The basket is automatically created for each user. | &check;                               | &check;                 | The basket can be empty and items can be removed from it. |
 
 
 ## **Landing Page**
