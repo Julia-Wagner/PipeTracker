@@ -72,7 +72,7 @@ I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate
 
 [JSHint](https://jshint.com/) was used to test my JavaScript code. Warnings that occur because of the use of ES6 variables can be resolved by adding `/* jshint esversion: 6 */` as a comment in the first line of JSHint. `/*globals $:false */` can be added to avoid warnings because of the use of *jQuery*.
 
-My project has a **base.js** file containing JavaScript code that is needed on every page. JavaScript code that is only needed for certain pages, was included at the necessary templates directly. No errors or warnings were found for my JavaScript code.
+My project has a **base.js** file containing JavaScript code that is needed on every page. JavaScript code which is only needed for certain pages, was included in the necessary templates directly. No errors or warnings were found for my JavaScript code.
 
 ![JS validation base.js](docs/testing/validation_base_js.png)
 *JS validation result for base.js*
@@ -81,3 +81,10 @@ My project has a **base.js** file containing JavaScript code that is needed on e
 *JS validation result for template files*
 
 ### **Python Validation**
+
+To ensure that my code follows Pep8 style guidelines, I installed [Flake8](https://flake8.pycqa.org/en/latest/). I ran the linter on my whole project, only excluding the *venv* directory to avoid errors from external packages. There were only a few errors that remained after fixing all my line lengths and removing unused imports. The first five errors come from Django files that I never changed, so I decided not to change them for the linter. 
+
+The only error coming from a file that I changed was **F401 'env' imported but unused** from the *settings.py* file. Because I added this code following the Code Institute walkthrough projects, I decided to leave the statement as is.
+
+![Flake8 validation](docs/testing/flake8.png)
+*Flake8 validation result*
