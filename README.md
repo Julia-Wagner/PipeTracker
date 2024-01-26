@@ -9,7 +9,9 @@ Here is the [link to the deployed project](https://pipetracker-96d1f7c7a4dc.hero
 
 ## **Introduction**
 
-I am aware that the application is quite extensive and might seem complicated to use. This is due to the fact that it was created as a real-world application for a real customer. It is not designed to be used by just anyone, but by plumbers and employees of plumbing businesses. 
+I am aware that the application is quite extensive and might seem complicated to use. This is due to the fact that it was created as a real-world application for a real customer. It is not designed to be used by just anyone, but by plumbers and employees of plumbing businesses.
+
+The application is shared by all users, so everyone can see, edit and delete all the stock items and delivery notes, only the basket is personal.
 
 In a real-world scenario, new users of the application would be trained to use the application. To facilitate working with the application, I added an introduction to the most important features to the dashboard. This way new users can get an overview of the application.
 
@@ -62,6 +64,7 @@ In a real-world scenario, new users of the application would be trained to use t
   * [**Defensive Design**](#defensive-design)
   * [**CSRF Tokens**](#csrf-tokens)
   * [**Robust Code**](#robust-code)
+* [**Testing**](#testing)
 * [**Deployment**](#deployment)
   * [**Create Repository**](#create-repository)
   * [**Project Setup**](#project-setup)
@@ -475,6 +478,10 @@ Cross-Site Request Forgery (CSRF) protection is implemented using CSRF tokens. T
 ## **Robust Code**
 
 I frequently reviewed and improved my code to identify and eliminate security issues. Extensive testing ensures validated features and security. Sensitive information like secret keys and database credentials are stored as environment variables. This ensures that important data remains confidential and is not exposed.
+
+# **Testing**
+
+Please refer to the separate [TESTING.md](TESTING.md) file.
 
 # **Deployment**
 
