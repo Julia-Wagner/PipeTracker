@@ -5,8 +5,8 @@ from decimal import Decimal, DecimalException
 
 from cloudinary import uploader
 from django.http import HttpResponseRedirect
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView, \
-    FormView, DetailView
+from django.views.generic import (CreateView, ListView, DeleteView, UpdateView,
+                                  FormView, DetailView)
 from django.views import View
 from django.shortcuts import get_object_or_404, redirect
 from django_tables2 import RequestConfig
@@ -263,7 +263,7 @@ class AddItemFromUpload(FormView):
                              f"{counter} items created successfully.")
             return super().form_valid(form)
 
-        except Exception as e:
+        except Exception:
             messages.error(self.request,
                            "Please upload a valid CSV file.")
             return super().form_invalid(form)
@@ -443,7 +443,7 @@ class StockItemDecrease(View):
                              f"{stock_item} quantity changed.")
         else:
             messages.error(request,
-                           f"Quantity can not be less than 0.")
+                           "Quantity can not be less than 0.")
 
         # get the success url
         category_id = stock_item.category.id

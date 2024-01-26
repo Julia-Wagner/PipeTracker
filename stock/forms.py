@@ -1,5 +1,3 @@
-import csv
-
 from django import forms
 from .models import Category, Item
 from crispy_forms.helper import FormHelper

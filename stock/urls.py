@@ -54,5 +54,3 @@ urlpatterns = [
     path("items/search/", login_required(SearchItems.as_view()),
          name="stock_items_search"),
 ]
-
-

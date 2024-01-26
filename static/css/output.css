@@ -2220,6 +2220,26 @@ video {
   x: x+2;
 }
 
+.\[prev_col\:start_col\] {
+  prev_col: start col;
+}
+
+.\[prev_found\:found\] {
+  prev_found: found;
+}
+
+.\[previous_column\:start_column\] {
+  previous_column: start column;
+}
+
+.\[string_start\:string_end\] {
+  string_start: string end;
+}
+
+.\[h\:i\] {
+  h: i;
+}
+
 /* Google fonts import Roboto and Montserrat */
 
 /* General styles */

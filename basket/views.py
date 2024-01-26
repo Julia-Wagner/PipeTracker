@@ -73,7 +73,7 @@ class BasketItemDecrease(View):
                              f"{stock_item} removed from basket.")
         else:
             messages.error(request,
-                           f"Quantity can not be less than 0.")
+                           "Quantity can not be less than 0.")
 
         return redirect("/basket/")
 
@@ -137,6 +137,6 @@ class BasketToNote(View):
             basket_item.delete()
 
         messages.success(request,
-                         f"Stock items added to your delivery note.")
+                         "Stock items added to your delivery note.")
 
         return redirect("delivery_note_detail", pk=note_id)

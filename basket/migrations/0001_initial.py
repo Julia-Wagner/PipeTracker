@@ -18,7 +18,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Basket',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('date', models.DateTimeField(auto_now_add=True)),
             ],
             options={
@@ -28,20 +31,30 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='BasketItem',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('quantity', models.IntegerField(blank=True, null=True)),
-                ('basket', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='basket.basket')),
-                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stock.item')),
+                ('basket', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='basket.basket')),
+                ('item', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='stock.item')),
             ],
         ),
         migrations.AddField(
             model_name='basket',
             name='items',
-            field=models.ManyToManyField(through='basket.BasketItem', to='stock.item'),
+            field=models.ManyToManyField(through='basket.BasketItem',
+                                         to='stock.item'),
         ),
         migrations.AddField(
             model_name='basket',
             name='user',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL),
         ),
     ]

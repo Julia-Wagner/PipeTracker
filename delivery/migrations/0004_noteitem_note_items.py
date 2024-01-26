@@ -15,15 +15,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='NoteItem',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('quantity', models.IntegerField()),
-                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='stock.item')),
-                ('note', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='note_items', to='delivery.note')),
+                ('item', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='stock.item')),
+                ('note', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='note_items', to='delivery.note')),
             ],
         ),
         migrations.AddField(
             model_name='note',
             name='items',
-            field=models.ManyToManyField(through='delivery.NoteItem', to='stock.item'),
+            field=models.ManyToManyField(through='delivery.NoteItem',
+                                         to='stock.item'),
         ),
     ]
