@@ -32,6 +32,7 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 I used the [HTML W3C Validator](https://validator.w3.org/) to validate all of my HTML files. I validated each page of the application by right-clicking on the deployed page, selecting *View page source* and pasting the code to the validator.
 
 ![HTML validation](docs/testing/html_validation.png)
+*HTML validation result for all pages*
 
 I did not get any warnings or errors, the full validation results can be found here:
 
@@ -61,6 +62,11 @@ I did not get any warnings or errors, the full validation results can be found h
 - [Add a customer](docs/testing/validation_add_customer.pdf)
 
 ### **CSS Validation**
+
+I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate my custom CSS code, the CSS created by Tailwind was not tested. My custom CSS code was validated without errors.
+
+![CSS validation](docs/testing/css_validation.png)
+*CSS validation result for custom CSS*
 
 ### **JavaScript Validation**
 
