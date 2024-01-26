@@ -70,4 +70,14 @@ I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate
 
 ### **JavaScript Validation**
 
+[JSHint](https://jshint.com/) was used to test my JavaScript code. Warnings that occur because of the use of ES6 variables can be resolved by adding `/* jshint esversion: 6 */` as a comment in the first line of JSHint. `/*globals $:false */` can be added to avoid warnings because of the use of *jQuery*.
+
+My project has a **base.js** file containing JavaScript code that is needed on every page. JavaScript code that is only needed for certain pages, was included at the necessary templates directly. No errors or warnings were found for my JavaScript code.
+
+![JS validation base.js](docs/testing/validation_base_js.png)
+*JS validation result for base.js*
+
+![JS validation templates](docs/testing/validation_template_js.png)
+*JS validation result for template files*
+
 ### **Python Validation**
