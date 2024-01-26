@@ -6,7 +6,7 @@
 {% block title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="text-center">
+<section class="text-center">
   <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl ">{% trans "Sign Up" %}</h1>
 
   <p class="mb-6 text-lg font-normal text-customblack lg:text-xl">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}" class="text-darkblue underline hover:text-lightblue">log in</a>.{% endblocktrans %}</p>
@@ -19,5 +19,5 @@
     {% endif %}
     <button type="submit" class="font-bold text-customwhite bg-darkblue hover:bg-lightblue hover:text-customblack focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mb-4 focus:outline-none">Sign Up</button>
   </form>
-</div>
+</section>
 {% endblock %}
