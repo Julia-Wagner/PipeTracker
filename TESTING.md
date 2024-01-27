@@ -66,9 +66,48 @@ I tested my application using the [WAVE tool](https://wave.webaim.org/) to ensur
 
 ## **Lighthouse Testing**
 
-I ran Lighthouse for mobile and desktop regularly while developing new features. For the final testing I ran it again on every page of the application. For *SEO* I got the error of a missing *robots.txt* file. So I added the file following [this article](https://adamj.eu/tech/2020/02/10/robots-txt/).
+I ran Lighthouse for mobile and desktop regularly while developing new features. For the final testing, I ran it again on every page of the application. For *SEO* I got the error of a missing *robots.txt* file. So I added the file following [this article](https://adamj.eu/tech/2020/02/10/robots-txt/).
 
+For all my pages on mobile and desktop tests, the score was **100** for *Best Practices* and *SEO*. For *Accessibility*, it was **100** for all pages except the category listings. There it was **96**, because of an issue with accessible names.
 
+![Lighthouse issue](docs/testing/lighthouse_issue.png)\
+*Accessible names issue in Lighthouse for categories*
+
+I tried different approaches to fix this, but the issue was still there. The `<a>` element does have an `aria-label` and I tried restructuring the elements and adding descriptive text for screenreaders.
+
+As I am unsure if this is really an issue or just a bug or misinterpretation of the Lighthouse tool, I decided to trust the WAVE accessibility tool which gave me no errors or warnings here and leave it like it is.
+
+For *Performance* my score is between **90** and **100** on all pages.
+
+![Lighthouse score index](docs/testing/lighthouse_index_desktop.png)\
+*Lighthouse score index page (desktop)*
+
+![Lighthouse score login](docs/testing/lighthouse_login_desktop.png)\
+*Lighthouse score login page (desktop)*
+
+![Lighthouse score register](docs/testing/lighthouse_register_mobile.png)\
+*Lighthouse score register page (mobile)*
+
+![Lighthouse score dashboard](docs/testing/lighthouse_dashboard_mobile.png)\
+*Lighthouse score dashboard (mobile)*
+
+![Lighthouse score basket](docs/testing/lighthouse_basket_desktop.png)\
+*Lighthouse score basket (desktop)*
+
+![Lighthouse score delivery notes](docs/testing/lighthouse_delivery_notes_mobile.png)\
+*Lighthouse score delivery notes (mobile)*
+
+![Lighthouse score delivery note detail](docs/testing/lighthouse_delivery_note_detail_mobile.png)\
+*Lighthouse score delivery note detail (mobile)*
+
+![Lighthouse score category](docs/testing/lighthouse_category_mobile.png)\
+*Lighthouse score category (mobile)*
+
+![Lighthouse score stock items](docs/testing/lighthouse_stock_items_desktop.png)\
+*Lighthouse score stock items (desktop)*
+
+![Lighthouse score stock item detail](docs/testing/lighthouse_stock_item_detail_desktop.png)\
+*Lighthouse score stock item detail (desktop)*
 
 ## **Validation**
 
