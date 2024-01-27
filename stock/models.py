@@ -41,6 +41,22 @@ class Category(models.Model):
 
         return parents
 
+    def get_breadcrumbs(self):
+        """
+        Create breadcrumbs for the given category.
+        :return: List of breadcrumbs
+        """
+        parents = self.get_parents()
+        breadcrumbs = []
+        # add all parents to breadcrumbs
+        for parent in parents:
+            breadcrumbs.append({"name": parent.name, "id": parent.id})
+
+        # add current category to breadcrumbs
+        breadcrumbs.append({"name": self.name, "id": self.id})
+
+        return breadcrumbs
+
 
 class Item(models.Model):
     """

@@ -48,14 +48,8 @@ class CategoriesChildren(ListView):
         context = super().get_context_data(**kwargs)
         # get the current category
         category = get_object_or_404(Category, id=self.kwargs["pk"])
-        parents = category.get_parents()
-        breadcrumbs = []
-        # add all parents to breadcrumbs
-        for parent in parents:
-            breadcrumbs.append({"name": parent.name, "id": parent.id})
-        # add current category to breadcrumbs
-        breadcrumbs.append({"name": category.name, "id": category.id})
-        context["breadcrumbs"] = breadcrumbs
+
+        context["breadcrumbs"] = category.get_breadcrumbs()
         context["category"] = category
         return context
 
@@ -161,6 +155,7 @@ class Items(ListView):
         RequestConfig(self.request).configure(table)
 
         context["category"] = category.name
+        context["breadcrumbs"] = category.get_breadcrumbs()
         context["table"] = table
 
         return context
