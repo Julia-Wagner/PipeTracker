@@ -25,6 +25,12 @@ The *#peer-code-review* channel on Code Institute´s Slack was used to get some 
 
 I tested to a minimum screen width of **300px** and a maximum screen width of **3440px** with my monitor. To test **Safari** and **iOS devices** I used [BrowserStack](https://www.browserstack.com/).
 
+![BrowserStack iPhone](docs/testing/iphone_safari.png)
+*BrowserStack testing iPhone*
+
+![BrowserStack iPad](docs/testing/ipad_safari.png)
+*BrowserStack testing iPad*
+
 ## **Validation**
 
 ### **HTML Validation**
