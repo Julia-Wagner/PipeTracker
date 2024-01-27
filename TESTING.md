@@ -7,6 +7,7 @@
   * [**Table of Contents**](#table-of-contents)
   * [**Manual Testing**](#manual-testing)
   * [**CSV Upload**](#csv-upload)
+  * [**Accessibility Testing**](#accessibility-testing)
   * [**Validation**](#validation)
     * [**HTML Validation**](#html-validation)
     * [**CSS Validation**](#css-validation)
@@ -62,6 +63,12 @@ I tested my application using the [WAVE tool](https://wave.webaim.org/) to ensur
 
 ![Accessibility Testing WAVE result](docs/testing/wave_check.png)\
 *WAVE result for Stock Items*
+
+## **Lighthouse Testing**
+
+I ran Lighthouse for mobile and desktop regularly while developing new features. For the final testing I ran it again on every page of the application. For *SEO* I got the error of a missing *robots.txt* file. So I added the file following [this article](https://adamj.eu/tech/2020/02/10/robots-txt/).
+
+
 
 ## **Validation**
 

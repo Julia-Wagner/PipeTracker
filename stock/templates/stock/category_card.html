@@ -1,10 +1,9 @@
 <section class="m-4">
-    <a href="{% if category.children.all %}{% url 'stock_categories_children' category.id %}{% else %}{% url 'stock_items' category.id %}{% endif %}"
-       aria-label="Click to view stock items for {{ category.name }}">
-        <span class="sr-only">View stock items for {{ category.name }}</span>
-        <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
+    <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
+        <a href="{% if category.children.all %}{% url 'stock_categories_children' category.id %}{% else %}{% url 'stock_items' category.id %}{% endif %}"
+           aria-label="Click to view stock items for {{ category.name }}">
             <img src="{{ category.image.url }}" alt="{{ category.image_alt }}"
-            class="pt-3 px-3 object-contain w-[380px] h-[285px]">
+                 class="pt-3 px-3 object-contain w-[380px] h-[285px]">
             <h2 class="p-4 text-2xl font-bold text-darkblue inline-flex items-center">
                 {{ category.name }}
                 <svg class="w-6 h-6 ms-3"
@@ -17,8 +16,8 @@
                           d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </h2>
-        </div>
-    </a>
+        </a>
+    </div>
     <div class="p-4">
         <a href="{% url 'stock_edit_category' category.id %}"
            class="m-1 rounded-lg inline-flex items-center px-3 py-2 text-sm font-medium text-center text-darkblue bg-customwhite border border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300">
