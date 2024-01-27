@@ -56,6 +56,13 @@ Here are the test cases with the according error/success messages:
 **Upload with an invalid data type (price)**
 ![error invalid data type (price)](docs/testing/upload_feedback_price.png)
 
+## **Accessibility Testing**
+
+I tested my application using the [WAVE tool](https://wave.webaim.org/) to ensure good accessibility. It returned no errors for all pages of the application.
+
+![Accessibility Testing WAVE result](docs/testing/wave_check.png)\
+*WAVE result for Stock Items*
+
 ## **Validation**
 
 ### **HTML Validation**
