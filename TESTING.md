@@ -6,6 +6,7 @@
 * [**Testing**](#testing)
   * [**Table of Contents**](#table-of-contents)
   * [**Manual Testing**](#manual-testing)
+  * [**CSV Upload**](#csv-upload)
   * [**Validation**](#validation)
     * [**HTML Validation**](#html-validation)
     * [**CSS Validation**](#css-validation)
@@ -25,11 +26,35 @@ The *#peer-code-review* channel on Code Institute´s Slack was used to get some 
 
 I tested to a minimum screen width of **300px** and a maximum screen width of **3440px** with my monitor. To test **Safari** and **iOS devices** I used [BrowserStack](https://www.browserstack.com/).
 
-![BrowserStack iPhone](docs/testing/iphone_safari.png)
+![BrowserStack iPhone](docs/testing/iphone_safari.png)\
 *BrowserStack testing iPhone*
 
-![BrowserStack iPad](docs/testing/ipad_safari.png)
+![BrowserStack iPad](docs/testing/ipad_safari.png)\
 *BrowserStack testing iPad*
+
+## **CSV Upload**
+
+The feature to upload a CSV file to automatically create stock items was extensively tested. I wanted to ensure that uploading an incorrect file or missing values could not break the application.
+
+Here are the test cases with the according error/success messages:
+
+**Successful upload with 18 stock items**
+![upload successful](docs/testing/upload_successful.png)
+
+**Upload with an already existing item**
+![error existing item](docs/testing/upload_feedback_existing.png)
+
+**Upload with missing data for required fields**
+![error missing required data](docs/testing/upload_feedback_required.png)
+
+**Upload with an invalid category id**
+![error invalid category id](docs/testing/upload_feedback_category.png)
+
+**Upload with an invalid data type (quantity)**
+![error invalid data type (quantity)](docs/testing/upload_feedback_quantity.png)
+
+**Upload with an invalid data type (price)**
+![error invalid data type (price)](docs/testing/upload_feedback_price.png)
 
 ## **Validation**
 
@@ -37,7 +62,7 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 
 I used the [HTML W3C Validator](https://validator.w3.org/) to validate all of my HTML files. I validated each page of the application by right-clicking on the deployed page, selecting *View page source* and pasting the code to the validator.
 
-![HTML validation](docs/testing/html_validation.png)
+![HTML validation](docs/testing/html_validation.png)\
 *HTML validation result for all pages*
 
 I did not get any warnings or errors, the full validation results can be found here:
@@ -71,7 +96,7 @@ I did not get any warnings or errors, the full validation results can be found h
 
 I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate my custom CSS code, the CSS created by Tailwind was not tested. My custom CSS code was validated without errors.
 
-![CSS validation](docs/testing/css_validation.png)
+![CSS validation](docs/testing/css_validation.png)\
 *CSS validation result for custom CSS*
 
 ### **JavaScript Validation**
@@ -80,10 +105,10 @@ I used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate
 
 My project has a **base.js** file containing JavaScript code that is needed on every page. JavaScript code which is only needed for certain pages, was included in the necessary templates directly. No errors or warnings were found for my JavaScript code.
 
-![JS validation base.js](docs/testing/validation_base_js.png)
+![JS validation base.js](docs/testing/validation_base_js.png)\
 *JS validation result for base.js*
 
-![JS validation templates](docs/testing/validation_template_js.png)
+![JS validation templates](docs/testing/validation_template_js.png)\
 *JS validation result for template files*
 
 ### **Python Validation**
@@ -92,5 +117,5 @@ To ensure that my code follows Pep8 style guidelines, I installed [Flake8](https
 
 The only error coming from a file that I changed was **F401 'env' imported but unused** from the *settings.py* file. Because I added this code following the Code Institute walkthrough projects, I decided to leave the statement as is.
 
-![Flake8 validation](docs/testing/flake8.png)
+![Flake8 validation](docs/testing/flake8.png)\
 *Flake8 validation result*
