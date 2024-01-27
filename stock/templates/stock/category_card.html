@@ -1,6 +1,6 @@
 <section class="m-4">
     <a href="{% if category.children.all %}{% url 'stock_categories_children' category.id %}{% else %}{% url 'stock_items' category.id %}{% endif %}"
-       aria-label="Click to view stock items for {{ category.name }}">
+       aria-label="View stock items for {{ category.name }}">
         <div class="max-w-sm bg-customwhite border-2 border-darkblue shadow-xl">
             <img src="{{ category.image.url }}" alt="{{ category.image_alt }}"
             class="pt-3 px-3 object-contain w-[380px] h-[285px]">
@@ -15,7 +15,7 @@
                           stroke-linejoin="round" stroke-width="2"
                           d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
-                <span class="sr-only">Click to view stock items for {{ category.name }}</span>
+                <span class="sr-only">View stock items for {{ category.name }}</span>
             </h2>
         </div>
     </a>
