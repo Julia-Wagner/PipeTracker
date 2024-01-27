@@ -217,6 +217,12 @@ I created wireframes for desktop, tablet and mobile for each of the main parts o
 <details open>
     <summary><strong>Stock Items</strong></summary>
     <img src="docs/wireframes/stock_items.png">
+
+When creating the stock items table, I implemented the mobile view of the table as planned here. However, while testing the application, some issues came up with this. When there are many stock items present, the mobile list gets really long.
+
+So I discussed with my customer what other options I might implement for smaller screens. We came to the conclusion that it is best to display the table as it is on bigger screens and add a horizontal scrollbar. This is the most common solution for responsive tables and the most user-friendly for this case.
+
+Additionally, I added a search bar and the functionality to scan QR codes to quickly get to the desired stock item.
 </details>
 
 <details>
@@ -227,6 +233,8 @@ I created wireframes for desktop, tablet and mobile for each of the main parts o
 <details>
     <summary><strong>Delivery notes</strong></summary>
     <img src="docs/wireframes/delivery_notes.png">
+
+As described in the **Stock Items** section above, I also decided to display delivery notes in a responsive table for smaller screens.
 </details>
 
 <details>
