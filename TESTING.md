@@ -6,8 +6,10 @@
 * [**Testing**](#testing)
   * [**Table of Contents**](#table-of-contents)
   * [**Manual Testing**](#manual-testing)
-  * [**CSV Upload**](#csv-upload)
+  * [**User Story Testing**](#user-story-testing)
+    * [**CSV Upload**](#csv-upload)
   * [**Accessibility Testing**](#accessibility-testing)
+  * [**Lighthouse Testing**](#lighthouse-testing)
   * [**Validation**](#validation)
     * [**HTML Validation**](#html-validation)
     * [**CSS Validation**](#css-validation)
@@ -33,7 +35,34 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 ![BrowserStack iPad](docs/testing/ipad_safari.png)\
 *BrowserStack testing iPad*
 
-## **CSV Upload**
+## **User Story Testing**
+
+| User Story                                                                                                                                                            | Acceptance Criteria met                |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| As a **new user**, I want to **register to the application**, so that I can **manage my inventory**.                                                                  | &check;                                |
+| As an **existing user**, I want to **log in to the application**, so that I can **access my inventory**.                                                              | &check;                                |
+| As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**.                                                  | Feature not included for first release |
+| As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                                                                | &check;                                |
+| As a **site user**, I want to **update categories**, so that I can **change the structure of my inventory**.                                                          | &check;                                |
+| As a **site user**, I want to **delete categories**, so that I can **remove unnecessary categories**.                                                                 | &check;                                |
+| As a **site user**, I want to **create and view stock items**, so that I can **organize my inventory**.                                                               | &check;                                |
+| As a **site user**, I want to **update stock items**, so that I can **correctly maintain my inventory**.                                                              | &check;                                |
+| As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.                                                               | &check;                                |
+| As a **site user**, I want to **have a dashboard with statistics**, so that I can **make decisions for my business**.                                                 | &check;                                |
+| As a **site user**, I want to **create and view delivery notes**, so that I can **track where my stock items went**.                                                  | &check;                                |
+| As a **site user**, I want to **link customers to delivery notes**, so that I can **easily invoice the needed items for a customer**.                                 | &check;                                |
+| As a **site user**, I want to **update delivery notes**, so that I can **track if it was already invoiced**.                                                          | &check;                                |
+| As a **site user**, I want to **delete delivery notes**, so that I can **remove unnecessary delivery notes**.                                                         | &check;                                |
+| As a **site user**, I want to **add stock items to the cart**, so that I can **collect the items I need**.                                                            | &check;                                |
+| As a **site user**, I want to **view my cart**, so that I can **see my collected items**.                                                                             | &check;                                |
+| As a **site user**, I want to **update my cart**, so that I can **change the number of added stock items**.                                                           | &check;                                |
+| As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**.                                               | &check;                                |
+| As a **site user**, I want to **export a delivery note with its items**, so that I can **easily create an invoice for the customer**.                                 | &check;                                |
+| As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | &check;                                |
+| As a **site user**, I want to **import CSV files**, so that I can **automatically create stock items**.                                                               | &check;                                |
+
+
+### **CSV Upload**
 
 The feature to upload a CSV file to automatically create stock items was extensively tested. I wanted to ensure that uploading an incorrect file or missing values could not break the application.
 
