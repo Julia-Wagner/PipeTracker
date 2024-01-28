@@ -15,6 +15,7 @@
     * [**CSS Validation**](#css-validation)
     * [**JavaScript Validation**](#javascript-validation)
     * [**Python Validation**](#python-validation)
+  * [**Bugs**](#bugs)
 <!-- TOC -->
 
 ## **Manual Testing**
@@ -23,7 +24,7 @@ I started this project by setting everything up and deploying it right away. Whi
 
 I always tested new input by entering incorrect information and trying to break it. This way I ensured correct error handling and feedback to the user.
 
-I regularly tested the application in different browsers and devices, like my phone and tablet. When I found a bug while testing on my phone, I created a **Bug Issue** on my Kanban board and provided details and screenshots.
+I regularly tested the application in different browsers and devices, like my phone and tablet. When I found a bug while testing on my phone, I created a **Bug Issue** on my Kanban board and provided details and screenshots. After finishing all my *must have* user stories for the MVP, I did a first big round of testing.
 
 The *#peer-code-review* channel on Code Institute´s Slack was used to get some feedback from other students. I also sent the link to my project to friends and family asking them to test it.
 
@@ -201,3 +202,19 @@ The only error coming from a file that I changed was **F401 'env' imported but u
 
 ![Flake8 validation](docs/testing/flake8.png)\
 *Flake8 validation result*
+
+## **Bugs**
+
+When testing the application on my phone, or when I encountered bugs outside the current sprints' scope, I opened a **Bug issue** on my Kanban board.
+
+Besides the adaptions and fixes already mentioned in the documentation, here are the Bugs I found. There are no known bugs that are not solved.
+
+| Bug                                                                                                 | Solved  | Bug Issue                                                                                    | Fix Commit                                                                                             | Solution                                                                                                                                             |
+|-----------------------------------------------------------------------------------------------------|---------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The logo changed when opening the application on the phone.                                         | &check; | [Bug #1: Mobile adjustments](https://github.com/Julia-Wagner/PipeTracker/issues/25)          | [6731d70](https://github.com/Julia-Wagner/PipeTracker/commit/6731d70a1c27284d7d4c812f98e39742d862f4c6) | The logo is an SVG file and did not appear correctly on devices without the fonts installed, so I converted the font to outline when saving the SVG. |
+| The mobile view for the stock items table was missing the **Add to basket** button.                 | &check; | [Bug #2: Add to basket mobile](https://github.com/Julia-Wagner/PipeTracker/issues/26)        | [330dbfa](https://github.com/Julia-Wagner/PipeTracker/commit/330dbfa64da9e4bc2cd310a3c1f179b481949322) | As the mobile version for the tables caused several problems, I decided to use a responsive table instead.                                           |
+| The mobile view for the delivery notes table did not visually differentiate a closed delivery note. | &check; | [Bug #3: Closed delivery note mobile](https://github.com/Julia-Wagner/PipeTracker/issues/27) | [330dbfa](https://github.com/Julia-Wagner/PipeTracker/commit/330dbfa64da9e4bc2cd310a3c1f179b481949322) | As the mobile version for the tables caused several problems, I decided to use a responsive table instead.                                           |
+| Error/Success messages were too small on mobile screens.                                            | &check; | [Bug #4: Mobile messages](https://github.com/Julia-Wagner/PipeTracker/issues/28)             | [3d67578](https://github.com/Julia-Wagner/PipeTracker/commit/3d67578feb20960155ba7adfe5a733608949111a) | I changed the messages to be full width for small screen sizes.                                                                                      |
+| A server error was caused when decreasing the quantity of a delivery item.                          | &check; | [Bug #5: 500 Error](https://github.com/Julia-Wagner/PipeTracker/issues/29)                   | [4da7a86](https://github.com/Julia-Wagner/PipeTracker/commit/4da7a86ecb72305ad5114ed9e22f5a7207f88e4e) | An incorrect primary key was used for the redirect.                                                                                                  |
+| When reducing the quantity of basket items, the quantity could be less than 0.                      | &check; | [Bug #6: Basket quantity](https://github.com/Julia-Wagner/PipeTracker/issues/36)             | [d66e8e3](https://github.com/Julia-Wagner/PipeTracker/commit/d66e8e3f5935603fb61155c13099bfb94e3112a7) | I adapted the view to remove the item from the basket if the quantity is decreased to be less than 1.                                                |
+
