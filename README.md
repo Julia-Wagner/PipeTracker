@@ -58,6 +58,7 @@ In a real-world scenario, new users of the application would be trained to use t
     * [**CSV Upload**](#csv-upload)
   * [**Basket**](#basket)
   * [**Delivery Notes**](#delivery-notes)
+* [**Future Enhancements**](#future-enhancements)
 * [**Agile Process**](#agile-process)
 * [**Security**](#security)
   * [**Authentication and Authorization**](#authentication-and-authorization)
@@ -463,6 +464,21 @@ The exported PDF is really simple but contains all the necessary information.
 
 ![Edit delivery note](docs/screenshots/edit_note.png)\
 *Edit a delivery note (mobile)*
+
+# **Future Enhancements**
+
+After extensive testing and getting feedback from my customer, I can say that the project is ready to be used as a real-world application. 
+
+There is one user story left that I marked as *won´t have* for this release.
+
+- As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**.
+
+The user story might be implemented for future releases but is not necessary for my customer at this point.
+
+Other adaptions that will be made in a separate repository for my customer to use the application will be:
+
+- Translating the text to German.
+- Registration functionality will be removed, to avoid that strangers get access to the company data.
 
 # **Agile Process**
 
