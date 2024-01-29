@@ -17,7 +17,7 @@
     * [**CSS Validation**](#css-validation)
     * [**JavaScript Validation**](#javascript-validation)
     * [**Python Validation**](#python-validation)
-  * [**Bugs**](#bugs)
+  * [**Bugs and Fixes**](#bugs-and-fixes)
 <!-- TOC -->
 
 ## **Manual Testing**
@@ -40,29 +40,31 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 
 ## **User Story Testing**
 
-| User Story                                                                                                                                                            | Acceptance Criteria met                |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| As a **new user**, I want to **register to the application**, so that I can **manage my inventory**.                                                                  | &check;                                |
-| As an **existing user**, I want to **log in to the application**, so that I can **access my inventory**.                                                              | &check;                                |
-| As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**.                                                  | Feature not included for first release |
-| As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                                                                | &check;                                |
-| As a **site user**, I want to **update categories**, so that I can **change the structure of my inventory**.                                                          | &check;                                |
-| As a **site user**, I want to **delete categories**, so that I can **remove unnecessary categories**.                                                                 | &check;                                |
-| As a **site user**, I want to **create and view stock items**, so that I can **organize my inventory**.                                                               | &check;                                |
-| As a **site user**, I want to **update stock items**, so that I can **correctly maintain my inventory**.                                                              | &check;                                |
-| As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.                                                               | &check;                                |
-| As a **site user**, I want to **have a dashboard with statistics**, so that I can **make decisions for my business**.                                                 | &check;                                |
-| As a **site user**, I want to **create and view delivery notes**, so that I can **track where my stock items went**.                                                  | &check;                                |
-| As a **site user**, I want to **link customers to delivery notes**, so that I can **easily invoice the needed items for a customer**.                                 | &check;                                |
-| As a **site user**, I want to **update delivery notes**, so that I can **track if it was already invoiced**.                                                          | &check;                                |
-| As a **site user**, I want to **delete delivery notes**, so that I can **remove unnecessary delivery notes**.                                                         | &check;                                |
-| As a **site user**, I want to **add stock items to the cart**, so that I can **collect the items I need**.                                                            | &check;                                |
-| As a **site user**, I want to **view my cart**, so that I can **see my collected items**.                                                                             | &check;                                |
-| As a **site user**, I want to **update my cart**, so that I can **change the number of added stock items**.                                                           | &check;                                |
-| As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**.                                               | &check;                                |
-| As a **site user**, I want to **export a delivery note with its items**, so that I can **easily create an invoice for the customer**.                                 | &check;                                |
-| As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | &check;                                |
-| As a **site user**, I want to **import CSV files**, so that I can **automatically create stock items**.                                                               | &check;                                |
+In order for the **Acceptance Criteria met** to be ticked, every criterion specified at the project issue has to be fulfilled.
+
+| User Story                                                                                                                                                            | Link to Acceptance Criteria                                   | Acceptance Criteria met                |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|----------------------------------------|
+| As a **new user**, I want to **register to the application**, so that I can **manage my inventory**.                                                                  | [link](https://github.com/Julia-Wagner/PipeTracker/issues/1)  | &check;                                |
+| As an **existing user**, I want to **log in to the application**, so that I can **access my inventory**.                                                              | [link](https://github.com/Julia-Wagner/PipeTracker/issues/2)  | &check;                                |
+| As a **site owner**, I want to **manage user roles**, so that I can **choose who can access sensitive information**.                                                  | [link](https://github.com/Julia-Wagner/PipeTracker/issues/3)  | Feature not included for first release |
+| As a **site user**, I want to **create and view categories**, so that I can **organize my inventory**.                                                                | [link](https://github.com/Julia-Wagner/PipeTracker/issues/4)  | &check;                                |
+| As a **site user**, I want to **update categories**, so that I can **change the structure of my inventory**.                                                          | [link](https://github.com/Julia-Wagner/PipeTracker/issues/5)  | &check;                                |
+| As a **site user**, I want to **delete categories**, so that I can **remove unnecessary categories**.                                                                 | [link](https://github.com/Julia-Wagner/PipeTracker/issues/6)  | &check;                                |
+| As a **site user**, I want to **create and view stock items**, so that I can **organize my inventory**.                                                               | [link](https://github.com/Julia-Wagner/PipeTracker/issues/7)  | &check;                                |
+| As a **site user**, I want to **update stock items**, so that I can **correctly maintain my inventory**.                                                              | [link](https://github.com/Julia-Wagner/PipeTracker/issues/8)  | &check;                                |
+| As a **site user**, I want to **delete stock items**, so that I can **remove items from my inventory**.                                                               | [link](https://github.com/Julia-Wagner/PipeTracker/issues/9)  | &check;                                |
+| As a **site user**, I want to **have a dashboard with statistics**, so that I can **make decisions for my business**.                                                 | [link](https://github.com/Julia-Wagner/PipeTracker/issues/10) | &check;                                |
+| As a **site user**, I want to **create and view delivery notes**, so that I can **track where my stock items went**.                                                  | [link](https://github.com/Julia-Wagner/PipeTracker/issues/11) | &check;                                |
+| As a **site user**, I want to **link customers to delivery notes**, so that I can **easily invoice the needed items for a customer**.                                 | [link](https://github.com/Julia-Wagner/PipeTracker/issues/12) | &check;                                |
+| As a **site user**, I want to **update delivery notes**, so that I can **track if it was already invoiced**.                                                          | [link](https://github.com/Julia-Wagner/PipeTracker/issues/13) | &check;                                |
+| As a **site user**, I want to **delete delivery notes**, so that I can **remove unnecessary delivery notes**.                                                         | [link](https://github.com/Julia-Wagner/PipeTracker/issues/14) | &check;                                |
+| As a **site user**, I want to **add stock items to the cart**, so that I can **collect the items I need**.                                                            | [link](https://github.com/Julia-Wagner/PipeTracker/issues/15) | &check;                                |
+| As a **site user**, I want to **view my cart**, so that I can **see my collected items**.                                                                             | [link](https://github.com/Julia-Wagner/PipeTracker/issues/16) | &check;                                |
+| As a **site user**, I want to **update my cart**, so that I can **change the number of added stock items**.                                                           | [link](https://github.com/Julia-Wagner/PipeTracker/issues/17) | &check;                                |
+| As a **site user**, I want to **transfer my cart to a delivery note**, so that I can **easily fill my delivery notes**.                                               | [link](https://github.com/Julia-Wagner/PipeTracker/issues/18) | &check;                                |
+| As a **site user**, I want to **export a delivery note with its items**, so that I can **easily create an invoice for the customer**.                                 | [link](https://github.com/Julia-Wagner/PipeTracker/issues/19) | &check;                                |
+| As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | [link](https://github.com/Julia-Wagner/PipeTracker/issues/20) | &check;                                |
+| As a **site user**, I want to **import CSV files**, so that I can **automatically create stock items**.                                                               | [link](https://github.com/Julia-Wagner/PipeTracker/issues/21) | &check;                                |
 
 
 ### **CSV Upload**
