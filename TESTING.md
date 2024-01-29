@@ -200,12 +200,12 @@ My project has a **base.js** file containing JavaScript code that is needed on e
 
 To ensure that my code follows Pep8 style guidelines, I installed [Flake8](https://flake8.pycqa.org/en/latest/). I ran the linter on my whole project, only excluding the *venv* directory to avoid errors from external packages. There were only a few errors that remained after fixing all my line lengths and removing unused imports. The first five errors come from Django files that I never changed, so I decided not to change them for the linter. 
 
-The only error coming from a file that I changed was **F401 'env' imported but unused** from the *settings.py* file. Because I added this code following the Code Institute walkthrough projects, I decided to leave the statement as is.
+The only error coming from a file that I changed was **F401 'env' imported but unused** from the *settings.py* file. Because I added this code following the Code Institute walkthrough projects, I decided to leave the statement as is. I also tried to remove the unused import, but then the application fails to run locally. So it seems the import is actually not unused and the error might be a misinterpretation from Flake8.
 
 ![Flake8 validation](docs/testing/flake8.png)\
 *Flake8 validation result*
 
-## **Bugs**
+## **Bugs and Fixes**
 
 When testing the application on my phone, or when I encountered bugs outside the current sprints' scope, I opened a **Bug issue** on my Kanban board.
 
