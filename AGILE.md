@@ -17,6 +17,7 @@
     * [**Sprint 6 (09.01. - 15.01.)**](#sprint-6-0901---1501)
     * [**Sprint 7 (16.01. - 22.01.)**](#sprint-7-1601---2201)
     * [**Sprint 8 (23.01. - 29.01.)**](#sprint-8-2301---2901)
+  * [**Conclusion**](#conclusion)
 <!-- TOC -->
 
 ## **Methodology**
@@ -135,3 +136,16 @@ For this sprint, I added one user story with **8 story points**. Additionally, I
 
 ![Sprint 8 start](docs/agile/sprint8_start.png)\
 *Start of Sprint 8*
+
+I finished the user story and all testing tasks. I found one bug while testing that I fixed and added an additional *dev task* that I completed in this sprint.
+
+![Sprint 8 end](docs/agile/sprint8_end.png)\
+*End of Sprint 8*
+
+## **Conclusion**
+
+At the last day of my last sprint I can say that I successfully finished my project using an agile approach. Although it was a bit difficult at first to get into the agile workflow, it felt natural and actually really helpful by the third sprint.
+
+Breaking the project down into epics and user stories, really thinking about them and adding acceptance criteria and tasks helped me get a better idea of the application from the beginning. Creating milestones and planning sprints was great to plan ahead and be able to estimate the duration of this project.
+
+I have one user story left that I labeled as *won´t have* for now, as it is not necessary for the first release of the application.
