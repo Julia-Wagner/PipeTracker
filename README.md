@@ -79,6 +79,7 @@ In a real-world scenario, new users of the application would be trained to use t
   * [**Tailwind**](#tailwind)
   * [**Packages**](#packages)
 * [**Credits**](#credits)
+  * [**Acknowledgements**](#acknowledgements)
   * [**Content**](#content)
   * [**Media and Design**](#media-and-design)
 <!-- TOC -->
@@ -657,6 +658,11 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 
 # **Credits**
 
+## **Acknowledgements**
+
+- Thanks to my husband for being my real-life customer and constantly giving feedback and testing the application.
+- Thank you to my Code Institute Mentor [David Bowers](https://github.com/dnlbowers) for giving me valuable feedback and tips during this project.
+
 ## **Content**
 
 - I used the walkthrough projects from Code Institute and the [Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) as a general reference for the project.
@@ -669,6 +675,8 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
   - [This article about reportlab](https://pythonassets.com/posts/create-pdf-documents-in-python-with-reportlab/)
 - I used [this article about custom error pages](https://dev.to/riyanagueco/creating-a-custom-error-page-on-django-3nnd) as a reference.
 - I followed [this tutorial](https://www.wplogout.com/export-database-diagrams-erd-from-django/) to export an ERD for my project.
+- The [official project description](https://pypi.org/project/qrcode/) of the package I used to create QR codes was really helpful for this feature.
+- To add a robots.txt file, I used [this article](https://adamj.eu/tech/2020/02/10/robots-txt/).
 
 ## **Media and Design**
 
@@ -677,3 +685,5 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 - I used [Balsamiq](https://balsamiq.com/) to create the wireframes.
 - I used [contrast-grid.eightshapes.com](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23274060%0D%0A%2300B2CA%0D%0A%23041020%0D%0A%23f9f9f9&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) to check the contrast and possible color combinations.
 - The screenshot at the top of this document was taken from [Am I Responsive?](https://ui.dev/amiresponsive?url=https://pipetracker-96d1f7c7a4dc.herokuapp.com/).
+- I used [this image](https://unsplash.com/de/fotos/schwarz-graues-metallrohr-4CNNH2KEjhc) from Unsplash for the example category. The other category images came as examples from my customer.
+- [This image](https://www.123rf.com/photo_56989589_pipes-systemkonzept-pipes-vector-illustration-pipes-wohnung-symbole-pipes-design-set-pipes-system.html?is_plus=1&origin=1) from 123RF was used for the landing page.
