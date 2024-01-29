@@ -42,7 +42,7 @@ class CategoryForm(forms.ModelForm):
             "name": "Category Name",
             "image": "Category Image",
             "image_alt": "Image Description",
-            "parent": "Parent Category",
+            "parent": "Parent Category (none to create a main category)",
             "order": "Order",
         }
 
