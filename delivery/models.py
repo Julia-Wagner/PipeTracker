@@ -65,5 +65,8 @@ class NoteItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)
 
+    class Meta:
+        ordering = ["item__matchcode"]
+
     def __str__(self):
         return f"{self.note} - {self.item} ({self.quantity})"

@@ -27,5 +27,8 @@ class BasketItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)
 
+    class Meta:
+        ordering = ["item__matchcode"]
+
     def __str__(self):
         return f"{self.basket} - {self.item} ({self.quantity})"

@@ -77,7 +77,7 @@ class Item(models.Model):
     details = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["matchcode"]
 
     def __str__(self):
         return str(self.name)
