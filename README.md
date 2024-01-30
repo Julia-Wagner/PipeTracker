@@ -459,7 +459,7 @@ Customers can only be created when creating a delivery note, as they are only im
 
 The detail page of a delivery note contains all the information about the delivery note itself. The status is shown with a red or green circle that is not clickable. On the detail page, the user finds another link to edit the delivery note, if it is open or the user is a superuser.
 
-Underneath the information about the delivery note, a table containing all the stock items added to the delivery note is shown.
+Underneath the information about the delivery note, a table containing all the stock items added to the delivery note is shown. Similar to the basket table, the quantity of the items can be changed in the table. If that happens, the quantity of the original stock item is also changed.
 
 The button **Export as PDF** saves the delivery note data with all items to a PDF and downloads the file.
 
@@ -690,6 +690,7 @@ I decided to use Tailwind for this project. I already knew Bootstrap from previo
 - I followed [this tutorial](https://www.wplogout.com/export-database-diagrams-erd-from-django/) to export an ERD for my project.
 - The [official project description](https://pypi.org/project/qrcode/) of the package I used to create QR codes was really helpful for this feature.
 - To add a robots.txt file, I used [this article](https://adamj.eu/tech/2020/02/10/robots-txt/).
+- [select2](https://select2.org/) was used to create a searchable select field in the basket.
 
 ## **Media and Design**
 
