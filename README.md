@@ -442,10 +442,10 @@ Underneath the table, there is a *select field* to choose a delivery note. Only 
 
 ## **Delivery Notes**
 
-Delivery notes are shown in a table, the columns are orderable and closed delivery notes have a red background. The title of the note can be clicked to open the detail page for the delivery note. Open delivery notes can be edited and have a clickable link in the table. New delivery notes can be added with the **Add button** as known from the other pages.
+Delivery notes are shown in a table, the columns are orderable and closed delivery notes have a red background. The title of the note can be clicked to open the detail page for the delivery note. Open delivery notes can be edited and have a clickable link in the table. Closed delivery notes can only be edited and deleted by superusers. New delivery notes can be added with the **Add button** as known from the other pages.
 
 ![Delivery notes](docs/screenshots/delivery_notes.png)\
-*Delivery Notes*
+*Delivery Notes (normal user)*
 
 When adding a delivery note, a customer, title and status are required. The user can choose an existing customer or create a new one.
 
@@ -457,7 +457,7 @@ Customers can only be created when creating a delivery note, as they are only im
 ![Add customer](docs/screenshots/add_customer.png)\
 *Add a customer (tablet)*
 
-The detail page of a delivery note contains all the information about the delivery note itself. The status is shown with a red or green toggle that is not clickable. On the detail page, the user finds another link to edit the delivery note, if it is open.
+The detail page of a delivery note contains all the information about the delivery note itself. The status is shown with a red or green circle that is not clickable. On the detail page, the user finds another link to edit the delivery note, if it is open or the user is a superuser.
 
 Underneath the information about the delivery note, a table containing all the stock items added to the delivery note is shown.
 
@@ -471,8 +471,13 @@ The exported PDF is really simple but contains all the necessary information.
 ![Exported Delivery note](docs/screenshots/note_export.png)\
 *Delivery note Export PDF*
 
+Open delivery notes can be edited and deleted by all (registered) users. Closed delivery notes can only be edited or deleted by the superuser.
+
 ![Edit delivery note](docs/screenshots/edit_note.png)\
-*Edit a delivery note (mobile)*
+*Edit a open delivery note (mobile)*
+
+![Edit delivery note](docs/screenshots/edit_note_permission.png)\
+*Edit a closed delivery note (normal user)*
 
 # **Future Enhancements**
 
