@@ -9,6 +9,7 @@
   * [**Table of Contents**](#table-of-contents)
   * [**Manual Testing**](#manual-testing)
   * [**User Story Testing**](#user-story-testing)
+    * [**Role-based restrictions**](#role-based-restrictions)
     * [**CSV Upload**](#csv-upload)
   * [**Accessibility Testing**](#accessibility-testing)
   * [**Lighthouse Testing**](#lighthouse-testing)
@@ -40,7 +41,7 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 
 ## **User Story Testing**
 
-In order for the **Acceptance Criteria met** to be ticked, every criterion specified at the project issue has to be fulfilled.
+In order for the **Acceptance Criteria met** to be ticked, every criterion specified at the linked project issue has to be fulfilled.
 
 | User Story                                                                                                                                                            | Link to Acceptance Criteria                                   | Acceptance Criteria met                |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|----------------------------------------|
@@ -66,6 +67,19 @@ In order for the **Acceptance Criteria met** to be ticked, every criterion speci
 | As a **site user**, I want to **update stock items by scanning a QR code**, so that I can **simplify the process of adding and removing items to/from my inventory**. | [link](https://github.com/Julia-Wagner/PipeTracker/issues/20) | &check;                                |
 | As a **site user**, I want to **import CSV files**, so that I can **automatically create stock items**.                                                               | [link](https://github.com/Julia-Wagner/PipeTracker/issues/21) | &check;                                |
 
+### **Role-based restrictions**
+
+Apart from accessing the admin panel, I added more role-based restrictions to my application. I tested the restricted functionality as a superuser and as a normal user, to make sure the restrictions work as intended.
+
+Only the superuser can delete categories, normal users don´t see the delete button and get an error message when trying to access the delete view.
+
+![Permission denied delete category](docs/screenshots/delete_category.png)\
+*Permission denied delete category (normal user)*
+
+Closed delivery notes can not be edited or deleted by normal users. The superuser however is allowed to perform these actions.
+
+![Edit delivery note](docs/screenshots/edit_note_permission.png)\
+*Edit a closed delivery note (normal user)*
 
 ### **CSV Upload**
 
