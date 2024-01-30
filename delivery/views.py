@@ -85,14 +85,15 @@ class EditNote(UpdateView):
     form_class = NoteForm
     success_url = reverse_lazy("delivery_notes")
 
-    # don´t allow editing for closed notes
+    # don´t allow editing for closed notes, only for superusers
     def dispatch(self, request, *args, **kwargs):
         note = self.get_object()
 
         if note.status == "closed":
-            (messages.error
-             (request, "Closed delivery notes can not be edited."))
-            return redirect("/delivery/")
+            if not request.user.is_superuser:
+                (messages.error
+                 (request, "Closed delivery notes can not be edited."))
+                return redirect("/delivery/")
 
         # call parent dispatch method
         return super().dispatch(request, *args, **kwargs)
@@ -116,9 +117,10 @@ class DeleteNote(DeleteView):
         note = self.get_object()
 
         if note.status == "closed":
-            (messages.error
-             (request, "Closed delivery notes can not be deleted."))
-            return redirect("/delivery/")
+            if not request.user.is_superuser:
+                (messages.error
+                 (request, "Closed delivery notes can not be deleted."))
+                return redirect("/delivery/")
 
         # call parent dispatch method
         return super().dispatch(request, *args, **kwargs)

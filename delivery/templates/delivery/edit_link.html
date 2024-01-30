@@ -1,3 +1,3 @@
-{% if record.status == "open" %}
+{% if record.status == "open" or user.is_superuser %}
     <a class="font-bold text-darkblue hover:text-lightblue" href="{% url 'delivery_edit_note' record.id %}">Edit</a>
 {% endif %}
