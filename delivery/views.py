@@ -171,16 +171,30 @@ class DeliveryItemDecrease(View):
              (request, "Closed delivery notes can not be edited."))
             return redirect("delivery_note_detail", pk=delivery_item.note.id)
 
-        # decrease delivery item quantity
-        delivery_item.quantity -= 1
-        delivery_item.save()
+        if delivery_item.quantity > 1:
+            # decrease delivery item quantity
+            delivery_item.quantity -= 1
+            delivery_item.save()
 
-        # increase stock item quantity
-        stock_item.quantity += 1
-        stock_item.save()
+            # increase stock item quantity
+            stock_item.quantity += 1
+            stock_item.save()
 
-        messages.success(request,
-                         f"{stock_item} quantity changed.")
+            messages.success(request,
+                             f"{stock_item} quantity changed.")
+        elif delivery_item.quantity == 1:
+            # decrease delivery item quantity
+            delivery_item.delete()
+
+            # increase stock item quantity
+            stock_item.quantity += 1
+            stock_item.save()
+
+            messages.success(request,
+                             f"{stock_item} removed from delivery note.")
+        else:
+            messages.error(request,
+                           "Quantity can not be less than 0.")
 
         return redirect("delivery_note_detail", pk=delivery_item.note.id)
 
