@@ -300,7 +300,7 @@ CRUD (Create, Read, Update and Delete) is available for many features of PipeTra
 
 | **Feature**       | **Create**                                         | **Read**                              | **Update**              | **Delete**                                                |
 |-------------------|----------------------------------------------------|---------------------------------------|-------------------------|-----------------------------------------------------------|
-| **Category**      | &check;                                            | &check;                               | &check;                 | &check;                                                   |
+| **Category**      | &check;                                            | &check;                               | &check;                 | &check; (only for superuser)                              |
 | **Stock Item**    | &check;                                            | &check;                               | &check;                 | &check;                                                   |
 | **Delivery Note** | &check;                                            | &check;                               | &check;                 | &check;                                                   |
 | **Customer**      | &check;                                            | &check; (when adding a delivery note) | only in the admin panel | only in the admin panel                                   |
@@ -377,6 +377,14 @@ Each category can contain either stock items or one or many subcategories, not b
 
 ![Subcategories](docs/screenshots/subcategory.png)\
 *Subcategories with CRUD*
+
+When editing a category, only superusers have the option to delete the category, the button is not rendered for other users. If a normal users enters the URL to delete a category, the permission is denied.
+
+![Edit a category](docs/screenshots/edit_category.png)\
+*Edit a category (superuser)*
+
+![Permission denied delete category](docs/screenshots/delete_category.png)\
+*Permission denied delete category (normal user)*
 
 A new category or stock item can be added at each of the **Stock Items** pages. When adding a stock item, only categories with no sub-categories can be chosen and when adding a new category, only categories with no stock items can be chosen as a parent category.
 
