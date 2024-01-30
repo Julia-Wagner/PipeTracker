@@ -15,7 +15,7 @@
     </div>
     <p class="mb-2 text-xl font-bold text-customblack lg:text-2xl">for {{ note.customer }}</p>
     <p class="mb-6 text-lg font-bold text-customblack lg:text-xl">created {{ note.date|date:"d.m.Y" }}</p>
-    {% if note.status == "open" %}
+    {% if note.status == "open" or user.is_superuser %}
     <a href="{% url 'delivery_edit_note' note.id %}"
        class="text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">
         Edit note
