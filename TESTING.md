@@ -41,6 +41,18 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 
 ## **User Story Testing**
 
+| Testing setup                      | Passed all user story tests |
+|------------------------------------|-----------------------------|
+| Monitor (3440px screen width)      | &check;                     |
+| Laptop (Google Chrome)             | &check;                     |
+| Laptop (Mozilla Firefox)           | &check;                     |
+| Laptop (Microsoft Edge)            | &check;                     |
+| Laptop (Safari - via BrowserStack) | &check;                     |
+| Tablet (Samsung)                   | &check;                     |
+| iPad (via BrowserStack)            | &check;                     |
+| Phone (Samsung Galaxy S23)         | &check;                     |
+| iPhone (via BrowserStack)          | &check;                     |
+
 In order for the **Acceptance Criteria met** to be ticked, every criterion specified at the linked project issue has to be fulfilled.
 
 | User Story                                                                                                                                                            | Link to Acceptance Criteria                                   | Acceptance Criteria met                |
