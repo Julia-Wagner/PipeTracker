@@ -13,6 +13,7 @@ from django_tables2 import RequestConfig
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from basket.models import BasketItem, Basket
 from .models import Category, Item
@@ -72,12 +73,22 @@ class AddCategory(CreateView):
         return response
 
 
-class DeleteCategory(DeleteView):
+class DeleteCategory(UserPassesTestMixin, DeleteView):
     """
     Delete a Category
     """
     model = Category
     success_url = reverse_lazy("stock_categories")
+
+    # check if user is superuser
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    # show error message for normal users
+    def handle_no_permission(self):
+        messages.error(self.request,
+                       "You are not allowed to delete a category.")
+        return super().handle_no_permission()
 
     # add success message
     def form_valid(self, form):
