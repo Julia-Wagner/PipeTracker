@@ -50,10 +50,12 @@
             Add to basket
         </a>
     </div>
+    <!-- add the "Back to Stock" button -->
     {% include "stock/back_button.html" %}
 </section>
 
 <script>
+    <!-- add the selected quantity to the URL -->
     document.getElementById("add_to_basket_{{ item.id }}").addEventListener("click", function(event) {
         event.preventDefault();
         let quantity = document.getElementById("quantity_{{ item.id }}").value;

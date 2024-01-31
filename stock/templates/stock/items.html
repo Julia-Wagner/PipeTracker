@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<!-- Display breadcrumbs -->
+<!-- display breadcrumbs -->
 <nav class="inline-block px-5 py-3 mb-5 border border-gray-200 rounded-lg"
      aria-label="Breadcrumb">
     <ol class="inline-flex flex-wrap items-center space-x-1 md:space-x-2">
@@ -37,12 +37,13 @@
 
 <section class="text-center">
     <div class="mb-5 heading-button-row">
-        <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-            Stock Items for "{{ category }}"</h1>
+        <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Stock Items for "{{ category }}"</h1>
+        <!-- add the "Add" button -->
         {% include "stock/add_button.html" %}
     </div>
+    <!-- add the search bar -->
     {% include "stock/search_bar.html" %}
-    <!-- table for bigger screens -->
+    <!-- render the table with all items -->
     <div class="flex flex-wrap justify-center">
         {% render_table table %}
     </div>

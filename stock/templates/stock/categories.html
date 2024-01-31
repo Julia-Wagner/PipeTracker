@@ -6,10 +6,11 @@
 
 <div class="text-center">
     <div class="mb-5 heading-button-row">
-        <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-            Choose a Category</h1>
+        <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Choose a Category</h1>
+        <!-- add the "Add" button -->
         {% include "stock/add_button.html" %}
     </div>
+    <!-- add the seach bar -->
     {% include "stock/search_bar.html" %}
     <div class="flex flex-wrap justify-center">
         {% for category in categories %}

@@ -8,6 +8,7 @@
 </a>
 
 <script>
+    <!-- add the selected quantity to the URL -->
     document.getElementById("add_to_basket_{{ record.id }}").addEventListener("click", function(event) {
         event.preventDefault();
         let quantity = document.getElementById("quantity_{{ record.id }}").value;

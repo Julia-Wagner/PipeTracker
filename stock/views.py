@@ -23,29 +23,41 @@ from .tables import ItemTable
 
 class Categories(ListView):
     """
-    List all categories
+    List all parent categories.
     """
     template_name = "stock/categories.html"
     model = Category
     context_object_name = "categories"
 
-    # filter for parent categories only
     def get_queryset(self):
+        """
+        Filter for parent categories only.
+        :return: categories that have no parent
+        """
         return Category.objects.filter(parent__isnull=True)
 
 
 class CategoriesChildren(ListView):
     """
-    List all child categories
+    List all subcategories.
     """
     template_name = "stock/categories_children.html"
     context_object_name = 'children'
 
     def get_queryset(self):
+        """
+        Get all subcategories of the current category.
+        :return: subcategories
+        """
         category = get_object_or_404(Category, id=self.kwargs["pk"])
         return category.children.all()
 
     def get_context_data(self, **kwargs):
+        """
+        Add the category and breadcrumbs to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
         # get the current category
         category = get_object_or_404(Category, id=self.kwargs["pk"])
@@ -57,7 +69,7 @@ class CategoriesChildren(ListView):
 
 class AddCategory(CreateView):
     """
-    Add Category view
+    Add Category view.
     """
     template_name = "stock/add_category.html"
     model = Category
@@ -65,6 +77,11 @@ class AddCategory(CreateView):
     success_url = reverse_lazy("stock_categories")
 
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         form.instance.user = self.request.user
         response = super(AddCategory, self).form_valid(form)
         # add success message
@@ -75,23 +92,33 @@ class AddCategory(CreateView):
 
 class DeleteCategory(UserPassesTestMixin, DeleteView):
     """
-    Delete a Category
+    Delete a Category.
     """
     model = Category
     success_url = reverse_lazy("stock_categories")
 
-    # check if user is superuser
     def test_func(self):
+        """
+        Check if user is a superuser.
+        :return: boolean
+        """
         return self.request.user.is_superuser
 
-    # show error message for normal users
     def handle_no_permission(self):
+        """
+        Show error message and permission denied for normal users.
+        :return: permission denied
+        """
         messages.error(self.request,
                        "You are not allowed to delete a category.")
         return super().handle_no_permission()
 
-    # add success message
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         response = super().form_valid(form)
         messages.success(self.request, "Category deleted.")
         return response
@@ -99,15 +126,19 @@ class DeleteCategory(UserPassesTestMixin, DeleteView):
 
 class EditCategory(UpdateView):
     """
-    Edit a Category
+    Edit a Category.
     """
     template_name = "stock/edit_category.html"
     model = Category
     form_class = CategoryForm
     success_url = reverse_lazy("stock_categories")
 
-    # add success message
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         response = super().form_valid(form)
         messages.success(self.request, "Changes saved.")
         return response
@@ -115,13 +146,18 @@ class EditCategory(UpdateView):
 
 class SearchItems(ListView):
     """
-    List all stock items from the search query
+    List all stock items from the search query.
     """
     template_name = "stock/items.html"
     model = Item
     context_object_name = "items"
 
     def get_context_data(self, **kwargs):
+        """
+        Add the category and table to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         # get items from search query
@@ -148,13 +184,19 @@ class SearchItems(ListView):
 
 class Items(ListView):
     """
-    List all stock items
+    List all stock items.
     """
     template_name = "stock/items.html"
     model = Item
     context_object_name = "items"
 
     def get_context_data(self, **kwargs):
+        """
+        Add the category, breadcrumbs and table
+        to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         # get the current category
@@ -173,11 +215,19 @@ class Items(ListView):
 
 
 class AddItemFromUpload(FormView):
+    """
+    Create Stock Items from Upload.
+    """
     template_name = "stock/upload_file.html"
     form_class = UploadForm
     success_url = reverse_lazy("stock_categories")
 
     def form_valid(self, form):
+        """
+        Validate the uploaded file and create stock items from the file.
+        :param form:
+        :return: redirect with success/error message
+        """
         csv_file = form.cleaned_data["file"]
 
         try:
@@ -277,7 +327,7 @@ class AddItemFromUpload(FormView):
 
 class AddItem(CreateView):
     """
-    Add Item view
+    Add Item view.
     """
     template_name = "stock/add_item.html"
     model = Item
@@ -285,6 +335,11 @@ class AddItem(CreateView):
     success_url = reverse_lazy("stock_categories")
 
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         form.instance.user = self.request.user
         response = super(AddItem, self).form_valid(form)
         # add success message
@@ -295,21 +350,29 @@ class AddItem(CreateView):
 
 class EditItem(UpdateView):
     """
-    Edit a Stock Item
+    Edit a Stock Item.
     """
     template_name = "stock/edit_item.html"
     model = Item
     form_class = ItemForm
 
     def get_success_url(self):
+        """
+        Get the success URL.
+        :return: generated URL
+        """
         # get the current category
         category_id = self.object.category.id
 
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
         return success_url
 
-    # add success message
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         response = super().form_valid(form)
         messages.success(self.request, "Changes saved.")
         return response
@@ -317,19 +380,27 @@ class EditItem(UpdateView):
 
 class DeleteItem(DeleteView):
     """
-    Delete a Stock Item
+    Delete a Stock Item.
     """
     model = Item
 
     def get_success_url(self):
+        """
+        Get the success URL.
+        :return: generated URL
+        """
         # get the current category
         category_id = self.object.category.id
 
         success_url = reverse_lazy("stock_items", kwargs={"pk": category_id})
         return success_url
 
-    # add success message
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         response = super().form_valid(form)
         messages.success(self.request, "Stock Item deleted.")
         return response
@@ -337,13 +408,18 @@ class DeleteItem(DeleteView):
 
 class ItemDetail(DetailView):
     """
-    Detail view for a stock item
+    Detail view for a stock item.
     """
     template_name = "stock/item_detail.html"
     model = Item
     context_object_name = "item"
 
     def get_context_data(self, **kwargs):
+        """
+        Add the QR code to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         # create the QR code
@@ -379,10 +455,18 @@ class ItemDetail(DetailView):
 
 class ItemToBasket(View):
     """
-    Add Item to basket view
+    Add Item to basket view.
     """
 
     def get(self, request, *args, **kwargs):
+        """
+        Add the stock items to the Basket.
+        Check if the item is already in the basket.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success/error message and redirect
+        """
         user = self.request.user
         # https://stackoverflow.com/questions/150505/how-to-get-get-request-values-in-django
         quantity_param = request.GET.get("quantity", "1")
@@ -430,9 +514,16 @@ class ItemToBasket(View):
 
 class StockItemDecrease(View):
     """
-    Decrease the quantity of the stock item
+    Decrease the quantity of the stock item.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Check the available quantity and decrease the stock item quantity.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success/error message and redirect
+        """
         # store last URL
         request.session["previous_url"] = (
             self.request.META.get("HTTP_REFERER", None))
@@ -461,9 +552,16 @@ class StockItemDecrease(View):
 
 class StockItemIncrease(View):
     """
-    Increase the quantity of the stock item
+    Increase the quantity of the stock item.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Increase the stock item quantity.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success message and redirect
+        """
         stock_item_id = self.kwargs.get("pk")
         stock_item = get_object_or_404(Item, id=stock_item_id)
 

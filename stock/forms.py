@@ -6,12 +6,14 @@ from django.core.exceptions import ValidationError
 
 class CategoryForm(forms.ModelForm):
     """
-    Form to create a Category
+    Form to create a Category.
     """
 
     def __init__(self, *args, **kwargs):
         """
         Add custom classes to the form.
+        :param args:
+        :param kwargs:
         """
         super(CategoryForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -22,9 +24,13 @@ class CategoryForm(forms.ModelForm):
                       "text-sm rounded-lg focus:ring-blue-500 "
                       "focus:border-blue-500 block w-full p-2.5"})
 
-    # ensure no subcategories can be added to categories with linked items
-    # https://docs.djangoproject.com/en/5.0/ref/forms/validation/#validating-fields-with-clean
     def clean(self):
+        """
+        Ensure that no subcategories can be added
+        to categories with linked items.
+        https://docs.djangoproject.com/en/5.0/ref/forms/validation/#validating-fields-with-clean
+        :return: cleaned data
+        """
         cleaned_data = super().clean()
         category = cleaned_data.get("parent")
 
@@ -49,12 +55,14 @@ class CategoryForm(forms.ModelForm):
 
 class ItemForm(forms.ModelForm):
     """
-    Form to create a Stock Item
+    Form to create a Stock Item.
     """
 
     def __init__(self, *args, **kwargs):
         """
         Add custom classes to the form.
+        :param args:
+        :param kwargs:
         """
         super(ItemForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -83,20 +91,24 @@ class ItemForm(forms.ModelForm):
 
 class UploadForm(forms.Form):
     """
-    Form to upload a CSV file
+    Form to upload a CSV file.
     """
 
     def __init__(self, *args, **kwargs):
         """
         Add custom classes to the form.
+        :param args:
+        :param kwargs:
         """
         super(UploadForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.label_class = "block mb-2 text-customblack font-bold"
         self.helper.form_tag = False
 
+    # file upload field
     file = forms.FileField(
         label="CSV File",
         help_text="Upload a CSV file.",
+        # accept only CSV files
         widget=forms.ClearableFileInput(attrs={"accept": "text/csv"})
     )

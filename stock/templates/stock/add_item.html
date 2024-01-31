@@ -6,8 +6,7 @@
 {% block content %}
 
 <section class="text-center">
-    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-        Add a new Stock Item</h1>
+    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Add a new Stock Item</h1>
 
     <form method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto">
         {% csrf_token %}
@@ -17,6 +16,7 @@
             Create Stock Item
         </button>
     </form>
+    <!-- add the "Back to Stock" button -->
     {% include "stock/back_button.html" %}
 </section>
 

@@ -6,7 +6,7 @@ from django_resized import ResizedImageField
 
 class Category(models.Model):
     """
-    Model to manage categories
+    Model to manage categories.
     """
     user = models.ForeignKey(User, related_name="created_categories",
                              on_delete=models.CASCADE)
@@ -30,7 +30,7 @@ class Category(models.Model):
     def get_parents(self):
         """
         Get all parents of the given category.
-        :return: List of parents
+        :return: list of parents
         """
         parents = []
         current_parent = self.parent
@@ -44,7 +44,7 @@ class Category(models.Model):
     def get_breadcrumbs(self):
         """
         Create breadcrumbs for the given category.
-        :return: List of breadcrumbs
+        :return: list of breadcrumbs
         """
         parents = self.get_parents()
         breadcrumbs = []
@@ -60,7 +60,7 @@ class Category(models.Model):
 
 class Item(models.Model):
     """
-    Model to manage stock items
+    Model to manage stock items.
     """
     user = models.ForeignKey(User, related_name="created_items",
                              on_delete=models.CASCADE)

@@ -6,8 +6,7 @@
 {% block content %}
 
 <section class="text-center">
-    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-        Confirm Deletion</h1>
+    <h1 class="mb-5 text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Confirm Deletion</h1>
 
     <form method="POST" class="max-w-screen-xl mx-auto">
         {% csrf_token %}
@@ -19,6 +18,7 @@
             Confirm
         </button>
     </form>
+    <!-- add the "Back to Stock" button -->
     {% include "stock/back_button.html" %}
 </section>
 
