@@ -7,6 +7,11 @@ class BasketAdmin(admin.ModelAdmin):
     list_display = ("user", "get_items_display", "date")
 
     def get_items_display(self, obj):
+        """
+        Display the items in the basket as a comma-separated list.
+        :param obj:
+        :return: a comma-separated list
+        """
         return ", ".join([str(item) for item in obj.items.all()])
 
     get_items_display.short_description = "Items"

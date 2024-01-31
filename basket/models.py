@@ -5,7 +5,7 @@ from stock.models import Item
 
 class Basket(models.Model):
     """
-    Model to manage baskets
+    Model to manage baskets.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(Item, through="BasketItem")
@@ -20,7 +20,7 @@ class Basket(models.Model):
 
 class BasketItem(models.Model):
     """
-    Model to manage basket items
+    Model to manage basket items.
     """
     basket = models.ForeignKey(Basket, related_name="basket_items",
                                on_delete=models.CASCADE)

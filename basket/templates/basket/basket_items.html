@@ -15,10 +15,11 @@
         <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Your Basket</h1>
     </div>
     {% if basket_items %}
-        <!-- table for bigger screens -->
+        <!-- render the table with all items -->
         <div class="flex flex-wrap justify-center">
             {% render_table table %}
         </div>
+        <!-- select2 field to search for open delivery notes -->
         <div class="mt-12 md:flex md:justify-end">
             <form method="POST" action="{% url 'basket_to_note' basket.id %}" id="note-form"
                   class="grid md:grid-cols-[1fr_2fr_1fr] md:justify-items-start items-center gap-4">

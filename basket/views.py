@@ -11,16 +11,25 @@ from delivery.models import Note, NoteItem
 
 class BasketItems(ListView):
     """
-    List all basket items
+    List all basket items for the user.
     """
     template_name = "basket/basket_items.html"
     model = Basket
 
     def get_queryset(self):
-        # get basket for logged-in user
+        """
+        Get the basket for the logged-in user
+        :return: the user´s basket
+        """
         return Basket.objects.filter(user=self.request.user)
 
     def get_context_data(self, **kwargs):
+        """
+        Add information to the context for the template. Containing the basket,
+        open delivery notes, the table with basket items and the basket items.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         basket = self.get_queryset().first()
@@ -43,13 +52,22 @@ class BasketItems(ListView):
 
 class BasketItemDecrease(View):
     """
-    Decrease the quantity of the basket item
+    Decrease the quantity of the basket item.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Check the available quantity, decrease the basket item quantity
+        and increase the stock item quantity.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success/error message and redirect to the basket
+        """
         basket_item_id = self.kwargs.get("pk")
         basket_item = get_object_or_404(BasketItem, id=basket_item_id)
         stock_item = basket_item.item
 
+        # check if the item should remain in the basket after decreasing
         if basket_item.quantity > 1:
             # decrease basket item quantity
             basket_item.quantity -= 1
@@ -61,6 +79,7 @@ class BasketItemDecrease(View):
 
             messages.success(request,
                              f"{stock_item} quantity changed.")
+        # remove the item from the basket
         elif basket_item.quantity == 1:
             # decrease basket item quantity
             basket_item.delete()
@@ -80,13 +99,22 @@ class BasketItemDecrease(View):
 
 class BasketItemIncrease(View):
     """
-    Increase the quantity of the basket item
+    Increase the quantity of the basket item.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Check the available quantity, increase the basket item quantity
+        and decrease the stock item quantity.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success/error message and redirect to the basket
+        """
         basket_item_id = self.kwargs.get("pk")
         basket_item = get_object_or_404(BasketItem, id=basket_item_id)
         stock_item = basket_item.item
 
+        # check if there are stock items available
         if stock_item.quantity >= 1:
             # increase basket item quantity
             basket_item.quantity += 1
@@ -107,15 +135,25 @@ class BasketItemIncrease(View):
 
 class BasketToNote(View):
     """
-    Add the items of the basket to the selected delivery note
+    Add the items of the basket to the selected delivery note.
     """
     def post(self, request, *args, **kwargs):
+        """
+        Add the basket items to a delivery note.
+        Check if the items are already in the selected note.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success message and redirect to the selected delivery note
+        """
+        # get delivery note from submitted form
         note_param = request.POST.get("note")
         note_id = int(note_param)
+        note = get_object_or_404(Note, id=note_id)
+
         basket_id = self.kwargs.get("pk")
         basket = get_object_or_404(Basket, id=basket_id)
         basket_items = basket.basket_items.all()
-        note = get_object_or_404(Note, id=note_id)
 
         for basket_item in basket_items:
             stock_item = basket_item.item
@@ -128,7 +166,7 @@ class BasketToNote(View):
                 note_item = NoteItem.objects.get(note=note, item=stock_item)
                 note_item.quantity += basket_item.quantity
                 note_item.save()
-            # create new item
+            # create new item if not
             else:
                 NoteItem.objects.create(note=note, item=stock_item,
                                         quantity=basket_item.quantity),
