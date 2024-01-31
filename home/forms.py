@@ -9,8 +9,9 @@ class CustomLoginForm(LoginForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add custom classes to the form.
-        Remove the Forgot Password link.
+        Add custom classes to the form and remove the Forgot Password link.
+        :param args:
+        :param kwargs:
         """
         super(CustomLoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -28,6 +29,8 @@ class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         """
         Add custom classes to the form.
+        :param args:
+        :param kwargs:
         """
         super(CustomSignupForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()

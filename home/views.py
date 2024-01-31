@@ -5,13 +5,24 @@ from stock.models import Item
 
 
 class Index(TemplateView):
+    """
+    Show the index page.
+    """
     template_name = "home/index.html"
 
 
 class Dashboard(TemplateView):
+    """
+    Show the Dashboard
+    """
     template_name = "home/dashboard.html"
 
     def get_context_data(self, **kwargs):
+        """
+        Add the calculated statistics to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         # get stock item numbers
