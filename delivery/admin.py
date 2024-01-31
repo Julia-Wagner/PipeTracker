@@ -15,6 +15,11 @@ class NoteAdmin(admin.ModelAdmin):
     list_filter = ("status",)
 
     def get_items_display(self, obj):
+        """
+        Display the items in the note as a comma-separated list.
+        :param obj:
+        :return: a comma-separated list
+        """
         return ", ".join([str(item) for item in obj.items.all()])
 
     get_items_display.short_description = "Items"

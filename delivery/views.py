@@ -20,13 +20,18 @@ from .tables import NoteTable, NoteDetailsTable
 
 class DeliveryNotes(ListView):
     """
-    List all delivery notes
+    List all delivery notes.
     """
     template_name = "delivery/delivery_notes.html"
     model = Note
     context_object_name = "notes"
 
     def get_context_data(self, **kwargs):
+        """
+        Add the table with delivery notes to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         notes = Note.objects.all()
@@ -42,7 +47,7 @@ class DeliveryNotes(ListView):
 
 class AddCustomer(CreateView):
     """
-    Add customers view
+    Add customers view.
     """
     template_name = "delivery/add_customer.html"
     model = Customer
@@ -50,6 +55,11 @@ class AddCustomer(CreateView):
     success_url = reverse_lazy("delivery_add_note")
 
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         form.instance.user = self.request.user
         response = super(AddCustomer, self).form_valid(form)
         # add success message
@@ -60,7 +70,7 @@ class AddCustomer(CreateView):
 
 class AddNote(CreateView):
     """
-    Add delivery notes view
+    Add delivery notes view.
     """
     template_name = "delivery/add_note.html"
     model = Note
@@ -68,6 +78,11 @@ class AddNote(CreateView):
     success_url = reverse_lazy("delivery_notes")
 
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         form.instance.user = self.request.user
         response = super(AddNote, self).form_valid(form)
         # add success message
@@ -78,15 +93,21 @@ class AddNote(CreateView):
 
 class EditNote(UpdateView):
     """
-    Edit a delivery note
+    Edit a delivery note.
     """
     template_name = "delivery/edit_note.html"
     model = Note
     form_class = NoteForm
     success_url = reverse_lazy("delivery_notes")
 
-    # don´t allow editing for closed notes, only for superusers
     def dispatch(self, request, *args, **kwargs):
+        """
+        Don´t allow editing for closed notes, only for superusers.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: redirect or parent dispatch method
+        """
         note = self.get_object()
 
         if note.status == "closed":
@@ -98,8 +119,12 @@ class EditNote(UpdateView):
         # call parent dispatch method
         return super().dispatch(request, *args, **kwargs)
 
-    # add success message
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         response = super().form_valid(form)
         messages.success(self.request, "Changes saved.")
         return response
@@ -107,13 +132,19 @@ class EditNote(UpdateView):
 
 class DeleteNote(DeleteView):
     """
-    Delete a delivery note
+    Delete a delivery note.
     """
     model = Note
     success_url = reverse_lazy("delivery_notes")
 
-    # don´t allow deleting for closed notes
     def dispatch(self, request, *args, **kwargs):
+        """
+        Don´t allow deleting for closed notes, only for superusers.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: redirect or parent dispatch method
+        """
         note = self.get_object()
 
         if note.status == "closed":
@@ -125,8 +156,12 @@ class DeleteNote(DeleteView):
         # call parent dispatch method
         return super().dispatch(request, *args, **kwargs)
 
-    # add success message
     def form_valid(self, form):
+        """
+        Validate the form.
+        :param form:
+        :return: success message and response
+        """
         response = super().form_valid(form)
         messages.success(self.request, "Delivery note deleted.")
         return response
@@ -134,13 +169,19 @@ class DeleteNote(DeleteView):
 
 class NoteDetail(DetailView):
     """
-    Detail view for a delivery note
+    Detail view for a delivery note.
     """
     template_name = "delivery/note_detail.html"
     model = Note
     context_object_name = "note"
 
     def get_context_data(self, **kwargs):
+        """
+        Add the table with stock items and the total cost for the note
+        to the context for the template.
+        :param kwargs:
+        :return: the context
+        """
         context = super().get_context_data(**kwargs)
 
         note_items = NoteItem.objects.filter(note=self.object)
@@ -159,18 +200,28 @@ class NoteDetail(DetailView):
 
 class DeliveryItemDecrease(View):
     """
-    Decrease the quantity of the delivery item
+    Decrease the quantity of the delivery item.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Check the available quantity, decrease the note item quantity
+        and increase the stock item quantity.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success/error message and redirect to the delivery note
+        """
         delivery_item_id = self.kwargs.get("pk")
         delivery_item = get_object_or_404(NoteItem, id=delivery_item_id)
         stock_item = delivery_item.item
 
+        # don´t allow changing the quantity for a closed delivery note
         if delivery_item.note.status == "closed":
             (messages.error
              (request, "Closed delivery notes can not be edited."))
             return redirect("delivery_note_detail", pk=delivery_item.note.id)
 
+        # check if the item should remain in the delivery note after decreasing
         if delivery_item.quantity > 1:
             # decrease delivery item quantity
             delivery_item.quantity -= 1
@@ -182,6 +233,7 @@ class DeliveryItemDecrease(View):
 
             messages.success(request,
                              f"{stock_item} quantity changed.")
+        # remove the item from the delivery note
         elif delivery_item.quantity == 1:
             # decrease delivery item quantity
             delivery_item.delete()
@@ -201,18 +253,28 @@ class DeliveryItemDecrease(View):
 
 class DeliveryItemIncrease(View):
     """
-    Increase the quantity of the delivery item
+    Increase the quantity of the delivery item.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Check the available quantity, increase the note item quantity
+        and decrease the stock item quantity.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: a success/error message and redirect to the delivery note
+        """
         delivery_item_id = self.kwargs.get("pk")
         delivery_item = get_object_or_404(NoteItem, id=delivery_item_id)
         stock_item = delivery_item.item
 
+        # don´t allow changing the quantity for a closed delivery note
         if delivery_item.note.status == "closed":
             (messages.error
              (request, "Closed delivery notes can not be edited."))
             return redirect("delivery_note_detail", pk=delivery_item.note.id)
 
+        # check if there are stock items available
         if stock_item.quantity >= 1:
             # increase delivery item quantity
             delivery_item.quantity += 1
@@ -233,9 +295,16 @@ class DeliveryItemIncrease(View):
 
 class ExportPDF(View):
     """
-    Export the details of a delivery note to a PDF file
+    Export the details of a delivery note to a PDF file.
     """
     def get(self, request, *args, **kwargs):
+        """
+        Create and download a PDF file from the delivery note.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return: file response
+        """
         note = Note.objects.get(pk=self.kwargs["pk"])
         note_items = NoteItem.objects.filter(note=note)
 
@@ -289,6 +358,11 @@ class ExportPDF(View):
         return response
 
     def generate_table_content(self, note_items):
+        """
+        Generate the table content and apply styling.
+        :param note_items:
+        :return: generated table
+        """
         # add table headers
         table_data = [
             ["Quantity", "Name", "Size", "Matchcode", "Total Price"]

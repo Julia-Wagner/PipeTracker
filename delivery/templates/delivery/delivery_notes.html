@@ -7,8 +7,7 @@
 
 <section class="text-center">
     <div class="mb-5 heading-button-row">
-        <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">
-            Delivery Notes</h1>
+        <h1 class="text-3xl font-bold text-darkblue md:text-4xl lg:text-5xl">Delivery Notes</h1>
         <a href="{% url 'delivery_add_note' %}"
            class="svg-button text-darkblue bg-customwhite border-2 border-darkblue hover:bg-darkblue hover:text-customwhite focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg px-5 py-2.5 text-center inline-flex items-center">
             <svg class="w-5 h-5 text-darkblue me-2" aria-hidden="true"
@@ -19,7 +18,7 @@
             Add
         </a>
     </div>
-    <!-- render table -->
+    <!-- render table with delivery notes -->
     <div class="flex flex-wrap justify-center">
         {% render_table table %}
     </div>

@@ -5,12 +5,14 @@ from crispy_forms.helper import FormHelper
 
 class CustomerForm(forms.ModelForm):
     """
-    Form to create a customer
+    Form to create a customer.
     """
 
     def __init__(self, *args, **kwargs):
         """
         Add custom classes to the form.
+        :param args:
+        :param kwargs:
         """
         super(CustomerForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -30,12 +32,14 @@ class CustomerForm(forms.ModelForm):
 
 class NoteForm(forms.ModelForm):
     """
-    Form to create a delivery note
+    Form to create a delivery note.
     """
 
     def __init__(self, *args, **kwargs):
         """
         Add custom classes to the form.
+        :param args:
+        :param kwargs:
         """
         super(NoteForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()

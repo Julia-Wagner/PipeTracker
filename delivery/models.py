@@ -6,7 +6,7 @@ from stock.models import Item
 
 class Customer(models.Model):
     """
-    Model to manage customers
+    Model to manage customers.
     """
     user = models.ForeignKey(User, related_name="created_customers",
                              on_delete=models.CASCADE)
@@ -23,7 +23,7 @@ class Customer(models.Model):
 
 class Note(models.Model):
     """
-    Model to manage delivery notes
+    Model to manage delivery notes.
     """
     user = models.ForeignKey(User, related_name="created_notes",
                              on_delete=models.CASCADE)
@@ -44,12 +44,19 @@ class Note(models.Model):
         return f"{self.title} ({customer_str})"
 
     def basket_text(self):
-        # format the text to show in basket select
+        """
+        Format the text to show in basket select field.
+        :return:
+        """
         date = self.date.strftime('%d.%m.%Y')
         return (f"{self.title} for {self.customer.first_name} "
                 f"{self.customer.last_name} ({date})")
 
     def get_total(self):
+        """
+        Calculate the total for all stock items in the delivery note.
+        :return: calculated total
+        """
         note_items = NoteItem.objects.filter(note=self)
         # https://stackoverflow.com/questions/68960662/django-sum-values-of-from-a-for-loop-in-template
         return sum([(delivery_item.item.price * delivery_item.quantity)
@@ -58,7 +65,7 @@ class Note(models.Model):
 
 class NoteItem(models.Model):
     """
-    Model to manage delivery note items
+    Model to manage delivery note items.
     """
     note = models.ForeignKey(Note, related_name="note_items",
                              on_delete=models.CASCADE)
