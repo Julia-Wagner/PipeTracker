@@ -67,6 +67,7 @@ LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"
 
+# add custom classes to messages
 MESSAGE_TAGS = {
     messages.DEBUG: "border-darkblue text-darkblue",
     messages.INFO: "border-darkblue text-darkblue",
@@ -78,6 +79,7 @@ MESSAGE_TAGS = {
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
+# add custom classes to crispy form inputs
 CRISPY_CLASS_CONVERTERS = {
     'textinput': 'bg-gray-50 border border-darkblue text-gray-900 '
                  'text-sm rounded-lg focus:ring-blue-500 '
