@@ -144,8 +144,8 @@ I finished the user story and all testing tasks. I found one bug while testing t
 
 ## **Conclusion**
 
-At the last day of my last sprint I can say that I successfully finished my project using an agile approach. Although it was a bit difficult at first to get into the agile workflow, it felt natural and actually really helpful by the third sprint.
+On the last day of my last sprint, I can say that I successfully finished my project using an agile approach. Although it was a bit difficult at first to get into the agile workflow, it felt natural and actually really helpful by the third sprint.
 
 Breaking the project down into epics and user stories, really thinking about them and adding acceptance criteria and tasks helped me get a better idea of the application from the beginning. Creating milestones and planning sprints was great to plan ahead and be able to estimate the duration of this project.
 
-I have one user story left that I labeled as *won´t have* for now, as it is not necessary for the first release of the application.
+I have one user story left that I labelled as *won´t have* for now, as it is not necessary for the first release of the application.

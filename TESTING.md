@@ -53,7 +53,7 @@ I tested to a minimum screen width of **300px** and a maximum screen width of **
 | Phone (Samsung Galaxy S23)         | &check;                     |
 | iPhone (via BrowserStack)          | &check;                     |
 
-In order for the **Acceptance Criteria met** to be ticked, every criterion specified at the linked project issue has to be fulfilled.
+In order for the **Acceptance Criteria met** to be ticked, every criterion specified in the linked project issue has to be fulfilled.
 
 | User Story                                                                                                                                                            | Link to Acceptance Criteria                                   | Acceptance Criteria met                |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|----------------------------------------|
@@ -137,7 +137,7 @@ I tried different approaches to fix this, but the issue was still there. The `<a
 
 As I am unsure if this is really an issue or just a bug or misinterpretation of the Lighthouse tool, I decided to trust the WAVE accessibility tool which gave me no errors or warnings here and leave it like it is.
 
-For *Performance* my score is between **90** and **100** on all pages.
+For *Performance*, my score is between **90** and **100** on all pages.
 
 ![Lighthouse score index](docs/testing/lighthouse_index_desktop.png)\
 *Lighthouse score index page (desktop)*

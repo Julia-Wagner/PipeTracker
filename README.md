@@ -378,7 +378,7 @@ Each category can contain either stock items or one or many subcategories, not b
 ![Subcategories](docs/screenshots/subcategory.png)\
 *Subcategories with CRUD*
 
-When editing a category, only superusers have the option to delete the category, the button is not rendered for other users. If a normal users enters the URL to delete a category, the permission is denied.
+When editing a category, only superusers have the option to delete the category, the button is not rendered for other users. If a normal user enters the URL to delete a category, the permission is denied.
 
 ![Edit a category](docs/screenshots/edit_category.png)\
 *Edit a category (superuser)*
@@ -431,7 +431,7 @@ An example file containing the necessary columns can be downloaded, to help the 
 
 ## **Basket**
 
-In my wireframes and User Stories I called this page **Cart**. However, after showing the application to some people, I noticed that this name might be confusing, as there is nothing to buy on this page. I changed the name to **Basket**, to indicate that it is a place to collect stock items before adding them to a delivery note. This is due to my customer telling me, that he will have lots of stock items to add to a delivery note at once. So choosing a delivery note for each item would be a lot of extra steps, especially when there are many delivery notes. So the basket can be used as a collection to quickly add each stock item and when finished, the delivery note can be chosen and the stock items are added to it.
+In my wireframes and User Stories, I called this page **Cart**. However, after showing the application to some people, I noticed that this name might be confusing, as there is nothing to buy on this page. I changed the name to **Basket**, to indicate that it is a place to collect stock items before adding them to a delivery note. This is due to my customer telling me, that he will have lots of stock items to add to a delivery note at once. So choosing a delivery note for each item would be a lot of extra steps, especially when there are many delivery notes. So the basket can be used as a collection to quickly add each stock item and when finished, the delivery note can be chosen and the stock items are added to it.
 
 ![Basket](docs/screenshots/basket.png)\
 *Basket*
@@ -474,7 +474,7 @@ The exported PDF is really simple but contains all the necessary information.
 Open delivery notes can be edited and deleted by all (registered) users. Closed delivery notes can only be edited or deleted by the superuser.
 
 ![Edit delivery note](docs/screenshots/edit_note.png)\
-*Edit a open delivery note (mobile)*
+*Edit an open delivery note (mobile)*
 
 ![Edit delivery note](docs/screenshots/edit_note_permission.png)\
 *Edit a closed delivery note (normal user)*
@@ -492,7 +492,7 @@ The user story might be implemented for future releases but is not necessary for
 Other adaptions that will be made in a separate repository for my customer to use the application will be:
 
 - Translating the text to German.
-- Registration functionality will be removed, to avoid that strangers get access to the company data.
+- Registration functionality will be removed, to avoid strangers getting access to the company data.
 
 # **Agile Process**
 
@@ -649,7 +649,7 @@ Forking creates a copy of the project on GitHub. Follow these steps to fork this
 
 ## **Tailwind**
 
-I decided to use Tailwind for this project. I already knew Bootstrap from previous experience, but did not know anything about Tailwind. So I decided to use this project as an opportunity to get to know it. After some initial installation troubles I really began to like it and its utility-first approach.
+I decided to use Tailwind for this project. I already knew Bootstrap from previous experience but did not know anything about Tailwind. So I decided to use this project as an opportunity to get to know it. After some initial installation troubles, I really began to like it and its utility-first approach.
 
 - I referred to the [Tailwind CSS documentation](https://tailwindcss.com/docs/installation) to learn about the basics and installing it.
 - [Flowbite](https://flowbite.com/docs/getting-started/introduction/) was a great resource to get inspiration on how to use Tailwind classes. I copied and adapted some components of my page, like the navbar with the mobile menu from this open-source library.
