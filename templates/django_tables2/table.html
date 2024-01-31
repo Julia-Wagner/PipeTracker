@@ -68,6 +68,7 @@
     </table>
     {% endblock table %}
 
+    <!-- pagination not used for the tables in the application -->
     {% block pagination %}
     {% if table.page and table.paginator.num_pages > 1 %}
     <ul class="pagination">
